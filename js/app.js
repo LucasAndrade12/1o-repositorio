@@ -335,9 +335,14 @@
   /* ---------------- Mídias de IA: esconde se o CDN não carregar ---------------- */
   function initAIMedia() {
     $$("img[data-ai]").forEach((img) => {
-      const hide = () => { img.style.display = "none"; };
-      if (img.complete && img.naturalWidth === 0) hide();
-      img.addEventListener("error", hide);
+      const fb = img.getAttribute("data-fallback");
+      let triedFb = false;
+      const onErr = () => {
+        if (fb && !triedFb) { triedFb = true; img.src = fb; return; } // tenta o CDN
+        img.style.display = "none"; // some, revelando o gradiente/foto-base
+      };
+      if (img.complete && img.naturalWidth === 0) onErr();
+      img.addEventListener("error", onErr);
     });
   }
 
