@@ -475,7 +475,7 @@ h1, h2, h3, h4 {
 
 /* Toast */
 .toast {
-  position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 120%);
+  position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 200%);
   background: var(--ink); color: var(--cream); padding: 14px 22px; border-radius: 999px;
   box-shadow: var(--shadow-md); z-index: 300; font-size: .92rem; font-weight: 500;
   transition: transform .45s var(--ease); display: flex; align-items: center; gap: 10px;
