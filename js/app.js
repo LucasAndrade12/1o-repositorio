@@ -249,14 +249,14 @@
   let io;
   function revealObserve(scope = document) {
     if (!("IntersectionObserver" in window)) {
-      $$(".reveal, [data-stagger]", scope).forEach((el) => el.classList.add("in"));
+      $$(".reveal, [data-stagger], .mask-reveal", scope).forEach((el) => el.classList.add("in"));
       return;
     }
     io = io || new IntersectionObserver(
       (entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }),
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
     );
-    $$(".reveal, [data-stagger]", scope).forEach((el) => io.observe(el));
+    $$(".reveal, [data-stagger], .mask-reveal", scope).forEach((el) => io.observe(el));
   }
 
   /* ---------------- Header / menu / eventos globais ---------------- */
@@ -332,6 +332,15 @@
     });
   }
 
+  /* ---------------- Mídias de IA: esconde se o CDN não carregar ---------------- */
+  function initAIMedia() {
+    $$("img[data-ai]").forEach((img) => {
+      const hide = () => { img.style.display = "none"; };
+      if (img.complete && img.naturalWidth === 0) hide();
+      img.addEventListener("error", hide);
+    });
+  }
+
   /* ---------------- Ano no rodapé ---------------- */
   function initYear() { const y = $("#year"); if (y) y.textContent = new Date().getFullYear(); }
 
@@ -344,6 +353,7 @@
     renderCart();
     initChrome();
     initBlobs();
+    initAIMedia();
     initYear();
     revealObserve();
   });

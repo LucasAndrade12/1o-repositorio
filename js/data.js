@@ -20,11 +20,22 @@ const BRAND_EMAIL = "contato@sigacajumel.com.br";
 
 const CATEGORIES = [
   { id: "todos",         label: "Todos" },
-  { id: "pastas",        label: "Pastas de Castanha" },
-  { id: "castanhas",     label: "Castanhas" },
-  { id: "caramelizados", label: "Caramelizados" },
-  { id: "doces",         label: "Doces & Tabletes" },
+  { id: "castanhas",     label: "Castanhas Clássicas" },
+  { id: "pastas",        label: "Pastas & Cremes" },
+  { id: "caramelizados", label: "Caramelizadas" },
+  { id: "doces",         label: "Doces" },
+  { id: "kits",          label: "Kits" },
 ];
+
+/* URLs das mídias geradas por IA (Higgsfield). Ficam públicas no CDN.
+   Para auto-hospedar, baixe cada uma e salve em assets/ai/ com o nome
+   indicado — o site passa a usar o arquivo local automaticamente. */
+const AI_MEDIA = {
+  hero: { local: "assets/ai/hero.jpg",   url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EzQXCXDQZN2jRnw2ieBJYTwqqT/hf_20260722_195009_da3a6cc1-bc3c-4550-98f1-2e66fb175957.png" },
+  processo: { local: "assets/ai/processo.jpg", url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EzQXCXDQZN2jRnw2ieBJYTwqqT/hf_20260722_195018_049d013d-82df-44a5-b643-1dd19772205f.png" },
+  historia: { local: "assets/ai/historia.jpg", url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EzQXCXDQZN2jRnw2ieBJYTwqqT/hf_20260722_195021_3d94d5e8-fcb3-410f-93bd-ff7b6d9387b7.png" },
+  loja: { local: "assets/ai/loja.jpg", url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EzQXCXDQZN2jRnw2ieBJYTwqqT/hf_20260722_195023_6f67ea3d-eba6-4843-bd56-021e0be9f3e2.png" },
+};
 
 const PRODUCTS = [
   /* ---------- Produtos com FOTO REAL ---------- */
@@ -141,5 +152,21 @@ const PRODUCTS = [
     tint: "terracotta", shape: "jar",
     img: "assets/products/doce-caju-cremoso.jpg",
     desc: "Doce de caju cremoso, no ponto da vovó, feito em Natal/RN.",
+  },
+  {
+    id: "kit-degustacao",
+    name: "Kit Degustação CajuMel",
+    cat: "kits", weight: "5 itens", price: 129.90,
+    badge: "Presente", tint: "terracotta", shape: "bag", featured: true,
+    img: "assets/products/kit-degustacao.jpg",
+    desc: "Uma seleção dos nossos favoritos para experimentar tudo: pastas, castanhas e caramelizadas.",
+  },
+  {
+    id: "kit-pastas",
+    name: "Kit Pastas de Castanha",
+    cat: "kits", weight: "3 potes", price: 94.90,
+    tint: "navy", shape: "jar",
+    img: "assets/products/kit-pastas.jpg",
+    desc: "Trio de pastas cremosas: pura, com chocolate e com flor de sal. Para todos os momentos.",
   },
 ];

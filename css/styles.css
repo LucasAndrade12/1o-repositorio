@@ -548,6 +548,123 @@ h1, h2, h3, h4 {
 [data-stagger].in > * { opacity: 1; transform: none; }
 
 /* ============================================================
+   HERO full-bleed premium (com mídia de IA)
+   ============================================================ */
+:root { --hh: 84px; }
+
+/* header transparente sobre o hero escuro; vira vidro ao rolar */
+.site-header.over-hero:not(.scrolled) { background: linear-gradient(180deg, rgba(20,14,10,.45), transparent); }
+.site-header.over-hero:not(.scrolled) .brand-word,
+.site-header.over-hero:not(.scrolled) .nav-links a { color: #fff; }
+.site-header.over-hero:not(.scrolled) .nav-links a[aria-current="page"] { color: #fff; }
+.site-header.over-hero:not(.scrolled) .cart-btn { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.32); }
+.site-header.over-hero:not(.scrolled) .cart-btn svg,
+.site-header.over-hero:not(.scrolled) .nav-toggle svg { stroke: #fff; }
+
+.hero-full {
+  position: relative; min-height: 94vh;
+  margin-top: calc(-1 * var(--hh)); padding-top: var(--hh);
+  display: grid; align-items: center; isolation: isolate; overflow: hidden;
+}
+.hero-full .hero-media { position: absolute; inset: 0; z-index: -2; will-change: transform; }
+.hero-full .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero-full::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(28,19,13,.62) 0%, rgba(28,19,13,.30) 38%, rgba(158,68,30,.42) 100%),
+    radial-gradient(120% 90% at 18% 28%, rgba(0,0,0,.30), transparent 62%);
+}
+.hero-full .container { position: relative; z-index: 1; padding-block: var(--space-6); }
+.hero-full .eyebrow { color: var(--gold); }
+.hero-full .eyebrow::before { background: var(--gold); }
+.hero-full h1 { color: #fff; font-size: clamp(2.8rem, 7vw, 5.6rem); max-width: 15ch; text-wrap: balance; }
+.hero-full h1 .accent { color: var(--gold); font-style: italic; }
+.hero-full .hero-sub { color: rgba(255,255,255,.92); font-size: 1.2rem; max-width: 40ch; }
+.hero-full .hero-cta .btn-ghost { color: #fff; border-color: rgba(255,255,255,.45); }
+.hero-full .hero-cta .btn-ghost:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+.hero-badges .hero-badge { color: rgba(255,255,255,.9); }
+.hero-full .hero-badge svg { stroke: var(--gold); }
+.scroll-cue {
+  position: absolute; left: 50%; bottom: 92px; transform: translateX(-50%); z-index: 2;
+  display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
+  color: rgba(255,255,255,.8); font-size: .74rem; letter-spacing: .18em; text-transform: uppercase;
+}
+.scroll-cue svg { width: 22px; height: 22px; stroke: currentColor; animation: cueBob 1.8s ease-in-out infinite; }
+@keyframes cueBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+/* Transição orgânica (grão de caju) hero -> seção 2 */
+.organic-divider { position: absolute; left: 0; right: 0; bottom: -1px; z-index: 1; line-height: 0; pointer-events: none; }
+.organic-divider svg { width: 100%; height: 130px; display: block; }
+.organic-divider path { fill: var(--cream); }
+
+/* Máscara de revelação orgânica (imagem que "abre" em grão) */
+.mask-reveal {
+  clip-path: ellipse(60% 42% at 50% 58%);
+  transition: clip-path 1.1s var(--ease), transform 1.1s var(--ease), opacity 1s var(--ease);
+  opacity: .001; transform: scale(1.06);
+}
+.mask-reveal.in { clip-path: ellipse(120% 100% at 50% 50%); opacity: 1; transform: none; }
+
+/* ============================================================
+   Nossa História (conexão emocional) — com mídia de IA
+   ============================================================ */
+.history-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: var(--space-6); align-items: center; }
+.history-media {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden;
+  aspect-ratio: 3/2; box-shadow: var(--shadow-lg);
+}
+.history-media img { width: 100%; height: 100%; object-fit: cover; }
+.history-media .tagline {
+  position: absolute; left: var(--space-3); bottom: var(--space-3); z-index: 2;
+  background: var(--glass); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-brd); border-radius: 999px; padding: 10px 18px;
+  font-weight: 600; font-size: .9rem; color: var(--ink); display: inline-flex; align-items: center; gap: 8px;
+}
+.history-media .tagline svg { width: 18px; height: 18px; stroke: var(--terracotta); }
+.history .em { color: var(--terracotta); font-family: var(--font-display); font-style: italic; }
+
+/* ============================================================
+   Catálogo — mini-banner "Monte Seu Pedido"
+   ============================================================ */
+.catalog-banner {
+  position: relative; overflow: hidden; border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--terracotta), var(--terracotta-deep));
+  color: #fff; padding: var(--space-6); text-align: center; margin-bottom: var(--space-5);
+}
+.catalog-banner::before, .catalog-banner::after {
+  content: ""; position: absolute; border-radius: 50%; background: var(--gold); opacity: .16;
+}
+.catalog-banner::before { width: 260px; height: 260px; top: -110px; right: -60px; }
+.catalog-banner::after  { width: 200px; height: 200px; bottom: -100px; left: -40px; }
+.catalog-banner h2 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); position: relative; z-index: 1; }
+.catalog-banner p { color: rgba(255,255,255,.9); max-width: 48ch; margin: var(--space-2) auto var(--space-4); position: relative; z-index: 1; }
+.catalog-banner .btn { position: relative; z-index: 1; }
+
+/* ============================================================
+   Contato — com mídia de IA (ambientação da loja)
+   ============================================================ */
+.contact-visual {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden;
+  aspect-ratio: 4/3; box-shadow: var(--shadow-md);
+}
+.contact-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+/* âncoras respeitam o header sticky */
+section[id], #catalog-grid { scroll-margin-top: 96px; }
+/* fundo de marca caso a mídia de IA não carregue */
+.history-media, .contact-visual { background: linear-gradient(150deg, var(--terracotta-soft), var(--terracotta) 55%, var(--terracotta-deep)); }
+
+/* rodapé: coluna legal */
+.footer-legal { color: #B79E7C; font-size: .82rem; line-height: 1.7; }
+.footer-legal a { color: #E9DECB; display: block; padding: 3px 0; }
+.footer-legal a:hover { color: var(--gold); }
+.footer-bottom .legal-row { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+@media (max-width: 980px) {
+  .history-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+}
+
+/* ============================================================
    Fundo fluido animado (cores da marca)
    ============================================================ */
 .fluid-bg { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
