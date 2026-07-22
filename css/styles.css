@@ -24,6 +24,12 @@
   --ink-soft:     #5B4B3D;   /* texto de corpo */
   --line:         #E8DCC8;   /* bordas suaves */
 
+  /* Vidro (glassmorphism) */
+  --glass:      rgba(255, 253, 248, .60);
+  --glass-2:    rgba(255, 253, 248, .42);
+  --glass-brd:  rgba(255, 255, 255, .55);
+  --blur:       blur(14px) saturate(130%);
+
   /* Aliases de compatibilidade */
   --amber:        var(--gold);
   --amber-deep:   var(--gold-deep);
@@ -323,6 +329,56 @@ h1, h2, h3, h4 {
 .feature h3 { font-size: 1.25rem; margin-bottom: 8px; }
 .feature p { color: var(--text-muted); font-size: .96rem; margin: 0; }
 
+/* ---- Balões orgânicos interativos (Por que CajuMel) ---- */
+.blob-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5);
+  perspective: 1100px; margin-top: var(--space-6);
+}
+.blob {
+  position: relative; isolation: isolate;
+  min-height: 320px; padding: var(--space-4) var(--space-4) var(--space-5);
+  display: flex; flex-direction: column;
+  color: #fff; overflow: hidden;
+  border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  box-shadow: var(--shadow-md);
+  transform-style: preserve-3d;
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+  animation: blobMorph 16s ease-in-out infinite;
+  will-change: transform, border-radius;
+}
+.blob-1 { background: linear-gradient(150deg, #CC6A38, var(--terracotta) 55%, var(--terracotta-deep)); animation-delay: -1s; }
+.blob-2 { background: linear-gradient(150deg, #4E9A62, var(--green) 55%, var(--green-deep)); animation-delay: -6s;
+          border-radius: 42% 58% 38% 62% / 48% 55% 45% 52%; }
+.blob-3 { background: linear-gradient(150deg, #33487A, var(--navy) 55%, var(--navy-deep)); animation-delay: -11s;
+          border-radius: 58% 42% 60% 40% / 42% 60% 40% 58%; }
+/* brilho que segue o cursor */
+.blob::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: -1;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 30%), rgba(255,255,255,.28), transparent 60%);
+  opacity: 0; transition: opacity .4s ease; pointer-events: none;
+}
+.blob:hover { box-shadow: var(--shadow-lg); }
+.blob:hover::before { opacity: 1; }
+.blob-spiral {
+  position: absolute; top: -8%; right: -6%; width: 46%; z-index: -1;
+  opacity: .16; transform: rotate(8deg); pointer-events: none;
+}
+.blob-ico {
+  width: 62px; height: 62px; border-radius: 20px 22px 18px 24px;
+  display: grid; place-items: center; margin-bottom: auto;
+  background: rgba(255,255,255,.16); backdrop-filter: blur(2px);
+  border: 1px solid rgba(255,255,255,.25);
+}
+.blob-ico svg { width: 30px; height: 30px; stroke: #fff; }
+.blob h3 { color: #fff; font-size: 1.5rem; margin: var(--space-3) 0 8px; text-wrap: balance; }
+.blob p { color: rgba(255,255,255,.9); font-size: .98rem; margin: 0; max-width: 32ch; }
+
+@keyframes blobMorph {
+  0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
+  33%     { border-radius: 42% 58% 38% 62% / 48% 55% 45% 52%; }
+  66%     { border-radius: 58% 42% 60% 40% / 42% 60% 40% 58%; }
+}
+
 /* ============================================================
    Produtos (cards) — usados na landing e no catálogo
    ============================================================ */
@@ -492,12 +548,46 @@ h1, h2, h3, h4 {
 [data-stagger].in > * { opacity: 1; transform: none; }
 
 /* ============================================================
+   Fundo fluido animado (cores da marca)
+   ============================================================ */
+.fluid-bg { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+.fluid-bg span {
+  position: absolute; display: block; border-radius: 50%;
+  filter: blur(72px); opacity: .5; mix-blend-mode: multiply;
+  will-change: transform;
+}
+.fluid-bg .o1 { width: 46vw; height: 46vw; left: -8vw; top: -6vw;
+  background: radial-gradient(circle at 30% 30%, var(--terracotta-soft), var(--terracotta)); animation: drift1 26s ease-in-out infinite; }
+.fluid-bg .o2 { width: 40vw; height: 40vw; right: -10vw; top: 12vh;
+  background: radial-gradient(circle at 40% 40%, #F4C56A, var(--gold)); opacity: .42; animation: drift2 32s ease-in-out infinite; }
+.fluid-bg .o3 { width: 42vw; height: 42vw; left: 8vw; bottom: -14vw;
+  background: radial-gradient(circle at 50% 40%, #5FA873, var(--green)); opacity: .34; animation: drift3 30s ease-in-out infinite; }
+.fluid-bg .o4 { width: 34vw; height: 34vw; right: 4vw; bottom: 2vh;
+  background: radial-gradient(circle at 50% 50%, #3C5488, var(--navy)); opacity: .28; animation: drift1 36s ease-in-out infinite reverse; }
+@keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(6vw, 5vh) scale(1.12); } }
+@keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-7vw, 6vh) scale(1.08); } }
+@keyframes drift3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(5vw, -6vh) scale(1.14); } }
+
+/* superfícies de vidro sobre o fundo fluido */
+.product-card {
+  background: var(--glass); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+  border-color: var(--glass-brd);
+}
+.filter-chip { background: var(--glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.hero-chip { background: var(--glass); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); }
+.marquee { background: var(--glass-2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.feature { background: var(--glass); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); border-color: var(--glass-brd); }
+.section-alt { background: var(--glass-2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+
+/* ============================================================
    Responsivo
    ============================================================ */
 @media (max-width: 980px) {
   .hero-grid { grid-template-columns: 1fr; gap: var(--space-5); }
   .hero-visual { max-width: 460px; margin-inline: auto; width: 100%; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+  .blob-grid { grid-template-columns: 1fr; gap: var(--space-4); max-width: 520px; margin-inline: auto; }
+  .blob { min-height: 260px; }
   .product-grid, .product-grid.featured { grid-template-columns: repeat(3, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid .footer-brand { grid-column: 1 / -1; }

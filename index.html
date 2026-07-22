@@ -19,6 +19,9 @@
 </head>
 <body>
 
+<!-- fundo fluido animado -->
+<div class="fluid-bg" aria-hidden="true"><span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span></div>
+
 <!-- ============ HEADER ============ -->
 <header class="site-header">
   <div class="container nav">
@@ -121,19 +124,22 @@
       <h2 class="section-title">Natural de verdade, do jeito potiguar</h2>
       <p class="section-lead" style="margin-inline:auto">Sem atalhos e sem ingredientes que a natureza não pediu. Só o melhor do caju, do início ao fim.</p>
     </div>
-    <div class="feature-grid" data-stagger style="margin-top:var(--space-5)">
-      <article class="feature">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
+    <div class="blob-grid" id="blob-grid" data-stagger>
+      <article class="blob blob-1">
+        <svg class="blob-spiral" viewBox="0 0 100 100" aria-hidden="true"><polyline points="24,24 78,24 78,78 26,78 26,36 66,36 66,66 38,66 38,48 54,48 54,58" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="blob-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
         <h3>Ingredientes limpos</h3>
         <p>Pastas com 100% de castanha de caju. Sem óleos, sem açúcares e sem conservantes adicionados.</p>
       </article>
-      <article class="feature">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+      <article class="blob blob-2">
+        <svg class="blob-spiral" viewBox="0 0 100 100" aria-hidden="true"><polyline points="24,24 78,24 78,78 26,78 26,36 66,36 66,66 38,66 38,48 54,48 54,58" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="blob-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5Z"/><path d="m9 12 2 2 4-4"/></svg></div>
         <h3>Feito artesanalmente</h3>
         <p>Torra e preparo no ponto certo, em pequenos lotes, cuidando de cada detalhe do sabor.</p>
       </article>
-      <article class="feature">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <article class="blob blob-3">
+        <svg class="blob-spiral" viewBox="0 0 100 100" aria-hidden="true"><polyline points="24,24 78,24 78,78 26,78 26,36 66,36 66,66 38,66 38,48 54,48 54,58" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="blob-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h3>Origem Natal/RN</h3>
         <p>Do cajueiro do Nordeste às nossas lojas na Candelária e em Ponta Negra. Sabor com sotaque potiguar.</p>
       </article>
@@ -142,7 +148,7 @@
 </section>
 
 <!-- ============ SOBRE / HISTÓRIA ============ -->
-<section class="section" id="sobre" style="background:var(--cream-2)">
+<section class="section section-alt" id="sobre">
   <div class="container about-grid">
     <div class="about-visual reveal" aria-hidden="true">
       <svg class="leaf lf1" viewBox="0 0 200 200" fill="#ffffff"><path d="M20 180C20 90 90 20 180 20c0 90-70 160-160 160Z"/></svg>

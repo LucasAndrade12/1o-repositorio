@@ -308,6 +308,30 @@
     });
   }
 
+  /* ---------------- Balões interativos (Por que CajuMel) ---------------- */
+  function initBlobs() {
+    const blobs = $$(".blob");
+    if (!blobs.length) return;
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    blobs.forEach((el) => {
+      let raf = null;
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width;   // 0..1
+        const py = (e.clientY - r.top) / r.height;    // 0..1
+        el.style.setProperty("--mx", (px * 100).toFixed(1) + "%");
+        el.style.setProperty("--my", (py * 100).toFixed(1) + "%");
+        if (reduce || e.pointerType === "touch") return;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          const rx = (0.5 - py) * 12, ry = (px - 0.5) * 14;
+          el.style.transform = `rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-6px)`;
+        });
+      });
+      el.addEventListener("pointerleave", () => { el.style.transform = ""; });
+    });
+  }
+
   /* ---------------- Ano no rodapé ---------------- */
   function initYear() { const y = $("#year"); if (y) y.textContent = new Date().getFullYear(); }
 
@@ -319,6 +343,7 @@
     syncBadge();
     renderCart();
     initChrome();
+    initBlobs();
     initYear();
     revealObserve();
   });
