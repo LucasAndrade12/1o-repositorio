@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CajuMel — Castanha de caju & pastas naturais de Natal/RN</title>
+<meta name="description" content="Castanhas de caju e pastas de castanha 100% naturais, sem óleos nem açúcares adicionados. Feito artesanalmente em Natal/RN. Peça pelo WhatsApp.">
+<meta name="theme-color" content="#C0592B">
+<meta property="og:title" content="CajuMel — Castanha de caju & pastas naturais">
+<meta property="og:description" content="O sabor do caju potiguar em castanhas e pastas 100% naturais. Feito em Natal/RN.">
+<meta property="og:image" content="assets/logo-cajumel.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/logo-cajumel.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Kaushan+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand" aria-label="CajuMel — página inicial">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <polyline points="24,24 78,24 78,78 26,78 26,36 66,36 66,66 38,66 38,48 54,48 54,58"
+          fill="none" stroke="#ECA43B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-word">Cajumel</span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="index.html" aria-current="page">Início</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="#sobre">Nossa história</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="cart-btn" data-open-cart aria-label="Abrir carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MENU MOBILE ============ -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mm-top">
+    <span class="brand-word" style="color:var(--terracotta)">Cajumel</span>
+    <button class="cart-close" id="mm-close" aria-label="Fechar menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="index.html">Início</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="#sobre">Nossa história</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</div>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Direto de Natal · Rio Grande do Norte</span>
+      <h1>O sabor do caju,<br><span class="accent">puro e natural.</span></h1>
+      <p class="hero-sub">Castanhas de caju e pastas cremosas feitas artesanalmente — sem óleos nem açúcares adicionados. Do cajueiro potiguar para a sua mesa.</p>
+      <div class="hero-cta">
+        <a href="produtos.html" class="btn btn-primary">Ver produtos</a>
+        <a href="#sobre" class="btn btn-ghost">Nossa história</a>
+      </div>
+      <div class="hero-badges">
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 100% castanha de caju</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Sem açúcar adicionado</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Artesanal & regional</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="hero-blob" aria-hidden="true"></div>
+      <div class="hero-photo">
+        <img src="assets/hero-calda.jpg" alt="Calda de caju sendo derramada sobre castanhas de caju frescas" fetchpriority="high" width="1080" height="1350">
+      </div>
+      <span class="hero-tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 9l7 .5-5.5 4.5L20 21l-8-4.5L4 21l1.5-7L0 9.5 7 9z"/></svg> Feito à mão</span>
+      <div class="hero-chip">
+        <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></span>
+        <div><small>Ingrediente único</small><strong>Castanha de caju</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Sem açúcar adicionado</span>
+    <span class="marquee-item">Sem óleos</span>
+    <span class="marquee-item">100% natural</span>
+    <span class="marquee-item">Feito em Natal / RN</span>
+    <span class="marquee-item">Caju potiguar</span>
+    <span class="marquee-item">Artesanal</span>
+    <span class="marquee-item">Sem açúcar adicionado</span>
+    <span class="marquee-item">Sem óleos</span>
+    <span class="marquee-item">100% natural</span>
+    <span class="marquee-item">Feito em Natal / RN</span>
+    <span class="marquee-item">Caju potiguar</span>
+    <span class="marquee-item">Artesanal</span>
+  </div>
+</div>
+
+<!-- ============ DIFERENCIAIS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:60ch; margin-inline:auto">
+      <span class="eyebrow" style="justify-content:center">Por que CajuMel</span>
+      <h2 class="section-title">Natural de verdade, do jeito potiguar</h2>
+      <p class="section-lead" style="margin-inline:auto">Sem atalhos e sem ingredientes que a natureza não pediu. Só o melhor do caju, do início ao fim.</p>
+    </div>
+    <div class="feature-grid" data-stagger style="margin-top:var(--space-5)">
+      <article class="feature">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
+        <h3>Ingredientes limpos</h3>
+        <p>Pastas com 100% de castanha de caju. Sem óleos, sem açúcares e sem conservantes adicionados.</p>
+      </article>
+      <article class="feature">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Feito artesanalmente</h3>
+        <p>Torra e preparo no ponto certo, em pequenos lotes, cuidando de cada detalhe do sabor.</p>
+      </article>
+      <article class="feature">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Origem Natal/RN</h3>
+        <p>Do cajueiro do Nordeste às nossas lojas na Candelária e em Ponta Negra. Sabor com sotaque potiguar.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE / HISTÓRIA ============ -->
+<section class="section" id="sobre" style="background:var(--cream-2)">
+  <div class="container about-grid">
+    <div class="about-visual reveal" aria-hidden="true">
+      <svg class="leaf lf1" viewBox="0 0 200 200" fill="#ffffff"><path d="M20 180C20 90 90 20 180 20c0 90-70 160-160 160Z"/></svg>
+      <svg class="leaf lf2" viewBox="0 0 200 200" fill="#ffffff"><path d="M20 180C20 90 90 20 180 20c0 90-70 160-160 160Z"/></svg>
+      <p class="quote">“Nascemos da vontade de levar o caju do Rio Grande do Norte para o Brasil inteiro — do jeito mais natural possível.”
+        <small>— CajuMel, Natal/RN</small></p>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Nossa história</span>
+      <h2 class="section-title">Do cajueiro à sua mesa</h2>
+      <p class="section-lead">A CajuMel nasceu em Natal com um propósito simples: valorizar a castanha de caju potiguar em produtos honestos e saborosos. Transformamos a castanha em pastas cremosas, castanhas torradas e doces artesanais — sempre respeitando o ingrediente e quem cultiva.</p>
+      <p style="color:var(--text-muted); margin-top:var(--space-2)">Cada pote e cada embalagem carregam o cuidado de quem faz em pequenos lotes. É o sabor do Nordeste, sem aditivos desnecessários, pronto para o seu dia a dia.</p>
+      <div class="stats">
+        <div class="stat"><div class="num">100%</div><div class="lbl">Castanha de caju<br>nas pastas puras</div></div>
+        <div class="stat"><div class="num">0</div><div class="lbl">Açúcares e óleos<br>adicionados</div></div>
+        <div class="stat"><div class="num">2</div><div class="lbl">Lojas em<br>Natal/RN</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUTOS EM DESTAQUE ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <span class="eyebrow">Nossos favoritos</span>
+        <h2 class="section-title">Produtos em destaque</h2>
+      </div>
+      <a href="produtos.html" class="btn btn-ghost reveal">Ver catálogo completo</a>
+    </div>
+    <div class="product-grid featured" id="featured-products" data-stagger>
+      <!-- preenchido via JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA WHATSAPP ============ -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta-band reveal">
+      <span class="eyebrow" style="justify-content:center; color:var(--gold)">Peça agora</span>
+      <h2>Seu pedido a um clique de distância</h2>
+      <p>Monte seu carrinho e finalize direto no WhatsApp. Rápido, simples e com aquele atendimento de perto.</p>
+      <a href="produtos.html" class="btn btn-accent">Montar meu pedido</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="section" id="contato" style="padding-top:0">
+  <div class="container contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">Fale com a gente</span>
+      <h2 class="section-title">Contato & lojas</h2>
+      <p class="section-lead">Estamos em Natal/RN e enviamos para todo o Brasil. Chame no WhatsApp para pedidos, revenda e novidades.</p>
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15.46v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.11 2h3a2 2 0 0 1 2 1.72c.13 1 .36 1.96.7 2.88a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.2-1.27a2 2 0 0 1 2.11-.45c.92.34 1.88.57 2.88.7a2 2 0 0 1 1.72 2.06Z"/></svg></div>
+          <div><h4>WhatsApp / Telefone</h4><p><a href="https://wa.me/5584992318558" target="_blank" rel="noopener">(84) 99231-8558</a></p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
+          <div><h4>E-mail</h4><p><a href="mailto:contato@sigacajumel.com.br">contato@sigacajumel.com.br</a></p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h4>Lojas em Natal/RN</h4><p>Candelária · Ponta Negra</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-band reveal" style="background:linear-gradient(135deg,var(--navy),var(--navy-deep))">
+      <h2 style="font-size:clamp(1.6rem,3.5vw,2.2rem)">Quer revender a CajuMel?</h2>
+      <p>Trabalhamos com revenda em todo o Brasil. Fale com nossa equipe e leve o caju potiguar para a sua cidade.</p>
+      <a href="https://wa.me/5584992318558?text=Ol%C3%A1%2C%20CajuMel!%20Tenho%20interesse%20em%20revender%20os%20produtos." target="_blank" rel="noopener" class="btn btn-accent">Falar sobre revenda</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="gap:8px">
+          <svg viewBox="0 0 100 100" style="width:32px;height:32px" aria-hidden="true"><polyline points="24,24 78,24 78,78 26,78 26,36 66,36 66,66 38,66 38,48 54,48 54,58" fill="none" stroke="#ECA43B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="brand-word">Cajumel</span>
+        </div>
+        <p class="footer-about">Castanha de caju e pastas naturais, feitas artesanalmente em Natal/RN. O sabor do Nordeste, sem aditivos desnecessários.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/sigacajumel/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://wa.me/5584992318558" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.2-5.3A8.5 8.5 0 1 1 21 11.5Z"/></svg></a>
+          <a href="mailto:contato@sigacajumel.com.br" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navegar</h5>
+        <a href="index.html">Início</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="#sobre">Nossa história</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contato</h5>
+        <a href="https://wa.me/5584992318558" target="_blank" rel="noopener">(84) 99231-8558</a>
+        <a href="mailto:contato@sigacajumel.com.br">contato@sigacajumel.com.br</a>
+        <a href="#">Candelária, Natal/RN</a>
+        <a href="#">Ponta Negra, Natal/RN</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> CajuMel. Todos os direitos reservados.</span>
+      <span>Feito com carinho em Natal · Rio Grande do Norte</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CARRINHO (drawer) ============ -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-label="Carrinho de compras">
+  <div class="cart-header">
+    <h3>Seu carrinho</h3>
+    <button class="cart-close" id="cart-close" aria-label="Fechar carrinho">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-foot">
+    <div class="cart-total"><span class="lbl">Total</span><span class="val" id="cart-total-val">R$ 0,00</span></div>
+    <button class="btn btn-primary btn-block" id="cart-checkout" disabled>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.2-5.3A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+      Finalizar no WhatsApp
+    </button>
+    <p class="cart-note">Você confirma os itens e combina o pagamento e a entrega direto com a gente.</p>
+  </div>
+</aside>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+  <span id="toast-text">Adicionado ao carrinho</span>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
