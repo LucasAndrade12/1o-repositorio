@@ -614,14 +614,39 @@ h1, h2, h3, h4 {
   aspect-ratio: 3/2; box-shadow: var(--shadow-lg);
 }
 .history-media img { width: 100%; height: 100%; object-fit: cover; }
-.history-media .tagline {
+.history-media .tagline, .diff-media .tagline {
   position: absolute; left: var(--space-3); bottom: var(--space-3); z-index: 2;
   background: var(--glass); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border: 1px solid var(--glass-brd); border-radius: 999px; padding: 10px 18px;
   font-weight: 600; font-size: .9rem; color: var(--ink); display: inline-flex; align-items: center; gap: 8px;
 }
-.history-media .tagline svg { width: 18px; height: 18px; stroke: var(--terracotta); }
+.history-media .tagline svg, .diff-media .tagline svg { width: 18px; height: 18px; stroke: var(--terracotta); }
 .history .em { color: var(--terracotta); font-family: var(--font-display); font-style: italic; }
+
+/* ---- Diferenciais: imagem + lista editorial (âncora, sem cards) ---- */
+.diff-layout {
+  display: grid; grid-template-columns: 0.92fr 1.08fr; gap: var(--space-6);
+  align-items: center; margin-top: var(--space-6);
+}
+.diff-media {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden;
+  aspect-ratio: 4/5; box-shadow: var(--shadow-lg);
+  background: linear-gradient(150deg, var(--terracotta-soft), var(--terracotta) 55%, var(--terracotta-deep));
+}
+.diff-media img { width: 100%; height: 100%; object-fit: cover; }
+.diff-list { list-style: none; margin: 0; padding: 0; }
+.diff-item {
+  display: flex; gap: 22px; align-items: flex-start;
+  padding: var(--space-4) 0; border-top: 1px solid var(--line);
+}
+.diff-item:last-child { border-bottom: 1px solid var(--line); }
+.diff-num {
+  flex: none; width: 54px; height: 54px; border-radius: 16px;
+  display: grid; place-items: center; background: var(--cream-2);
+}
+.diff-num svg { width: 26px; height: 26px; stroke: var(--terracotta); }
+.diff-item h3 { font-size: 1.45rem; margin: 2px 0 6px; }
+.diff-item p { color: var(--text-muted); font-size: 1rem; margin: 0; max-width: 46ch; }
 
 /* ============================================================
    Catálogo — mini-banner "Monte Seu Pedido"
@@ -662,6 +687,8 @@ section[id], #catalog-grid { scroll-margin-top: 96px; }
 
 @media (max-width: 980px) {
   .history-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+  .diff-layout { grid-template-columns: 1fr; gap: var(--space-4); }
+  .diff-media { aspect-ratio: 16/10; max-height: 420px; }
 }
 
 /* ============================================================
