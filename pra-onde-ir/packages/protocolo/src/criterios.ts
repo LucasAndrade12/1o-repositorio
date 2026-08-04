@@ -78,7 +78,8 @@ const VERMELHOS_V1: Criterio[] = [
     nivel: 'vermelho',
     tipoQueixa: 'neurologica',
     comoAPessoaDescreve: [
-      'convulsão', 'convulsionando', 'tendo ataque', 'ataque epilético', 'tremendo todo e roxo',
+      'convulsão', 'convulsionando', 'convulsionou', 'deu convulsão', 'tendo ataque',
+      'ataque epilético', 'tremendo todo e roxo',
       'virou os olhos e tremeu', 'caiu duro tremendo',
     ],
     tempoDependente: true,
@@ -102,7 +103,7 @@ const VERMELHOS_V1: Criterio[] = [
     nivel: 'vermelho',
     tipoQueixa: 'respiratoria',
     comoAPessoaDescreve: [
-      'não consigo respirar', 'falta de ar forte', 'sem ar', 'roxo', 'lábio roxo',
+      'não consigo respirar', 'falta de ar forte', 'sem ar', 'lábio roxo', 'beiço roxo',
       'respirando muito rápido', 'cansaço pra respirar', 'chiando muito',
       'não consegue falar de falta de ar',
     ],
@@ -1141,7 +1142,7 @@ const PEDIATRICOS: Criterio[] = [
     comoAPessoaDescreve: [
       'não quer mamar', 'não aceita líquido', 'vomita tudo', 'molinha', 'molinho', 'gemendo',
       'não acorda direito', 'afundando a barriguinha', 'afundando entre as costelas',
-      'chiado alto pra respirar', 'nariz abrindo e fechando', 'roxa', 'roxo',
+      'chiado alto pra respirar', 'nariz abrindo e fechando', 'ficou roxa', 'ficou roxo',
       'meu filho de 8 meses não quer mamar e tá gemendo',
     ],
     tempoDependente: true,

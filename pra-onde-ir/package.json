@@ -21,7 +21,8 @@
     "checklist": "tsx scripts/verificar-checklist.ts",
     "protocolo": "tsx scripts/gerar-protocolo.ts",
     "typecheck": "tsc --noEmit",
-    "servidor": "tsx apps/api/src/servidor.ts"
+    "servidor": "tsx apps/api/src/servidor.ts",
+    "auditar": "tsx scripts/auditar-lote.ts"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

@@ -321,14 +321,8 @@ export const DICIONARIO_REGIONAL: Readonly<Record<string, string>> = Object.free
   'escarro': 'catarro',
   'escarrando': 'catarro',
   'gosma no peito': 'catarro',
-  'ta roxo': 'lábio roxo',
-  'ta roxa': 'lábio roxo',
-  'ficou roxo': 'lábio roxo',
   'boca roxa': 'lábio roxo',
   'beicos roxos': 'lábio roxo',
-  'unha roxa': 'lábio roxo',
-  'arroxeado': 'lábio roxo',
-  'arroxeada': 'lábio roxo',
   'ficando azul': 'lábio roxo',
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -352,8 +346,6 @@ export const DICIONARIO_REGIONAL: Readonly<Record<string, string>> = Object.free
   'ferroada no peito': 'dor no peito',
   'dor no vao do peito': 'dor no peito',
   'dor na boca do estomago e suando': 'dor no peito e suando frio',
-  'suando frio': 'dor no peito e suando frio',
-  'suor frio': 'dor no peito e suando frio',
   'suadeira fria': 'dor no peito e suando frio',
   'braco esquerdo dormente': 'dor no braço esquerdo',
   'dor descendo pro braco': 'dor no braço esquerdo',
@@ -373,9 +365,6 @@ export const DICIONARIO_REGIONAL: Readonly<Record<string, string>> = Object.free
   'medi a pressao e deu alta': 'pressão alta',
   'a pressao ta ruim': 'pressão alta',
   'pressao doida': 'pressão alta',
-  'perna inchada': 'falta de ar',
-  'pe inchado': 'falta de ar',
-  'inchaco nas pernas': 'falta de ar',
 
   // ───────────────────────────────────────────────────────────────────────────
   // Neurológico — AVC, convulsão, confusão
@@ -433,7 +422,6 @@ export const DICIONARIO_REGIONAL: Readonly<Record<string, string>> = Object.free
   'abestado': 'muito confuso',
   'avoado': 'muito confuso',
   'avoada': 'muito confuso',
-  'caducando': 'não reconhece ninguém',
   'nao conhece mais ninguem': 'não reconhece ninguém',
   'nao sabe quem eu sou': 'não reconhece ninguém',
   'trocando os nomes': 'muito confuso',
@@ -555,7 +543,6 @@ export const DICIONARIO_REGIONAL: Readonly<Record<string, string>> = Object.free
   'barriga doendo muito': 'dor forte na barriga',
   'barriga dura': 'barriga dura',
   'barriga inchada': 'barriga dura',
-  'barriga estufada': 'barriga estufada e vontade de urinar',
   'empachado': 'barriga dura',
   'empanzinado': 'barriga dura',
   'colica braba': 'cólica muito forte',
@@ -664,9 +651,7 @@ export const DICIONARIO_REGIONAL: Readonly<Record<string, string>> = Object.free
   'embuchada': 'grávida',
   'esperando neném': 'grávida',
   'esperando bebe': 'grávida',
-  'de barriga': 'grávida',
   'barriguda': 'grávida',
-  'pesada': 'grávida',
   'de resguardo': 'grávida',
   'no resguardo': 'grávida',
   'resguardo quebrado': 'grávida sangrando muito',
@@ -750,7 +735,6 @@ export const DICIONARIO_REGIONAL: Readonly<Record<string, string>> = Object.free
   'esfolei': 'me arranhei',
   'ralei': 'ralei o joelho',
   'raspao': 'raspão',
-  'queimei': 'me cortei',
 
   // ───────────────────────────────────────────────────────────────────────────
   // Musculoesquelético e trauma
@@ -907,7 +891,6 @@ export const DICIONARIO_REGIONAL: Readonly<Record<string, string>> = Object.free
   'chorando sem parar': 'gemendo',
   'choro diferente': 'gemendo',
   'nao quer o peito': 'não quer mamar',
-  'nao pega o peito': 'não quer mamar',
   'nao mama': 'não quer mamar',
   'recusa a mamadeira': 'não aceita líquido',
   'nao quer nada de comer': 'não aceita líquido',
@@ -939,7 +922,6 @@ export const DICIONARIO_REGIONAL: Readonly<Record<string, string>> = Object.free
   'boquinha seca': 'boca sequinha',
   'pele murcha': 'pele murcha',
   'pele mole': 'pele murcha',
-  'sapinho': 'não quer mamar',
   'nenem quente': 'neném com febre',
   'crianca quente': 'neném com febre',
   'bebe com quentura': 'neném com febre',
@@ -1062,15 +1044,44 @@ export const NOTAS_NOSOLOGIA_POPULAR: Readonly<Record<string, string>> = Object.
     'gestação — a palavra "gestante" é de prontuário, não de casa.',
 });
 
-/** Normaliza texto: minúsculas, sem acento, espaços colapsados. */
+/**
+ * Contrações da fala expandidas para a forma plena.
+ *
+ * Descoberto ao auditar 315 relatos: «meu marido **tá** me batendo agora» não acionava o
+ * critério de violência doméstica, porque o critério diz «meu marido **está** me batendo».
+ * Na fala real do Brasil ninguém escreve «está» — e a falha mais cara do sistema estava
+ * escondida atrás da contração mais comum do idioma.
+ *
+ * Aplicado dos DOIS lados (relato e termos do catálogo), então a equivalência é simétrica.
+ *
+ * `tão` fica DE FORA de propósito: em «fezes tão pretas» é advérbio de intensidade, não
+ * conjugação, e expandi-lo quebraria o casamento de melena.
+ */
+const CONTRACOES: Readonly<Record<string, string>> = Object.freeze({
+  to: 'estou',
+  ta: 'esta',
+  tou: 'estou',
+  ce: 'voce',
+  vc: 'voce',
+  pq: 'porque',
+  tbm: 'tambem',
+  tb: 'tambem',
+});
+
+/** Normaliza texto: minúsculas, sem acento, espaços colapsados, contrações expandidas. */
 export function normalizar(texto: string): string {
-  return texto
+  const base = texto
     .toLowerCase()
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^\wà-ú\s]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+  if (!base) return base;
+  return base
+    .split(' ')
+    .map((t) => CONTRACOES[t] ?? t)
+    .join(' ');
 }
 
 /**

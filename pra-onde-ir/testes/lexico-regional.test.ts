@@ -141,6 +141,58 @@ describe('regionalismos que a revisão nomeia explicitamente', () => {
   });
 });
 
+/**
+ * Regressões colhidas na auditoria de 315 relatos sintéticos (`npm run auditar`).
+ * Cada uma foi um encaminhamento errado de verdade antes de virar teste.
+ */
+describe('auditoria dos 315 relatos — regressões', () => {
+  it('contração da fala não esconde violência doméstica', () => {
+    // "meu marido TÁ me batendo" não casava com "meu marido ESTÁ me batendo".
+    const r = varrer('meu marido ta me batendo agora');
+    expect(r.criteriosAcionados).toContain('vi.violencia_domestica');
+  });
+
+  it('convulsão no pretérito é reconhecida', () => {
+    // "a criança convulsionou agora" caía em não reconhecido → UBS.
+    const r = varrer('a criança convulsionou agora');
+    expect(r.criteriosAcionados).toContain('vm.convulsao');
+    expect(r.bandeiraVermelha).toBe(true);
+  });
+
+  it('hematoma de dedo não é cianose', () => {
+    const r = varrer('bati o dedo na porta e ta roxo');
+    expect(r.bandeiraVermelha).toBe(false);
+    expect(r.criteriosAcionados).not.toContain('vm.falta_ar_grave');
+  });
+
+  it('candidíase oral de bebê não é sinal geral de perigo', () => {
+    const r = varrer('meu bebe ta com sapinho na boca');
+    expect(r.criteriosAcionados).not.toContain('ped.sinais_gerais_perigo');
+  });
+
+  it('demência crônica não é rebaixamento agudo de consciência', () => {
+    const r = varrer('meu pai ta caducando, não conhece mais a gente');
+    expect(r.bandeiraVermelha).toBe(false);
+  });
+
+  it('"dor de barriga" não marca gestação', () => {
+    // 'de barriga' → 'grávida' fazia uma criança de 8 anos ser roteada à maternidade.
+    const r = varrer('meu filho ta com dor de barriga faz dias');
+    expect(r.gestacao).toBeNull();
+  });
+
+  it('edema de perna não é falta de ar', () => {
+    const r = varrer('minha vó ta com a perna inchada e vermelha');
+    expect(r.criteriosAcionados).not.toContain('lj.dispneia_esforco');
+  });
+
+  it('hipoglicemia é atribuída ao critério certo, não a dor torácica', () => {
+    const r = varrer('meu açúcar caiu, fiquei tremendo e suando frio');
+    expect(r.criteriosAcionados).toContain('vm.hipoglicemia');
+    expect(r.criteriosAcionados).not.toContain('vm.dor_toracica');
+  });
+});
+
 describe('as guardas de B1 continuam valendo sobre o texto expandido', () => {
   it('negação sobre regionalismo não dispara bandeira', () => {
     const r = varrer('ela não deu treco nenhum, só ta com dor de garganta');
