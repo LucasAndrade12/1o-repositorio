@@ -164,6 +164,15 @@ export function triagemImediata(entrada: EntradaTriagem): {
     entrada.paciente.gestante = { semanas: camada1.gestacao.semanas };
   }
 
+  // A3 / A6 — os sinais de alarme reconhecidos no relato se somam aos respondidos no
+  // formulário. Sem isto, "minha pressão tá alta e tô vendo embaçado" nunca escalonava:
+  // a camada 3 só enxergava os sinais que a pessoa tivesse marcado numa tela.
+  if (camada1.sinaisDeAlarme.length > 0) {
+    entrada.paciente.sinaisDeAlarme = [
+      ...new Set([...(entrada.paciente.sinaisDeAlarme ?? []), ...camada1.sinaisDeAlarme]),
+    ];
+  }
+
   return {
     camada1,
     // B2 — bandeira confirmada devolve AGORA. A tela nunca espera a rede.

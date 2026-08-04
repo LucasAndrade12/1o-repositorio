@@ -682,6 +682,8 @@ Quadro suspeito de arbovirose COM pelo menos um sinal de alarme. Inclui explicit
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 
+**Sinais de alarme** → reclassifica para VERMELHO: Sangramento de qualquer sítio ou letargia/irritabilidade — os dois sinais que a checagem obrigatória do módulo classifica como VERMELHO.
+
 **Enquanto a ajuda não chega:**
 
 1. Vá agora. Continue bebendo líquido no caminho, em goles pequenos e frequentes.
@@ -1127,6 +1129,784 @@ Não tome AAS (ácido acetilsalicílico), ibuprofeno, diclofenaco ou outros anti
 | Centro de Especialidades Odontológicas | ceo | a confirmar | A confirmar com a Secretaria |
 
 *Horários e feriados a confirmar com a Secretaria antes do piloto.*
+
+## Dicionário regional potiguar (B1) — 744 expressões
+
+"Expressões locais que a busca por palavra-chave não cobre. Coleta com a equipe e com os
+agentes comunitários."
+
+Este dicionário **não é exaustivo e não pode ser**. Nenhuma lista escrita em gabinete cobre a
+variação real da fala: ela muda por bairro, por idade, por escolaridade. O que garante
+cobertura ao longo do tempo é o mecanismo — a camada 2 traduz o que a lista não previu, e a
+fila de curadoria (B11) transforma cada relato não reconhecido em linha nova aqui.
+
+### Nosologia popular — revisar com atenção redobrada
+
+As entradas abaixo não são sinônimos de sintoma: são **nomes populares de doença**, e cada
+uma afirma uma equivalência clínica. Uma equivalência errada aqui não produz uma palavra não
+reconhecida — produz um encaminhamento errado. São os itens deste arquivo que mais precisam
+da assinatura da retaguarda.
+
+- **"quebranto"** — Nome popular para prostração/letargia em criança, atribuída a mau-olhado. É o mesmo quadro que a AIDPI trata como SINAL GERAL DE PERIGO. Mapeado para "molinho" (A7) — a explicação da família sobre a causa é irrelevante para o risco, e discutir a causa com a família afasta em vez de acolher.
+- **"zipela"** — Erisipela. Infecção de pele com porta de entrada, comum e potencialmente grave em pessoa com diabetes. Mapeado para "machucado vermelho e quente" (lj.ferida_infectada).
+- **"cobreiro"** — Herpes-zóster. O tratamento antiviral tem janela útil de cerca de 72 horas do início das lesões, o que torna o reconhecimento precoce relevante. Hoje mapeado apenas para "manchas vermelhas" — a retaguarda precisa decidir se merece critério próprio.
+- **"espinhela caida"** — Queixa torácica/epigástrica sem correlato anatômico. NÃO deve ser descartada: pode recobrir dor torácica real. Mapeada para "dor no corpo" e a discriminação fica com o bloco fixo de segurança (B4), que pergunta diretamente sobre dor no peito.
+- **"rendidura"** — Hérnia. "Rendido"/"quebradura" descrevem hérnia inguinal ou umbilical. Se encarcerada, é emergência cirúrgica. Mapeada para "dor forte na barriga" (laranja) — a retaguarda precisa decidir se hérnia encarcerada merece bandeira própria, como os quadros de A5.
+- **"gota coral"** — Nome popular de epilepsia no interior do Nordeste. Mapeado para "tendo ataque" (convulsão).
+- **"papeira"** — Caxumba, ou qualquer aumento de volume cervical. Mapeado para "ferida inflamada"; a retaguarda deve avaliar se merece tratamento próprio.
+- **"ingua"** — Linfonodo aumentado. Frequentemente benigno, mas pode acompanhar infecção significativa. Mapeado para "ferida inflamada" (laranja) — provavelmente conservador demais; item para revisão clínica.
+- **"olho gordo"** — Ver "quebranto". Mesmo tratamento: o sinal observável é o que importa.
+- **"resguardo"** — Puerpério. "De resguardo" indica pós-parto recente, que muda completamente o risco de uma queixa. Mapeado para gestante, o que aciona o roteamento obstétrico (A11).
+- **"de bucho"** — Grávida. Junto com "embuchada" e "de barriga", é como boa parte da população descreve gestação — a palavra "gestante" é de prontuário, não de casa.
+
+### Tabela completa
+
+| Expressão local | Traduz para |
+|---|---|
+| deu um treco | desmaiou e não acordou |
+| deu um troco | desmaiou e não acordou |
+| deu um troço | desmaiou e não acordou |
+| teve um treco | desmaiou e não acordou |
+| deu um piripaque | desmaiou e não acordou |
+| deu um piti | desmaiou e não acordou |
+| deu um chilique | desmaiou e não acordou |
+| deu um faniquito | desmaiou e não acordou |
+| deu um fanico | desmaiou e não acordou |
+| deu um xilique | desmaiou e não acordou |
+| passou mal de repente | desmaiou e não acordou |
+| caiu duro | desmaiou e não acordou |
+| caiu dura | desmaiou e não acordou |
+| caiu sem sentido | desmaiou e não acordou |
+| perdeu os sentidos | desmaiou e não acordou |
+| ficou sem sentido | desmaiou e não acordou |
+| sem sentidos | não responde |
+| desfaleceu | desmaiou e não acordou |
+| desfalecida | não responde |
+| desfalecido | não responde |
+| arriou | desmaiou e não acordou |
+| arriou tudo | desmaiou e não acordou |
+| arriou de vez | desmaiou e não acordou |
+| esmorecido | não responde |
+| esmorecida | não responde |
+| esmoreceu | não responde |
+| desacordado | não responde |
+| desacordada | não responde |
+| nao da acordo | não responde |
+| nao toma tino | não responde |
+| nao da fe | não responde |
+| nao da fe de nada | não responde |
+| sem dar fe | não responde |
+| apagou de vez | desmaiou e não acordou |
+| apagou geral | desmaiou e não acordou |
+| desmilinguido | muito fraco |
+| desmilinguida | muito fraco |
+| derriçado | muito fraco |
+| derricado | muito fraco |
+| arriado | muito fraco |
+| arriada | muito fraco |
+| estrompado | muito fraco |
+| estrompada | muito fraco |
+| acabado | muito fraco |
+| acabada | muito fraco |
+| moleza | muito fraco |
+| moleza no corpo | muito fraco |
+| sem eito | muito fraco |
+| sem animo | muito fraco |
+| sem disposicao | muito fraco |
+| abatido | muito fraco |
+| abatida | muito fraco |
+| adoentado | muito fraco |
+| adoentada | muito fraco |
+| esculhambado do corpo | muito fraco |
+| quebrado todo | dor no corpo |
+| quebrada toda | dor no corpo |
+| moido | dor no corpo |
+| moida | dor no corpo |
+| to que nao presto | muito fraco |
+| nao presto pra nada | muito fraco |
+| cansaco | falta de ar |
+| canseira | falta de ar |
+| canseira braba | falta de ar forte |
+| cansado do peito | falta de ar |
+| cansada do peito | falta de ar |
+| cansaco no peito | falta de ar |
+| peito cansado | falta de ar |
+| cansa muito | falta de ar |
+| cansa de andar | falta de ar pra andar |
+| cansa a toa | falta de ar |
+| cansa de nada | falta de ar |
+| canso de tudo | falta de ar |
+| bafo curto | falta de ar |
+| folego curto | falta de ar |
+| sem folego | falta de ar |
+| falta de folego | falta de ar |
+| ofego | falta de ar |
+| ofegando | respirando muito rápido |
+| arfando | respirando muito rápido |
+| puxando o ar | respirando muito rápido |
+| puxando muito | respirando muito rápido |
+| respirando curto | respirando muito rápido |
+| respiracao curta | respirando muito rápido |
+| abafacao | falta de ar |
+| abafamento | falta de ar |
+| sufocacao | falta de ar forte |
+| sufocando | não consigo respirar |
+| sufocado | não consigo respirar |
+| sufocada | não consigo respirar |
+| afogando | não consigo respirar |
+| afogado do peito | não consigo respirar |
+| peito fechado | chiando no peito |
+| peito chiando | chiando no peito |
+| peito assobiando | chiando no peito |
+| chiadeira | chiando no peito |
+| chieira | chiando no peito |
+| chiado no peito | chiando no peito |
+| gato no peito | chiando no peito |
+| gato ronronando no peito | chiando no peito |
+| peito puxado | chiando no peito |
+| peito carregado | chiando no peito |
+| catarro preso | chiando no peito |
+| catarro entalado | chiando no peito |
+| peito cheio | chiando no peito |
+| roncando o peito | chiando no peito |
+| bombinha nao resolveu | usei a bombinha e não melhorou |
+| bombinha nao adiantou | usei a bombinha e não melhorou |
+| usei a bomba e nada | usei a bombinha e não melhorou |
+| defluxo | nariz escorrendo |
+| defluxado | nariz escorrendo |
+| friagem | nariz escorrendo |
+| friagem no corpo | nariz escorrendo |
+| gripado | nariz escorrendo |
+| gripada | nariz escorrendo |
+| gripezinha | nariz escorrendo |
+| nariz trancado | nariz entupido |
+| nariz fechado | nariz entupido |
+| venta trancada | nariz entupido |
+| garganta arranhada | garganta arranhando |
+| garganta ardida | dor de garganta |
+| garganta em carne viva | dor de garganta |
+| engolindo com dor | dor pra engolir |
+| doi pra engolir | dor pra engolir |
+| nao desce comida | dor pra engolir |
+| tosse braba | tosse |
+| tosse seca | tosse |
+| tosse comprida | tosse |
+| tossindo direto | tosse |
+| pigarro | catarro |
+| escarro | catarro |
+| escarrando | catarro |
+| gosma no peito | catarro |
+| ta roxo | lábio roxo |
+| ta roxa | lábio roxo |
+| ficou roxo | lábio roxo |
+| boca roxa | lábio roxo |
+| beicos roxos | lábio roxo |
+| unha roxa | lábio roxo |
+| arroxeado | lábio roxo |
+| arroxeada | lábio roxo |
+| ficando azul | lábio roxo |
+| mal do coracao | dor no peito |
+| doenca do coracao | dor no peito |
+| coracao ruim | dor no peito |
+| peito pesado | peso no peito |
+| peso no peito | peso no peito |
+| peito trancado | aperto no peito |
+| trancamento no peito | aperto no peito |
+| aperto aqui no peito | aperto no peito |
+| agonia no peito | aperto no peito |
+| aflicao no peito | aperto no peito |
+| peito ardendo | queimação no peito com falta de ar |
+| queimacao no peito | queimação no peito com falta de ar |
+| fogo no peito | queimação no peito com falta de ar |
+| fisgada no peito | dor no peito |
+| pontada no peito | dor no peito |
+| ferroada no peito | dor no peito |
+| dor no vao do peito | dor no peito |
+| dor na boca do estomago e suando | dor no peito e suando frio |
+| suando frio | dor no peito e suando frio |
+| suor frio | dor no peito e suando frio |
+| suadeira fria | dor no peito e suando frio |
+| braco esquerdo dormente | dor no braço esquerdo |
+| dor descendo pro braco | dor no braço esquerdo |
+| batedeira | coração disparado e medo de morrer |
+| batedeira no peito | coração disparado e medo de morrer |
+| coracao batendo forte | coração disparado e medo de morrer |
+| coracao acelerado | coração disparado e medo de morrer |
+| coracao disparado | coração disparado e medo de morrer |
+| coracao descompassado | coração disparado e medo de morrer |
+| palpitacao | coração disparado e medo de morrer |
+| pressao nas alturas | pressão alta |
+| pressao la em cima | pressão alta |
+| pressao subiu | pressão alta |
+| pressao descontrolada | pressão alta |
+| pressao alterada | pressão alta |
+| pressao arriada | pressão alta |
+| medi a pressao e deu alta | pressão alta |
+| a pressao ta ruim | pressão alta |
+| pressao doida | pressão alta |
+| perna inchada | falta de ar |
+| pe inchado | falta de ar |
+| inchaco nas pernas | falta de ar |
+| derrame | derrame |
+| derramou | derrame |
+| deu derrame | derrame |
+| teve derrame | derrame |
+| trombose na cabeca | derrame |
+| boca entortou | boca torta |
+| boca torceu | boca torta |
+| cara torta | rosto torto |
+| rosto caido | rosto torto |
+| cara caida | rosto torto |
+| olho caido | rosto torto |
+| banda do rosto caida | rosto torto |
+| braco caiu | braço caindo |
+| braco mole | braço mole |
+| braco sem forca | braço mole |
+| perna sem forca | perdi a força nas pernas |
+| perna bamba | perdi a força nas pernas |
+| pernas bambas | perdi a força nas pernas |
+| perna mole | perdi a força nas pernas |
+| perdeu a banda | perdeu a força de um lado |
+| um lado nao obedece | perdeu a força de um lado |
+| so de um lado | dormência de um lado |
+| meio corpo dormente | dormência de um lado |
+| lingua presa | fala embolada |
+| fala enrolada | fala embolada |
+| falando enrolado | falando enrolado |
+| fala embaralhada | fala embolada |
+| nao sai a fala | não consegue falar |
+| perdeu a fala | não consegue falar |
+| nao acha as palavras | fala embolada |
+| ataque | tendo ataque |
+| deu um ataque | tendo ataque |
+| ataque de nervo | tendo ataque |
+| gota coral | tendo ataque |
+| mal de gota coral | tendo ataque |
+| virou os olhos | virou os olhos e tremeu |
+| revirou os olhos | virou os olhos e tremeu |
+| tremedeira geral | tremendo todo e roxo |
+| espumando pela boca | convulsão |
+| espuma na boca | convulsão |
+| tremendo todo | tremendo todo e roxo |
+| variando | muito confuso |
+| ta variando | muito confuso |
+| variando das ideias | muito confuso |
+| ruim das ideias | falando coisa sem sentido |
+| fora de si | muito confuso |
+| desnorteado | muito confuso |
+| desnorteada | muito confuso |
+| abestalhado | muito confuso |
+| abestalhada | muito confuso |
+| abestado | muito confuso |
+| avoado | muito confuso |
+| avoada | muito confuso |
+| caducando | não reconhece ninguém |
+| nao conhece mais ninguem | não reconhece ninguém |
+| nao sabe quem eu sou | não reconhece ninguém |
+| trocando os nomes | muito confuso |
+| falando sozinho | falando coisa sem sentido |
+| falando besteira | falando coisa sem sentido |
+| falando coisa com coisa | falando coisa sem sentido |
+| delirando | muito confuso |
+| zoada na cabeca | dor de cabeça |
+| zoeira na cabeca | dor de cabeça |
+| cabeca zoando | dor de cabeça |
+| cabeca rachando | dor de cabeça muito forte com febre |
+| dor de cabeca de rachar | dor de cabeça muito forte com febre |
+| cabeca estourando | dor de cabeça muito forte com febre |
+| dor de cabeca braba | dor de cabeça muito forte com febre |
+| zonzo | tontura ao levantar |
+| zonza | tontura ao levantar |
+| tonteira | tontura ao levantar |
+| tontice | tontura ao levantar |
+| cabeca rodando | tontura ao levantar |
+| tudo rodando | tontura ao levantar |
+| mundo rodando | tontura ao levantar |
+| vista escureceu | vista escurece ao levantar |
+| escureceu a vista | vista escurece ao levantar |
+| vista preta | vista escurece ao levantar |
+| vista embacada | vendo embaçado |
+| vista turva | vendo embaçado |
+| enxergando mal | vendo embaçado |
+| vendo tudo dobrado | vendo embaçado |
+| pescoco duro | febre e pescoço duro |
+| pescoco travado | febre e pescoço duro |
+| nuca dura | febre e pescoço duro |
+| quentura | febre |
+| quentura no corpo | febre |
+| corpo quente | febre |
+| febrao | febre |
+| febrinha | febre |
+| ta ardendo de febre | febre |
+| ardendo em febre | febre |
+| pegando fogo | febre |
+| fervendo | febre |
+| esquentando | febre |
+| calor no corpo | febre |
+| tremedeira de frio | febre |
+| calafrio | febre |
+| calafrios | febre |
+| batendo queixo | febre |
+| tremendo de frio | febre |
+| suadeira | febre |
+| suando muito a noite | febre |
+| prostrado | febre e prostrado |
+| prostrada | febre e prostrado |
+| ingua | ferida inflamada |
+| inguas | ferida inflamada |
+| caroco no pescoco | ferida inflamada |
+| papeira | ferida inflamada |
+| dor danada | dor insuportável |
+| dor braba | dor insuportável |
+| dor medonha | dor insuportável |
+| dor desgracada | dor insuportável |
+| dor dos infernos | dor insuportável |
+| dor da peste | dor insuportável |
+| dor arretada | dor insuportável |
+| dor de matar | dor insuportável |
+| dor de rachar | dor insuportável |
+| dor lascada | dor insuportável |
+| dor pavorosa | dor insuportável |
+| dor horrorosa | dor insuportável |
+| dor sem tamanho | dor insuportável |
+| doendo demais da conta | dor insuportável |
+| doi que so | dor insuportável |
+| doi demais | dor insuportável |
+| num aguento de dor | dor insuportável |
+| nao aguento de dor | dor insuportável |
+| nao suporto a dor | dor insuportável |
+| so gritando de dor | dor insuportável |
+| chorando de dor | dor insuportável |
+| rolando de dor | dor insuportável |
+| nao prego o olho de dor | dor que não deixa dormir |
+| nao durmo de dor | dor que não deixa dormir |
+| passo a noite acordado de dor | dor que não deixa dormir |
+| nao consigo me levantar de dor | não consigo andar de dor |
+| nao ando de dor | não consigo andar de dor |
+| nao dou um passo | não consigo andar de dor |
+| nao trabalho de dor | não consigo trabalhar de dor |
+| doi quando puxo o ar | dor que piora quando respiro fundo |
+| doi pra respirar fundo | dor que piora quando respiro fundo |
+| latejando | tá doendo |
+| fisgada | tá doendo |
+| pontada | tá doendo |
+| ferroada | tá doendo |
+| repuxando | tá doendo |
+| trincando | tá doendo |
+| ardendo | tá doendo |
+| queimando | tá doendo |
+| agulhada | tá doendo |
+| incomodo | dor moderada |
+| incomodacao | dor moderada |
+| dor chatinha | dor moderada |
+| bucho | dor forte na barriga |
+| bucho doendo | dor forte na barriga |
+| dor no bucho | dor forte na barriga |
+| bucho embrulhado | enjoo |
+| bucho ruim | enjoo |
+| dor de barriga braba | dor forte na barriga |
+| barriga doendo muito | dor forte na barriga |
+| barriga dura | barriga dura |
+| barriga inchada | barriga dura |
+| barriga estufada | barriga estufada e vontade de urinar |
+| empachado | barriga dura |
+| empanzinado | barriga dura |
+| colica braba | cólica muito forte |
+| colica danada | cólica muito forte |
+| torcao na barriga | cólica muito forte |
+| gastura | enjoo |
+| gastura no estomago | enjoo |
+| dando gastura | enjoo |
+| embrulho no estomago | enjoo |
+| estomago embrulhado | enjoo |
+| estomago ruim | enjoo |
+| enjoo | enjoo |
+| enjoada | enjoo |
+| enjoado | enjoo |
+| ansia de vomito | enjoo |
+| com vontade de botar | enjoo |
+| botando tudo | vomitando tudo |
+| botando pra fora | vomitando tudo |
+| golfando | vomitando tudo |
+| vomitando sem parar | não para de vomitar |
+| nao segura nada no estomago | vomitando tudo |
+| nao para nada no estomago | vomitando tudo |
+| desarranjo | desarranjo |
+| desarranjo intestinal | desarranjo |
+| soltura | diarreia |
+| soltura de barriga | diarreia |
+| caganeira | diarreia |
+| barriga solta | intestino solto |
+| indo muito no banheiro | indo muito ao banheiro |
+| so agua | diarreia |
+| diarreia braba | diarreia sem parar |
+| nao para de ir ao banheiro | diarreia sem parar |
+| prisao de ventre | desarranjo |
+| trancado do intestino | desarranjo |
+| nao vou ao banheiro faz dias | desarranjo |
+| coco preto | cocô preto |
+| fezes escuras | fezes pretas |
+| evacuando escuro | evacuando preto |
+| coco de cor de borra | fezes como borra de café |
+| coco tipo piche | fezes pretas |
+| fezes fedendo demais | cocô preto fedendo muito |
+| sangue no coco | fezes pretas |
+| botando sangue pela boca | vomitando sangue |
+| vomito com sangue | vomitando sangue |
+| rendido | dor forte na barriga |
+| rendidura | dor forte na barriga |
+| quebradura | dor forte na barriga |
+| ventre caido | dor forte na barriga |
+| ardume | ardência pra urinar |
+| ardume pra mijar | ardência pra urinar |
+| mijo ardendo | ardência pra urinar |
+| arde pra mijar | ardência pra urinar |
+| arde quando faz xixi | ardência pra urinar |
+| ardencia na urina | ardência pra urinar |
+| queima pra urinar | ardência pra urinar |
+| mijo turvo | xixi turvo |
+| urina turva | xixi turvo |
+| mijo fedendo | xixi turvo |
+| urina com cheiro forte | xixi turvo |
+| urina escura | xixi turvo |
+| mijando toda hora | vontade de urinar toda hora |
+| vontade de mijar toda hora | vontade de urinar toda hora |
+| apertado pra mijar | vontade de urinar toda hora |
+| nao faz agua | não sai xixi |
+| nao sai mijo | não sai xixi |
+| nao consigo mijar | não consigo urinar desde ontem |
+| travou o mijo | não consigo urinar desde ontem |
+| bexiga cheia e nao sai | tô com a bexiga cheia e não consigo fazer |
+| mijando pouquinho | quase não faço xixi |
+| quase nao mijo | quase não faço xixi |
+| sangue no mijo | sangue na urina |
+| mijando sangue | sangue na urina |
+| urina com sangue | sangue na urina |
+| dor nas cadeiras | dor nas costas |
+| cadeiras doendo | dor nas costas |
+| dor no fundo das costas | dor nas costas |
+| pedra no rim | cólica muito forte |
+| colica de rim | cólica muito forte |
+| dor no saco | dor forte no saco |
+| dor no ovo | dor forte no ovo |
+| bola inchada | bola inchada e doendo |
+| saco inchado | testículo inchado |
+| de bucho | grávida |
+| embuchada | grávida |
+| esperando neném | grávida |
+| esperando bebe | grávida |
+| de barriga | grávida |
+| barriguda | grávida |
+| pesada | grávida |
+| de resguardo | grávida |
+| no resguardo | grávida |
+| resguardo quebrado | grávida sangrando muito |
+| ganhei neném faz pouco | grávida |
+| pari faz pouco | grávida |
+| bolsa estourou | estourou a bolsa e saiu o cordão |
+| estourou a bolsa | estourou a bolsa e saiu o cordão |
+| rompeu a bolsa | estourou a bolsa e saiu o cordão |
+| nenem parou de mexer | bebê parou de mexer |
+| neném nao mexe | bebê parou de mexer |
+| crianca nao mexe na barriga | bebê parou de mexer |
+| dor de parto | grávida |
+| regra atrasada | atraso na menstruação e dor forte de um lado |
+| menstruacao atrasada | atraso na menstruação e dor forte de um lado |
+| regra nao desceu | atraso na menstruação e dor forte de um lado |
+| atraso da regra | atraso na menstruação e dor forte de um lado |
+| sangrando muito por baixo | sangrando muito |
+| hemorragia por baixo | sangrando muito |
+| perdendo sangue por baixo | perdendo muito sangue |
+| zipela | machucado vermelho e quente |
+| zipra | machucado vermelho e quente |
+| esipla | machucado vermelho e quente |
+| erisipela | machucado vermelho e quente |
+| perna vermelha e quente | machucado vermelho e quente |
+| perna inflamada | ferida inflamada |
+| cobreiro | manchas vermelhas |
+| cobrelo | manchas vermelhas |
+| nascida | ferida com pus |
+| nascida no braco | ferida com pus |
+| furunco | ferida com pus |
+| furunculo | ferida com pus |
+| panariço | ferida com pus |
+| unheiro | ferida com pus |
+| ferida braba | ferida inflamada |
+| ferida com materia | ferida com pus |
+| materia na ferida | ferida com pus |
+| ferida catinguenta | ferida cheirando mal |
+| ferida fedendo | ferida cheirando mal |
+| ferida que nao fecha | ferida no pé que não sara |
+| ferida no pe do diabetico | ferida no pé que não sara |
+| chaga | ferida inflamada |
+| chaga no pe | ferida no pé que não sara |
+| pereba | ferida inflamada |
+| perebento | ferida inflamada |
+| empipocado | manchas vermelhas |
+| empipocada | manchas vermelhas |
+| brotoeja | manchas vermelhas |
+| brotoejado | manchas vermelhas |
+| pintado de vermelho | manchas vermelhas |
+| cheio de manchas | manchas vermelhas |
+| manchas roxas | manchas roxas no corpo |
+| pintas roxas | manchas roxas no corpo |
+| roxo no corpo sem bater | manchas roxas no corpo |
+| inchume | inchou a boca |
+| inchacao | inchou a boca |
+| inchou tudo | empolou o corpo todo |
+| empolou | empolou o corpo todo |
+| empolado | empolou o corpo todo |
+| cheio de bolhas | empolou o corpo todo |
+| urticaria | empolou o corpo todo |
+| alergia braba | alergia forte |
+| inchou o beico | inchou a boca |
+| beico inchado | inchou a boca |
+| lingua inchada | inchou a língua |
+| garganta fechando | garganta fechando |
+| garganta apertando | garganta fechando |
+| estrepou | me cortei |
+| estrepei | me cortei |
+| me cortei fundo | corte fundo |
+| talho | corte fundo |
+| talho fundo | corte fundo |
+| rasgou a pele | corte fundo |
+| abriu a carne | corte fundo |
+| ralado | arranhão |
+| esfolado | arranhão |
+| esfolei | me arranhei |
+| ralei | ralei o joelho |
+| raspao | raspão |
+| queimei | me cortei |
+| espinhela caida | dor no corpo |
+| arca caida | dor no corpo |
+| peito aberto | dor no corpo |
+| travei as costas | travei as costas |
+| lombeira | dor nas costas |
+| dor na coluna | dor na coluna |
+| dor nas juntas | dor nas juntas |
+| juntas doendo | dor nas juntas |
+| junta inchada | dor nas juntas |
+| dor nas cadeiras e na perna | dor nas costas |
+| dor no vao das pernas | dor forte na barriga |
+| osso quebrado | osso pra fora |
+| osso pra fora | osso pra fora |
+| osso aparecendo | osso pra fora |
+| perna virada | perna torta |
+| braco torto | perna torta |
+| deslocou | perna torta |
+| se esborrachou | caiu do telhado |
+| levou um tombo feio | caiu do telhado |
+| caiu de altura | caiu do telhado |
+| caiu do pe de arvore | caiu do telhado |
+| bateu de moto | bateu de moto |
+| capotou | bateu de moto |
+| foi atropelado | atropelado |
+| pegou de raspao no carro | atropelado |
+| bateu a cuca | bateu a cabeça e desmaiou |
+| bateu a cabeca | bateu a cabeça e desmaiou |
+| levou um tiro | levou tiro |
+| levou uma facada | levou facada |
+| foi esfaqueado | levou facada |
+| acucar alto | glicose alta |
+| acucar la em cima | glicose alta |
+| diabete alta | glicose alta |
+| diabetes descontrolada | diabético descompensado |
+| diabete descontrolada | diabético descompensado |
+| glicose nas alturas | glicose alta |
+| acucar baixo | açúcar baixo |
+| acucar caiu | açúcar baixo |
+| diabete baixa | açúcar baixo |
+| glicose baixa | glicemia baixa |
+| deu uma hipo | deu hipoglicemia |
+| tremendo e suado | tremendo e suando frio |
+| tremendo de fraqueza | tremendo e suando frio |
+| muita sede | muita sede e urinando muito |
+| sede demais | muita sede e urinando muito |
+| bebendo agua demais | muita sede e urinando muito |
+| boca seca demais | boca seca e fraco |
+| secando de sede | boca seca e fraco |
+| emagrecendo a toa | diabético descompensado |
+| perdendo peso sem motivo | diabético descompensado |
+| nervoso | ansiedade |
+| nervosa | ansiedade |
+| nervosismo | ansiedade |
+| dos nervos | ansiedade |
+| doente dos nervos | ansiedade |
+| aperreado | ansiedade |
+| aperreada | ansiedade |
+| aperreio | ansiedade |
+| aperreacao | ansiedade |
+| agoniado | ansiedade |
+| agoniada | ansiedade |
+| agonia | ansiedade |
+| aflito | ansiedade |
+| aflita | ansiedade |
+| aflicao | ansiedade |
+| angustiado | ansiedade |
+| angustiada | ansiedade |
+| sem sossego | ansiedade |
+| nao sossego | ansiedade |
+| cabeca cheia | ansiedade |
+| cabeca fervendo | ansiedade |
+| nao prego o olho | não consigo dormir |
+| nao durmo | não consigo dormir |
+| sem dormir | não consigo dormir |
+| noite em claro | não consigo dormir |
+| so rolando na cama | não consigo dormir |
+| desanimado | tô triste |
+| desanimada | tô triste |
+| sem vontade de nada | tô triste |
+| jogado num canto | tô triste |
+| so chorando | tô triste |
+| chorando a toa | tô triste |
+| coracao apertado | tô triste |
+| ta pra baixo | tô triste |
+| na fossa | tô triste |
+| depressao | tô triste |
+| cansei de tudo | cansei de tudo |
+| cansada de viver | não quero mais viver |
+| cansado de viver | não quero mais viver |
+| nao quero mais nada | não quero mais viver |
+| queria sumir | pensando em sumir |
+| queria desaparecer | pensando em sumir |
+| queria dormir e nao acordar | queria não acordar |
+| queria nao acordar mais | queria não acordar |
+| nao vejo saida | não quero mais viver |
+| melhor eu morrer | penso em morrer |
+| melhor que eu morresse | penso em morrer |
+| so dou trabalho | seria melhor se eu não existisse |
+| nao sirvo pra nada | seria melhor se eu não existisse |
+| me cortei de proposito | me machuquei de propósito |
+| me machuquei querendo | me machuquei de propósito |
+| espirito ruim | ouvindo vozes |
+| cabeca ruim | ouvindo vozes |
+| escuta vozes | ouvindo vozes |
+| ouve gente falando | ouvindo vozes |
+| ve gente que nao tem | ouvindo vozes |
+| ve vulto | ouvindo vozes |
+| acha que querem matar ele | acha que estão perseguindo |
+| diz que estao atras dele | acha que estão perseguindo |
+| desconfiado de todo mundo | muito agitado e desconfiado |
+| surtou | surtou |
+| deu um surto | surtou |
+| fora do normal | falando coisa sem sentido |
+| parei de beber | parei de beber e tô tremendo |
+| largou a cachaca | parei de beber e tô tremendo |
+| sem beber faz dias | parei de beber e tô tremendo |
+| tremendo sem beber | parei de beber e tô tremendo |
+| crise de abstinencia | abstinência |
+| na ressaca braba | abstinência |
+| perdi meu filho | meu filho morreu |
+| perdi minha mae | perdi alguém |
+| faleceu | perdi alguém |
+| de luto | perdi alguém |
+| molinho | molinho |
+| molinha | molinha |
+| mole demais | molinho |
+| sem forca nenhuma | molinho |
+| quebranto | molinho |
+| com quebranto | molinho |
+| olho gordo | molinho |
+| mau olhado | molinho |
+| amuado | molinho |
+| amuada | molinho |
+| caidinho | molinho |
+| caidinha | molinha |
+| gemendo | gemendo |
+| so gemendo | gemendo |
+| chorando sem parar | gemendo |
+| choro diferente | gemendo |
+| nao quer o peito | não quer mamar |
+| nao pega o peito | não quer mamar |
+| nao mama | não quer mamar |
+| recusa a mamadeira | não aceita líquido |
+| nao quer nada de comer | não aceita líquido |
+| nao aceita agua | não aceita líquido |
+| bota tudo que come | vomita tudo |
+| golfa tudo | vomita tudo |
+| nao segura nem agua | vomita tudo |
+| nao acorda direito | não acorda direito |
+| so dormindo | não acorda direito |
+| dificil de acordar | não acorda direito |
+| afundando a barriguinha | afundando a barriguinha |
+| afundando as costelas | afundando entre as costelas |
+| costela aparecendo quando respira | afundando entre as costelas |
+| barriguinha subindo e descendo rapido | afundando a barriguinha |
+| narizinho abrindo | nariz abrindo e fechando |
+| venta abrindo e fechando | nariz abrindo e fechando |
+| chiado alto | chiado alto pra respirar |
+| respirando com barulho | chiado alto pra respirar |
+| moleira funda | moleira funda |
+| moleira afundada | moleira funda |
+| moleira baixa | moleira funda |
+| olhinho fundo | olhos fundos |
+| olho encovado | olhos fundos |
+| chora sem lagrima | chora sem lágrima |
+| chora e nao sai lagrima | chora sem lágrima |
+| fralda seca | fralda seca |
+| fralda seca faz horas | fralda seca |
+| nao molha a fralda | fralda seca |
+| boquinha seca | boca sequinha |
+| pele murcha | pele murcha |
+| pele mole | pele murcha |
+| sapinho | não quer mamar |
+| nenem quente | neném com febre |
+| crianca quente | neném com febre |
+| bebe com quentura | neném com febre |
+| dor no fundo dos olhos | dor atrás dos olhos |
+| olhos doendo por dentro | dor atrás dos olhos |
+| dor por tras dos olhos | dor atrás dos olhos |
+| corpo todo doendo | dor no corpo |
+| corpo moido | dor no corpo |
+| dor no corpo todinho | dor no corpo |
+| dor nos ossos | dor no corpo |
+| febre quebra osso | febre com dor nas juntas |
+| quebra ossos | febre com dor nas juntas |
+| dengue | dengue |
+| chicungunha | chikungunya |
+| chincungunha | chikungunya |
+| a febre baixou e piorei | melhorou a febre mas piorou |
+| baixou a febre e piorou | melhorou a febre mas piorou |
+| a quentura passou e piorou | melhorou a febre mas piorou |
+| sangramento na gengiva | sangramento na gengiva |
+| gengiva sangrando | sangramento na gengiva |
+| sangrando pelo nariz | sangrando o nariz |
+| sangue pelo nariz | sangrando o nariz |
+| dor de dente braba | dor de dente e o rosto inchou |
+| dente estragado | dente inflamado com febre |
+| dente cariado | dente inflamado com febre |
+| dente inflamado | dente inflamado com febre |
+| cara inchada do dente | dor de dente e o rosto inchou |
+| rosto inchou do dente | inchaço no rosto por causa do dente |
+| nao abro a boca | dificuldade de abrir a boca |
+| boca travada | dificuldade de abrir a boca |
+| caroco na gengiva | abscesso no dente |
+| caiu no olho | caiu produto no olho |
+| respingou no olho | respingou soda no olho |
+| entrou soda no olho | soda no olho |
+| entrou agua sanitaria no olho | água sanitária no olho |
+| queimei a vista | queimei a vista |
+| olho ardendo de produto | entrou química no olho |
+| entalou | entalou na garganta |
+| entalado | entalou na garganta |
+| entalou na goela | entalou na garganta |
+| travou na garganta | entalou na garganta |
+| engasgou feio | engasgou |
+| engoliu errado | engasgou |
+| foi pro lado errado | engasgou |
+| nao consegue nem tossir | não consegue tossir |
+| engoliu uma coisa | engoliu objeto |
+| botou na boca e engoliu | engoliu objeto |
+| tomou choque | levou choque |
+| levou choque do chuveiro | levou choque do chuveiro |
+| pegou choque na tomada | tomou choque na tomada |
+| quase afogou | quase se afogou |
+| engoliu agua na piscina | engoliu muita água na piscina |
+| se afogou no acude | quase se afogou |
+| se afogou no mar | quase se afogou |
+| respirou fumaca | respirou fumaça |
+| aspirou fumaca | inalou fumaça |
+| ficou rouco do fogo | rouco depois do fogo |
 
 ---
 

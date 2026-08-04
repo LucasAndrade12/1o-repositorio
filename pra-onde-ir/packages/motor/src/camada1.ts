@@ -20,6 +20,7 @@
 
 import {
   CRITERIOS,
+  MODULO_ARBOVIROSE,
   JANELA_NEGACAO,
   LIMITE_CARACTERES_RELATO,
   MARCADORES_HIPOTESE,
@@ -91,6 +92,33 @@ export interface ResultadoCamada1 {
    * exatamente a peregrinação que A11 existe para eliminar.
    */
   gestacao: { detectada: boolean; semanas: number | null } | null;
+  /**
+   * A3 — sinais de alarme reconhecidos NO TEXTO LIVRE.
+   *
+   * A camada 3 já sabia reclassificar um critério para cima na presença de sinal de alarme,
+   * mas só recebia esses sinais como resposta de formulário. Quem escrevia
+   * "minha pressão tá alta e eu tô vendo embaçado" tinha o sinal de lesão de órgão-alvo
+   * ignorado, porque o índice da camada 1 só cobria `comoAPessoaDescreve` — nunca
+   * `sinaisDeAlarme.comoAPessoaDescreve`. Era A3 implementado pela metade.
+   *
+   * Devolvidos com o texto ORIGINAL do critério (com acento), porque é assim que a camada 3
+   * os compara.
+   */
+  sinaisDeAlarme: string[];
+  /**
+   * A6 — módulo sazonal de arbovirose.
+   *
+   * A revisão chama este de "isoladamente, o módulo de maior valor local do sistema". Os
+   * dados existiam em `MODULO_ARBOVIROSE` desde o início, mas nenhum deles era indexado:
+   * a regra de reconhecimento (febre + 2 sintomas típicos) e os sinais de alarme de checagem
+   * obrigatória nunca eram avaliados sobre o relato. Só disparavam os dois critérios
+   * `arb.*` quando a pessoa usava exatamente uma das frases catalogadas.
+   */
+  arbovirose: {
+    sintomas: string[];
+    alarmes: { id: string; nivel: Criterio['nivel'] }[];
+    suspeita: boolean;
+  };
 }
 
 /**
@@ -140,6 +168,56 @@ const INDICE: TermoIndexado[] = (() => {
 })();
 
 const CRITERIOS_POR_ID = new Map(CRITERIOS.map((c) => [c.id, c]));
+
+/** Mesmo cálculo de orçamento do índice principal, para termos fora de `comoAPessoaDescreve`. */
+function montarTermo(bruto: string, refs: string[]): (TermoIndexado & { bruto: string }) | null {
+  const termo = normalizar(bruto);
+  if (!termo) return null;
+  const tokens = termo.split(' ').filter(Boolean);
+  return {
+    bruto,
+    termo,
+    tokens,
+    orcamento:
+      tokens.length <= 1 ? 0 : tokens.length === 2 ? 1 : Math.max(2, Math.ceil(tokens.length * 0.7)),
+    criterios: refs,
+  };
+}
+
+/**
+ * A3 — índice dos sinais de alarme declarados dentro dos critérios.
+ *
+ * Deliberadamente SEPARADO do índice principal: casar "vendo embaçado" não pode acionar
+ * `am.pressao_alta_assintomatica` por si só — quem enxerga embaçado não declarou pressão alta.
+ * O sinal de alarme só escalona um critério que JÁ está em jogo, e é exatamente isso que a
+ * camada 3 faz com esta lista.
+ */
+const INDICE_ALARMES: (TermoIndexado & { bruto: string })[] = CRITERIOS.flatMap((c) =>
+  (c.sinaisDeAlarme?.comoAPessoaDescreve ?? [])
+    .map((bruto) => montarTermo(bruto, [c.id]))
+    .filter((t): t is TermoIndexado & { bruto: string } => t !== null),
+).sort((a, b) => b.termo.length - a.termo.length);
+
+/** A6 — sintomas típicos de arbovirose (a regra é febre + `minimoSintomas`). */
+const INDICE_ARBO_SINTOMAS: (TermoIndexado & { bruto: string })[] =
+  MODULO_ARBOVIROSE.reconhecimento.sintomasTipicos
+    .flatMap((s) => s.termos.map((bruto) => montarTermo(bruto, [s.id])))
+    .filter((t): t is TermoIndexado & { bruto: string } => t !== null)
+    .sort((a, b) => b.termo.length - a.termo.length);
+
+/** A6 — sinais de alarme de checagem obrigatória do módulo de arbovirose. */
+const INDICE_ARBO_ALARMES: (TermoIndexado & { bruto: string })[] =
+  MODULO_ARBOVIROSE.sinaisDeAlarme
+    .flatMap((s) => s.termos.map((bruto) => montarTermo(bruto, [s.id])))
+    .filter((t): t is TermoIndexado & { bruto: string } => t !== null)
+    .sort((a, b) => b.termo.length - a.termo.length);
+
+const NIVEL_ALARME_ARBO = new Map(MODULO_ARBOVIROSE.sinaisDeAlarme.map((s) => [s.id, s.nivel]));
+
+/** Ids de critério que representam febre — a condição obrigatória do reconhecimento (A6). */
+const CRITERIOS_DE_FEBRE = new Set(
+  CRITERIOS.filter((c) => /febre|febril/i.test(c.titulo)).map((c) => c.id),
+);
 
 /**
  * Casa os tokens do termo no texto, na ordem, dentro do orçamento de lacunas.
@@ -254,6 +332,41 @@ export function varrer(relatoBruto: string): ResultadoCamada1 {
     if (!criteriosAcionados.includes(id)) delete especificidade[id];
   }
 
+  // ── Índices auxiliares: sinais de alarme (A3) e módulo de arbovirose (A6) ──
+  // Passam pelas MESMAS guardas de B1 — negação, passado, hipótese e sujeito.
+  const casarIndice = (indice: (TermoIndexado & { bruto: string })[]) =>
+    indice.filter((t) =>
+      casarTokens(tokensTexto, offsets, t).some(
+        (c) => !avaliarDescarte(texto, c.posicao, sujeito),
+      ),
+    );
+
+  const sinaisDeAlarme = [...new Set(casarIndice(INDICE_ALARMES).map((t) => t.bruto))];
+
+  const sintomasArbo = [
+    ...new Set(casarIndice(INDICE_ARBO_SINTOMAS).flatMap((t) => t.criterios)),
+  ];
+  const alarmesArbo = [
+    ...new Set(casarIndice(INDICE_ARBO_ALARMES).flatMap((t) => t.criterios)),
+  ].map((id) => ({ id, nivel: NIVEL_ALARME_ARBO.get(id) ?? ('laranja' as const) }));
+
+  // A6 — "reconhecimento: febre MAIS dois sintomas típicos".
+  const temFebre = criteriosAcionados.some((id) => CRITERIOS_DE_FEBRE.has(id));
+  const suspeitaArbo =
+    MODULO_ARBOVIROSE.ativo &&
+    temFebre &&
+    sintomasArbo.length >= MODULO_ARBOVIROSE.reconhecimento.minimoSintomas;
+
+  if (suspeitaArbo && !criteriosAcionados.includes('arb.suspeita')) {
+    criteriosAcionados.push('arb.suspeita');
+  }
+  // Sinal de alarme só qualifica um quadro que JÁ é suspeito. Tontura postural isolada não
+  // é arbovirose — tratá-la como tal reproduziria a sobre-triagem que A1 condena.
+  const ehSuspeito = suspeitaArbo || criteriosAcionados.includes('arb.suspeita');
+  if (ehSuspeito && alarmesArbo.length > 0 && !criteriosAcionados.includes('arb.sinal_alarme')) {
+    criteriosAcionados.push('arb.sinal_alarme');
+  }
+
   const bandeiraVermelha = criteriosAcionados.some((id) => {
     const c = CRITERIOS_POR_ID.get(id);
     return c?.nivel === 'vermelho' && c.irreversivel === true;
@@ -272,6 +385,8 @@ export function varrer(relatoBruto: string): ResultadoCamada1 {
     textoNormalizado: texto,
     especificidade,
     gestacao,
+    sinaisDeAlarme,
+    arbovirose: { sintomas: sintomasArbo, alarmes: alarmesArbo, suspeita: suspeitaArbo },
   };
 }
 

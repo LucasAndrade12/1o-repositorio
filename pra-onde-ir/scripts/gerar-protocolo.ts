@@ -18,6 +18,9 @@ import {
   AVISO_DECISAO_AUTOMATIZADA,
   BLOCO_SEGURANCA,
   CRITERIOS,
+  DICIONARIO_REGIONAL,
+  NOTAS_NOSOLOGIA_POPULAR,
+  TOTAL_REGIONALISMOS,
   DESTINOS,
   HISTORICO_VERSOES,
   MODULO_ARBOVIROSE,
@@ -221,6 +224,37 @@ for (const u of UNIDADES) {
 }
 w();
 w(`*Horários e feriados a confirmar com a Secretaria antes do piloto.*`);
+w();
+
+// ── Léxico regional ──────────────────────────────────────────────────────
+w(`## Dicionário regional potiguar (B1) — ${TOTAL_REGIONALISMOS} expressões`);
+w();
+w(`"Expressões locais que a busca por palavra-chave não cobre. Coleta com a equipe e com os`);
+w(`agentes comunitários."`);
+w();
+w(`Este dicionário **não é exaustivo e não pode ser**. Nenhuma lista escrita em gabinete cobre a`);
+w(`variação real da fala: ela muda por bairro, por idade, por escolaridade. O que garante`);
+w(`cobertura ao longo do tempo é o mecanismo — a camada 2 traduz o que a lista não previu, e a`);
+w(`fila de curadoria (B11) transforma cada relato não reconhecido em linha nova aqui.`);
+w();
+w(`### Nosologia popular — revisar com atenção redobrada`);
+w();
+w(`As entradas abaixo não são sinônimos de sintoma: são **nomes populares de doença**, e cada`);
+w(`uma afirma uma equivalência clínica. Uma equivalência errada aqui não produz uma palavra não`);
+w(`reconhecida — produz um encaminhamento errado. São os itens deste arquivo que mais precisam`);
+w(`da assinatura da retaguarda.`);
+w();
+for (const [termo, nota] of Object.entries(NOTAS_NOSOLOGIA_POPULAR)) {
+  w(`- **"${termo}"** — ${nota}`);
+}
+w();
+w(`### Tabela completa`);
+w();
+w(`| Expressão local | Traduz para |`);
+w(`|---|---|`);
+for (const [expressao, canonico] of Object.entries(DICIONARIO_REGIONAL)) {
+  w(`| ${expressao} | ${canonico} |`);
+}
 w();
 
 w(`---`);

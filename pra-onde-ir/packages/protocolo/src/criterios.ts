@@ -1100,6 +1100,16 @@ const ARBOVIROSE_CRITERIOS: Criterio[] = [
       'febre baixou', 'febre abaixou', 'a febre passou e piorei',
     ],
     tempoDependente: true,
+    sinaisDeAlarme: {
+      descricao:
+        'Sangramento de qualquer sítio ou letargia/irritabilidade — os dois sinais que a ' +
+        'checagem obrigatória do módulo classifica como VERMELHO.',
+      comoAPessoaDescreve: [
+        'sangramento na gengiva', 'sangrando o nariz', 'manchas roxas', 'sangue na urina',
+        'muito sonolento', 'irritadíssimo',
+      ],
+      nivelSeAlarme: 'vermelho',
+    },
     primeirosMinutos: [
       'Vá agora. Continue bebendo líquido no caminho, em goles pequenos e frequentes.',
       'Não tome AAS, ibuprofeno ou diclofenaco.',
