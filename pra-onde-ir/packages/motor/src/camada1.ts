@@ -465,8 +465,13 @@ function avaliarDescarte(
   }
 
   // 3. Hipótese — "tenho MEDO DE estar tendo um infarto, mas é só azia"
+  //    Janela CURTA (4 palavras), de propósito: "acho que é dengue, tô com FEBRE e dor no
+  //    corpo" é um palpite de diagnóstico ("dengue") seguido de sintomas REAIS ("febre"). A
+  //    auditoria de 445 relatos mostrou a janela de 8 suprimindo o sintoma junto com o palpite.
+  //    A hipótese anula o termo que ela qualifica de perto — não tudo que a pessoa disser depois.
+  const janelaHipotese = palavrasAntes(texto, pos, 4).join(' ');
   for (const hip of MARCADORES_HIPOTESE) {
-    if (contemPalavra(janelaLonga, hip)) return { motivo: 'hipotese', marcador: hip };
+    if (contemPalavra(janelaHipotese, hip)) return { motivo: 'hipotese', marcador: hip };
   }
 
   // 4. Terceiro que não é o paciente — "meu vizinho desmaiou semana passada"

@@ -1,12 +1,29 @@
 /**
- * Auditoria do lote de 285 relatos: roda cada caso e imprime a RESPOSTA, não só a estatística.
+ * Auditoria de um lote de relatos: roda cada caso e imprime a RESPOSTA, não só a estatística.
  * Modo degradado (sem chave de API) — o pior caso, e o que qualquer um consegue reproduzir.
+ *
+ *   npm run auditar                                 → lote padrão (285)
+ *   npm run auditar -- testes/lote-sintetico-400.ts → outro lote
  */
+
+import { resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 import { ORDEM_NIVEIS, type Nivel } from '@pra-onde-ir/protocolo';
 import { triar, type DadosPaciente } from '@pra-onde-ir/motor';
 import { camada2Degradada } from '@pra-onde-ir/ia';
-import { LOTE, type Caso } from '../testes/lote-sintetico-285.js';
+
+interface Caso {
+  relato: string;
+  idade?: number;
+  agravantes?: string[];
+  inicioMenos24h?: boolean;
+  paraQuem?: 'proprio' | 'terceiro';
+  grupo: string;
+}
+
+const alvo = process.argv[2] ?? 'testes/lote-sintetico-285.ts';
+const { LOTE } = (await import(pathToFileURL(resolve(alvo)).href)) as { LOTE: Caso[] };
 
 interface Linha {
   caso: Caso;

@@ -57,6 +57,10 @@ const VERMELHOS_V1: Criterio[] = [
       'boca torta', 'rosto torto', 'boca entortou', 'braço caindo', 'braço mole',
       'fala embolada', 'falando enrolado', 'não consegue falar', 'perdeu a força de um lado',
       'dormência de um lado', 'derrame', 'avc', 'ficou torto do rosto',
+      // 445 relatos: "metade do corpo dormente de repente" caía em amarelo.
+      'metade do corpo dormente', 'meio corpo dormente', 'lado do corpo dormente',
+      'metade do corpo sem força', 'um lado do corpo parou', 'perdeu o movimento de um lado',
+      'não mexe um lado do corpo', 'formigando um lado do corpo de repente', 'dormência de repente de um lado',
     ],
     tempoDependente: true,
     irreversivel: true,
@@ -111,6 +115,9 @@ const VERMELHOS_V1: Criterio[] = [
       // reconhecido — cianose com esforço respiratório é emergência.
       'não consegue respirar', 'não consegue respira', 'não está respirando', 'não tá respirando',
       'roxo e não respira', 'roxo de falta de ar', 'criança roxa', 'bebê roxo', 'ficou roxo e mole',
+      // 445 relatos: "sem conseguir respirar, o peito fecha" caía em amarelo.
+      'sem conseguir respirar', 'não consigo respirar direito', 'o peito fecha', 'peito fechando',
+      'sufocando', 'me sufocando', 'engasgando sem parar', 'não entra ar',
     ],
     tempoDependente: true,
     irreversivel: true,
@@ -134,6 +141,10 @@ const VERMELHOS_V1: Criterio[] = [
     comoAPessoaDescreve: [
       'inchou a boca', 'inchou a língua', 'garganta fechando', 'não consigo engolir',
       'alergia forte', 'empolou o corpo todo', 'tomei remédio e inchei',
+      // 445 relatos: "comeu amendoim e a boca tá inchando" (gerúndio) caía em amarelo.
+      'boca tá inchando', 'boca inchando', 'a boca inchou', 'língua inchando', 'garganta inchando',
+      'lábio inchando', 'comeu e a boca inchou', 'comeu e começou a inchar', 'inchando depois de comer',
+      'inchando a garganta', 'reação alérgica com falta de ar',
     ],
     tempoDependente: true,
     irreversivel: true,
@@ -155,6 +166,9 @@ const VERMELHOS_V1: Criterio[] = [
     comoAPessoaDescreve: [
       'sangrando muito', 'não para de sangrar', 'sangue jorrando', 'vomitando sangue',
       'perdendo muito sangue',
+      // 445 relatos: "o sangue não para de jorrar" e variantes de esguicho.
+      'sangue não para de jorrar', 'não para de jorrar sangue', 'sangue esguichando',
+      'sangue escorrendo sem parar', 'corte que não para de sangrar', 'jorrando sangue',
     ],
     tempoDependente: true,
     irreversivel: true,
@@ -177,6 +191,10 @@ const VERMELHOS_V1: Criterio[] = [
     comoAPessoaDescreve: [
       'desmaiou e não acordou', 'não responde', 'não acorda', 'apagou', 'muito confuso',
       'não reconhece ninguém', 'deu um treco e ficou esmorecido',
+      // Variantes de conjugação que a auditoria de 445 relatos pegou sub-triadas:
+      'não tá acordando', 'não está acordando', 'não acorda direito', 'não acorda de jeito nenhum',
+      'parou de responder', 'não responde direito', 'não reage', 'não reage a nada',
+      'desacordado', 'desacordada', 'caiu e não acordou', 'não voltou a si',
     ],
     tempoDependente: true,
     irreversivel: true,
@@ -238,6 +256,13 @@ const VERMELHOS_V1: Criterio[] = [
     comoAPessoaDescreve: [
       'vou me matar agora', 'tomei os comprimidos', 'me cortei fundo', 'estou com a arma',
       'não aguento mais e vou fazer',
+      // 445 relatos: "tomei um monte de comprimido, não aguento mais viver" caía em amarelo.
+      'tomei um monte de comprimido', 'tomei um monte de remédio', 'tomei vários comprimidos',
+      'tomei um vidro de remédio', 'me envenenei', 'não aguento mais viver', 'quero acabar com tudo',
+      'vou dar um fim em mim', 'não quero mais viver e já pensei como',
+      // 445 relatos — ideação COM plano é risco iminente, não faixa intermediária:
+      'vontade de me matar e já pensei como', 'já pensei em como me matar', 'tenho um plano pra me matar',
+      'pensei em como acabar com a vida', 'vontade de me matar e sei como',
     ],
     tempoDependente: true,
     irreversivel: true,
@@ -590,7 +615,8 @@ const LACUNAS_A5: Criterio[] = [
       'não consigo urinar desde ontem', 'barriga estufada e vontade de urinar',
       'não sai xixi', 'tô com a bexiga cheia e não consigo fazer', 'não urino há horas',
       'não tá urinando', 'não urina desde ontem', 'não faz xixi desde ontem',
-      'não consegue urinar', 'parou de urinar',
+      'não consegue urinar', 'parou de urinar', 'não consigo fazer xixi', 'não sai xixi desde ontem',
+      'não consigo fazer xixi desde ontem', 'a bexiga cheia e não sai',
     ],
     tempoDependente: true,
     primeirosMinutos: [
@@ -659,6 +685,7 @@ const LARANJAS: Criterio[] = [
       'vomitando tudo', 'não para de vomitar', 'não consigo beber água', 'quase não faço xixi',
       'diarreia sem parar', 'boca seca e fraco', 'não consigo segurar água',
       'não seguro nada no estômago', 'vomito até água', 'não paro de vomitar',
+      'não consigo parar de vomitar', 'vomitando sem parar e fraco', 'vomitando muito e sem forças',
     ],
     origem: 'v1',
     assinatura: PENDENTE,
@@ -671,6 +698,10 @@ const LARANJAS: Criterio[] = [
     tipoQueixa: 'gastrointestinal',
     comoAPessoaDescreve: [
       'dor forte na barriga', 'barriga dura', 'dor na barriga e vomitando', 'cólica muito forte',
+      // 445 relatos: dor abdominal intensa localizada e cólica renal caíam abaixo do nível.
+      'dor de barriga muito forte', 'dor muito forte na barriga', 'dor forte do lado direito da barriga',
+      'dor forte na barriga de um lado', 'dor nos rins que irradia', 'cólica renal',
+      'dor de pedra nos rins', 'dor nos rins muito forte',
     ],
     origem: 'v1',
     assinatura: PENDENTE,
@@ -732,6 +763,9 @@ const LARANJAS: Criterio[] = [
     comoAPessoaDescreve: [
       'açúcar muito alto', 'muita sede e urinando muito', 'glicose alta', 'hálito doce',
       'diabético descompensado',
+      // 445 relatos: "açúcar em 500 e vomitando" (risco de cetoacidose) caía em não reconhecido.
+      'açúcar em 500', 'açúcar altíssimo', 'glicose muito alta', 'açúcar muito alto e vomitando',
+      'diabético vomitando', 'açúcar não abaixa e vomitando', 'glicose acima de 400',
     ],
     fonte: 'A14 — equivalentes clínicos formalizados ao lado dos números.',
     origem: 'A14',
@@ -748,6 +782,8 @@ const LARANJAS: Criterio[] = [
     comoAPessoaDescreve: [
       'dor de dente e o rosto inchou', 'inchaço no rosto por causa do dente',
       'dificuldade de abrir a boca', 'abscesso no dente', 'dente inflamado com febre',
+      'rosto inchou por causa do dente', 'inchou o rosto do dente', 'cara inchada do dente',
+      'inchaço na bochecha por causa do dente',
     ],
     fonte: 'A10 — a rede tem mais portas do que cinco; esta é a porta correta.',
     origem: 'A10',
@@ -775,6 +811,10 @@ const AMARELOS: Criterio[] = [
     comoAPessoaDescreve: [
       'pressão alta', 'pressão subiu', 'minha pressão deu 18 por 11', 'pressão descontrolada',
       'medi a pressão e tava alta', 'pressão alta mas não sinto nada',
+      // 445 relatos — leituras e frases comuns:
+      'pressão deu 15 por 9', 'pressão deu 17 por 10', 'pressão deu alta na farmácia',
+      'medi a pressão em casa e tava alta', 'pressão deu alta', 'minha pressão vive subindo',
+      'dor na nuca e pressão alta',
     ],
     sinaisDeAlarme: {
       descricao:
@@ -824,6 +864,9 @@ const AMARELOS: Criterio[] = [
       'vontade de urinar toda hora', 'mijo turvo', 'urina turva', 'mijo fedendo',
       'urina com cheiro forte', 'arde quando faço xixi', 'arde pra fazer xixi', 'arde pra mijar',
       'urinando toda hora', 'indo muito no banheiro fazer xixi',
+      // 445 relatos:
+      'ardência quando faço xixi', 'ardência pra fazer xixi', 'indo no banheiro toda hora fazer xixi',
+      'infecção de urina', 'peguei infecção de urina', 'urinando pouco e ardendo', 'arde e urino pouco',
     ],
     origem: 'v1',
     assinatura: PENDENTE,
@@ -844,7 +887,11 @@ const AMARELOS: Criterio[] = [
     descricao: 'Corte com bordas afastadas, sangramento controlado com compressão.',
     nivel: 'amarelo',
     tipoQueixa: 'trauma',
-    comoAPessoaDescreve: ['corte fundo', 'cortei e abriu', 'precisa levar ponto', 'me cortei'],
+    comoAPessoaDescreve: [
+      'corte fundo', 'cortei e abriu', 'precisa levar ponto', 'me cortei',
+      'cortei a mão', 'cortei o dedo', 'me cortei na faca', 'cortei na faca', 'cortei e tá sangrando',
+      'cortei a mão na faca', 'corte que precisa de ponto',
+    ],
     origem: 'v1',
     assinatura: PENDENTE,
   },
@@ -896,6 +943,8 @@ const VERDES: Criterio[] = [
     comoAPessoaDescreve: [
       'renovar receita', 'renovar a receita', 'preciso renovar a receita da pressão',
       'acabou meu remédio', 'preciso da receita', 'receita do remédio venceu',
+      'remédio de pressão acabou', 'meu remédio acabou', 'acabou o remédio da pressão',
+      'acabou o remédio de diabetes', 'meu remédio de pressão acabou',
     ],
     isentoPiso24h: true,
     fonte: 'A10 — "farmácia da unidade (renovação de receita, que hoje ocupa uma vaga de consulta)".',
@@ -960,6 +1009,11 @@ const VERDES: Criterio[] = [
       'ansiedade', 'não consigo dormir', 'preciso de psicólogo', 'tô triste',
       'estresse', 'insônia', 'ansiosa', 'ansioso', 'muito ansiosa', 'muito ansioso',
       'depressão', 'tô com depressão', 'acho que tô com depressão', 'tristeza',
+      // 445 relatos — sofrimento psíquico leve em outras palavras:
+      'conversar com psicólogo', 'quero um psicólogo', 'estressado', 'estressada', 'sem ânimo',
+      'sem ânimo pra levantar', 'pra baixo', 'muito pra baixo', 'não consigo me concentrar',
+      'medo de sair de casa', 'durmo demais e cansada', 'vivo cansada', 'desanimado', 'desanimada',
+      'sem vontade de nada', 'adolescente isolado e triste', 'filho isolado e triste', 'na fossa',
     ],
     isentoPiso24h: true,
     origem: 'v1',
@@ -994,6 +1048,11 @@ const AZUIS: Criterio[] = [
       // "dor de garganta" é das queixas mais frequentes e não batia critério nenhum.
       'dor de garganta', 'garganta doendo', 'garganta inflamada', 'dor pra engolir',
       'tosse', 'tossindo', 'catarro', 'rinite', 'rinite atacada', 'alergia no nariz',
+      // 445 relatos — paráfrases comuns de síndrome gripal:
+      'garganta raspando', 'garganta ardida', 'nariz tampado', 'nariz vive tampado', 'coriza',
+      'espirro', 'espirrando sem parar', 'muito espirro', 'rouco', 'fiquei rouco', 'rouquidão',
+      'amigdalite', 'garganta cheia de pus', 'placas na garganta', 'pigarro', 'resfriado',
+      'gripado', 'peguei friagem', 'peito congestionado', 'catarro amarelo', 'catarro verde',
     ],
     isentoPiso24h: true,
     fonte: 'A2 — exceção nomeada ao piso de 24 horas, para que o nível AZUL volte a existir.',
@@ -1262,7 +1321,8 @@ const SAUDE_MENTAL: Criterio[] = [
     comoAPessoaDescreve: [
       'pensando em sumir', 'queria não acordar', 'penso em morrer', 'não quero mais viver',
       'tô muito ansiosa, pensando em sumir, mas não fiz nada', 'cansei de tudo',
-      'seria melhor se eu não existisse',
+      'seria melhor se eu não existisse', 'vontade de me matar', 'vontade de morrer',
+      'pensamento ruim mas nunca faria nada', 'penso besteira mas não faria', 'pensamento de morte',
     ],
     fonte: 'A8 — faixa intermediária entre SAMU e consulta agendada.',
     origem: 'A8',
@@ -1274,7 +1334,12 @@ const SAUDE_MENTAL: Criterio[] = [
     descricao: 'Cortes, queimaduras ou outras autolesões sem intenção de morte.',
     nivel: 'laranja',
     tipoQueixa: 'saude_mental',
-    comoAPessoaDescreve: ['me cortei', 'me machuquei de propósito', 'me queimei de propósito'],
+    comoAPessoaDescreve: [
+      'me cortei', 'me machuquei de propósito', 'me queimei de propósito',
+      // Terceira pessoa — um familiar relatando (445 relatos).
+      'se cortou', 'se cortou fundo', 'se cortou no braço', 'cortou os pulsos',
+      'se machucou de propósito', 'tá se cortando', 'se corta escondido',
+    ],
     fonte: 'A8.',
     origem: 'A8',
     assinatura: PENDENTE,
@@ -1353,7 +1418,12 @@ const VIOLENCIA: Criterio[] = [
       'referência, com notificação compulsória.',
     nivel: 'vermelho',
     tipoQueixa: 'violencia',
-    comoAPessoaDescreve: ['fui estuprada', 'me forçaram', 'abusaram de mim', 'violência sexual', 'fui abusada'],
+    comoAPessoaDescreve: [
+      'fui estuprada', 'me forçaram', 'abusaram de mim', 'violência sexual', 'fui abusada',
+      // 445 relatos — a janela de profilaxia se conta em horas; nenhuma paráfrase pode escapar.
+      'fui forçada', 'fui forçada por um homem', 'me forçou a transar', 'forçaram relação',
+      'fui violentada', 'sofri abuso', 'fui estuprado', 'me forçou',
+    ],
     tempoDependente: true,
     irreversivel: true,
     primeirosMinutos: [
@@ -1375,6 +1445,10 @@ const VIOLENCIA: Criterio[] = [
     comoAPessoaDescreve: [
       'meu marido está me batendo', 'estão me ameaçando em casa', 'apanhei em casa',
       'ele me trancou', 'estão me agredindo',
+      // 445 relatos — variantes comuns de violência doméstica e coerção:
+      'meu marido me bateu', 'meu marido me agrediu', 'apanhei do meu marido', 'apanho em casa',
+      'medo de voltar pra casa', 'meu namorado me ameaça', 'me ameaça e não me deixa sair',
+      'ele não me deixa sair', 'meu companheiro me bate', 'sofro violência em casa', 'ele me bate',
     ],
     tempoDependente: true,
     irreversivel: true,
@@ -1399,6 +1473,8 @@ const VIOLENCIA: Criterio[] = [
       'bate no filho', 'bate na filha', 'bate no menino', 'bate na menina',
       'batendo no filho', 'espancando a criança', 'batem na criança',
       'maltratando a criança', 'criança apanhando', 'deixam a criança sozinha',
+      'bate nos filhos', 'batendo nos filhos', 'vive batendo nos filhos', 'criança com hematomas',
+      'criança maltratada', 'espanca os filhos',
     ],
     fonte: 'A9 — encaminhamento inclui conselho tutelar quando aplicável.',
     origem: 'A9',
@@ -1412,6 +1488,8 @@ const VIOLENCIA: Criterio[] = [
     tipoQueixa: 'violencia',
     comoAPessoaDescreve: [
       'estão maltratando minha mãe idosa', 'idoso abandonado', 'tomaram o dinheiro do meu pai',
+      'idoso maltratado', 'maltratado pela cuidadora', 'maltratam meu pai idoso', 'maltratando meu pai',
+      'meu pai idoso sendo maltratado', 'a cuidadora maltrata', 'idoso apanhando em casa',
     ],
     fonte: 'A9.',
     origem: 'A9',
@@ -1426,6 +1504,8 @@ const VIOLENCIA: Criterio[] = [
     comoAPessoaDescreve: [
       'me expus ao hiv', 'preciso de pep', 'relação sem camisinha com risco',
       'me furei com agulha usada',
+      'relação sem camisinha', 'sexo sem camisinha', 'transei sem camisinha', 'camisinha estourou',
+      'exposição ao hiv', 'medo de ter pego hiv', 'preciso da profilaxia',
     ],
     tempoDependente: true,
     primeirosMinutos: [
@@ -1461,6 +1541,8 @@ const LACUNAS_AUDITORIA: Criterio[] = [
       'pior dor de cabeça que já senti', 'dor de cabeça mais forte da vida', 'dor de cabeça explodiu',
       'dor de cabeça de repente muito forte', 'dor de cabeça que começou de repente e muito forte',
       'batida na cabeça de tão forte a dor',
+      'dor forte de cabeça que começou de repente', 'dor de cabeça forte de repente',
+      'dor de cabeça que veio de repente', 'dor de cabeça de repente e muito forte',
     ],
     tempoDependente: true,
     irreversivel: true,
@@ -1485,6 +1567,8 @@ const LACUNAS_AUDITORIA: Criterio[] = [
       'perdi a visão de um olho', 'perdi a vista de repente', 'fiquei cego de um olho',
       'parei de enxergar de um olho', 'perda súbita de visão', 'cegueira repentina',
       'não enxergo mais de um olho de repente', 'apagou a vista de um olho',
+      'vista embaçou de um lado e não volta', 'perdi parte da visão de repente',
+      'vista escureceu de um olho e não volta', 'sombra na visão de um olho de repente',
     ],
     tempoDependente: true,
     irreversivel: true,
@@ -1612,6 +1696,11 @@ const CURADORIA_B11: Criterio[] = [
       'coceira no corpo', 'coceira na pele', 'coceira à noite', 'muita coceira',
       'manchas vermelhas', 'manchas no corpo', 'cobreiro', 'cobrelo', 'pereba', 'perebento',
       'curativo', 'trocar o curativo',
+      // 445 relatos — dermatoses comuns em outras palavras:
+      'mancha escura no rosto', 'pele descama', 'pele descamando', 'placa vermelha e áspera',
+      'pé de atleta', 'coceira na virilha', 'coceira danada', 'mãos rachadas', 'bolha de água na mão',
+      'alergia vermelha na pele', 'unha encravada e inflamada', 'catapora', 'bolinhas de catapora',
+      'ferida antiga voltou a coçar', 'furúnculo', 'furunculo com pus',
     ],
     isentoPiso24h: true,
     fonte: 'Curadoria B11 — dermatologia ambulatorial, ausente do protocolo.',
@@ -1627,6 +1716,8 @@ const CURADORIA_B11: Criterio[] = [
     comoAPessoaDescreve: [
       'picada de inseto que inchou', 'picada que inchou', 'fui picado e inchou o local',
       'assadura forte', 'assadura do bebê', 'brotoeja', 'urticária localizada',
+      'reação na pele depois do remédio', 'reação na pele depois do antibiótico', 'alergia ao antibiótico',
+      'manchas depois do remédio', 'alergia ao remédio na pele',
     ],
     fonte: 'Curadoria B11.',
     origem: 'B11',
@@ -1641,6 +1732,7 @@ const CURADORIA_B11: Criterio[] = [
     comoAPessoaDescreve: [
       'sinal que mudou de cor', 'pinta que mudou', 'pinta que cresceu', 'caroço que cresce',
       'caroço embaixo do braço', 'caroço no pescoço que cresce', 'nódulo que apareceu',
+      'caroço na virilha', 'caroço na virilha que dói', 'íngua na virilha', 'caroço dolorido na virilha',
     ],
     fonte: 'Curadoria B11 — lesão suspeita merece avaliação, não espera de fila genérica.',
     origem: 'B11',
@@ -1655,7 +1747,8 @@ const CURADORIA_B11: Criterio[] = [
     tipoQueixa: 'infecciosa',
     comoAPessoaDescreve: [
       'ouvido doendo', 'dor de ouvido', 'ouvido entupido', 'ouvido tampado',
-      'ouvido com pus', 'dor no ouvido', 'meu ouvido tá doendo',
+      'ouvido com pus', 'dor no ouvido', 'meu ouvido tá doendo', 'ouvido tampou',
+      'ouvido latejando', 'ouvido inflamado',
     ],
     fonte: 'Curadoria B11.',
     origem: 'B11',
@@ -1670,6 +1763,8 @@ const CURADORIA_B11: Criterio[] = [
     comoAPessoaDescreve: [
       'zumbido no ouvido', 'cera no ouvido', 'não escuto direito', 'ouço mal',
       'rouco faz dias', 'rouco há dias', 'voz sumiu', 'perdi a voz', 'sinusite',
+      'ouvido zunindo', 'zunido no ouvido', 'não tô escutando bem', 'afta na boca', 'aftas',
+      'bolha na boca', 'mau hálito', 'gosto ruim na boca', 'língua esbranquiçada', 'ronco pra dormir',
     ],
     isentoPiso24h: true,
     fonte: 'Curadoria B11.',
@@ -1700,6 +1795,10 @@ const CURADORIA_B11: Criterio[] = [
     comoAPessoaDescreve: [
       'terçol', 'preciso de óculos', 'não enxergo de longe', 'coceira no olho', 'olho coçando',
       'vista embaçada faz tempo', 'vista cansada',
+      // 445 relatos:
+      'vista embaçando pra ler', 'dificuldade pra ler', 'olho coça muito', 'olho coçando muito',
+      'olho lacrimejando', 'lacrimejando sem parar', 'moscas voando na vista', 'pontos pretos na visão',
+      'apertando os olhos pra ver', 'franzindo pra enxergar',
     ],
     isentoPiso24h: true,
     fonte: 'Curadoria B11.',
@@ -1716,6 +1815,8 @@ const CURADORIA_B11: Criterio[] = [
     comoAPessoaDescreve: [
       'dor de dente', 'dente cariado e doendo', 'dente doendo', 'dente inflamado',
       'gengiva sangra', 'gengiva inflamada', 'quebrei um dente', 'dente quebrado',
+      'siso nascendo', 'dente do siso doendo', 'gengiva inchada', 'dente mole', 'dente mole e cariado',
+      'sensibilidade nos dentes', 'dente sensível ao gelado',
     ],
     fonte: 'Curadoria B11 — roteia à urgência odontológica/CEO (A10).',
     origem: 'B11',
@@ -1729,6 +1830,8 @@ const CURADORIA_B11: Criterio[] = [
     tipoQueixa: 'odontologica',
     comoAPessoaDescreve: [
       'preciso extrair um dente', 'quero fazer limpeza', 'revisão do dente', 'consulta no dentista',
+      'limpeza nos dentes', 'tártaro', 'boca cheia de tártaro', 'aparelho machucou',
+      'aparelho no dente machucando',
     ],
     isentoPiso24h: true,
     fonte: 'Curadoria B11.',
@@ -1775,6 +1878,8 @@ const CURADORIA_B11: Criterio[] = [
     comoAPessoaDescreve: [
       'torci o pé', 'torci o tornozelo', 'entorse', 'dedo inchado depois que bati',
       'bati o dedo e inchou', 'dor no cóccix depois de cair', 'contusão', 'me machuquei na queda',
+      'bati a canela', 'prensei o dedo', 'esfolou o joelho', 'torci o dedão', 'estirei o músculo',
+      'bati a cabeça leve', 'ralei o cotovelo', 'me ralei', 'caí e ralei', 'dor na bunda de cair',
     ],
     fonte: 'Curadoria B11.',
     origem: 'B11',
@@ -1791,6 +1896,11 @@ const CURADORIA_B11: Criterio[] = [
       'dor no punho', 'dor no calcanhar', 'cãibra à noite', 'varizes doendo', 'varizes',
       'dor nas juntas de manhã', 'mãos formigam', 'pé dormente', 'dor no pescoço acordei torto',
       'dor lombar há meses',
+      // 445 relatos — dor musculoesquelética crônica em outras palavras:
+      'travei o pescoço', 'coluna me matando', 'dor na coluna faz dias', 'punho dói de computador',
+      'dor no meio das costas', 'bursite', 'ombro estala', 'joelho falseia', 'dor no quadril',
+      'dor na sola do pé', 'câimbra na batata da perna', 'lombar trava', 'dedos formigam de noite',
+      'juntas dos dedos duras', 'mão inchada de manhã', 'pé formiga',
     ],
     isentoPiso24h: true,
     fonte: 'Curadoria B11 — dor musculoesquelética crônica, encaminhamento eletivo.',
@@ -1807,6 +1917,8 @@ const CURADORIA_B11: Criterio[] = [
     comoAPessoaDescreve: [
       'colesterol alto', 'triglicerídeos altos', 'tireoide alterada', 'anemia no exame',
       'exame alterado', 'exame deu alterado', 'resultado alterado',
+      'colesterol e triglicerídeo alto', 'triglicerídeo alto', 'acompanhar a tireoide',
+      'resultado de colesterol', 'quero saber meu resultado', 'tireoide',
     ],
     isentoPiso24h: true,
     fonte: 'Curadoria B11.',
@@ -1823,6 +1935,10 @@ const CURADORIA_B11: Criterio[] = [
     comoAPessoaDescreve: [
       'azia', 'queimação no estômago', 'gastrite', 'refluxo', 'estômago embrulhado',
       'má digestão', 'empachado', 'queimação depois que como',
+      // 445 relatos — dispepsia e gases em outras palavras:
+      'muito gás', 'barriga estufada de gás', 'soluço que não para', 'digestão lenta', 'empanturrada',
+      'dor em cima da barriga que aperta', 'comi demais e passei mal', 'estômago dói em jejum',
+      'estômago queimando de fome', 'a comida volta na garganta',
     ],
     isentoPiso24h: true,
     fonte:
@@ -1869,6 +1985,8 @@ const CURADORIA_B11: Criterio[] = [
     comoAPessoaDescreve: [
       'peito inchado amamentando', 'peito empedrado', 'seio inflamado amamentando',
       'mastite', 'peito doendo de amamentar', 'meu peito tá inchado e doendo',
+      'peito empedrou', 'seio empedrou', 'leite empedrou', 'bico do peito rachou', 'bico rachado',
+      'bico do peito rachou de amamentar',
     ],
     fonte: 'Curadoria B11.',
     origem: 'B11',
@@ -1884,6 +2002,11 @@ const CURADORIA_B11: Criterio[] = [
     comoAPessoaDescreve: [
       'piolho', 'verme', 'coça o bumbum', 'oxiúro', 'não ganha peso', 'não tá ganhando peso',
       'puericultura', 'consulta do bebê', 'acompanhamento do bebê',
+      // 445 relatos — pediatria comum em outras palavras:
+      'molha a cama', 'faz xixi na cama', 'gaguejando', 'gagueira', 'comeu terra',
+      'dente de leite mole', 'dor nas perninhas', 'cólica de bebê', 'bebê chora de cólica',
+      'consulta do recém nascido', 'teste do pezinho', 'vacinar o bebê', 'bateu o queixo',
+      'olhinhos lacrimejando', 'bebê manhoso', 'não quis o almoço',
     ],
     isentoPiso24h: true,
     fonte: 'Curadoria B11.',
@@ -1950,6 +2073,34 @@ const CURADORIA_B11: Criterio[] = [
     origem: 'B11',
     assinatura: PENDENTE,
   },
+  {
+    id: 'cur.vertigem',
+    titulo: 'Tontura com sensação de rodar',
+    descricao: 'Tontura rotatória (labirintite e afins), sem déficit neurológico, sem dor de cabeça súbita e sem desmaio (que sobem o nível).',
+    nivel: 'amarelo',
+    tipoQueixa: 'neurologica',
+    comoAPessoaDescreve: [
+      'muita tontura e o mundo rodando', 'mundo rodando', 'tudo rodando', 'vertigem',
+      'tontura forte', 'labirintite', 'cabeça rodando', 'tontura que não passa',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.queimadura_leve',
+    titulo: 'Queimadura pequena com bolha',
+    descricao: 'Queimadura de pequena extensão que empolou, fora de face, mãos funcionais, genitália ou vias aéreas (que exigem avaliação urgente).',
+    nivel: 'amarelo',
+    tipoQueixa: 'dermatologica',
+    comoAPessoaDescreve: [
+      'queimadura que bolhou', 'queimei e bolhou', 'queimadura com bolha', 'me queimei e empolou',
+      'queimei a mão e bolhou', 'queimadura de água quente que empolou',
+    ],
+    fonte: 'Curadoria B11 — a queimadura de via aérea e a extensa já são bandeira própria (A5).',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
   // ── Cauda clínica de baixa gravidade ──
   {
     id: 'cur.hipotensao_sintomatica',
@@ -1974,6 +2125,8 @@ const CURADORIA_B11: Criterio[] = [
     comoAPessoaDescreve: [
       'açúcar deu 400', 'glicose alta de manhã', 'açúcar sempre alto', 'glicemia alta',
       'açúcar não abaixa', 'açúcar deu alto', 'glicose sempre alta',
+      'açúcar amanheceu alto', 'açúcar amanheceu em 300', 'açúcar em 300', 'diabetes descontrolada',
+      'diabete descontrolada', 'glicose descontrolada', 'minha diabetes tá descontrolada',
     ],
     fonte: 'Curadoria B11 — distinto da hiperglicemia sintomática (LARANJA).',
     origem: 'B11',
@@ -2018,6 +2171,66 @@ const CURADORIA_B11: Criterio[] = [
       'cólica forte', 'dor de barriga que vai e vem', 'dor na barriga fraca',
     ],
     fonte: 'Curadoria B11 — dor abdominal leve; a intensa e a com sinais de alarme sobem por outros critérios.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.ictericia',
+    titulo: 'Pele e olhos amarelados',
+    descricao: 'Amarelão nos olhos e na pele (icterícia). Pode indicar problema de fígado ou das vias biliares — investigação dirigida.',
+    nivel: 'amarelo',
+    tipoQueixa: 'gastrointestinal',
+    comoAPessoaDescreve: [
+      'amarelo dos olhos', 'olhos amarelos', 'pele amarelada', 'amarelão', 'icterícia',
+      'amarelo dos olhos e da pele', 'tá amarelo dos olhos', 'ficou amarelo',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.planejamento_familiar',
+    titulo: 'Planejamento familiar e contracepção',
+    descricao: 'Início ou dúvida de método contraceptivo, DIU, laqueadura ou vasectomia — demanda agendável.',
+    nivel: 'verde',
+    tipoQueixa: 'administrativa',
+    comoAPessoaDescreve: [
+      'quero começar a tomar anticoncepcional', 'começar anticoncepcional', 'quero anticoncepcional',
+      'quero saber sobre o diu', 'diu', 'laqueadura', 'método contraceptivo', 'vasectomia',
+      'planejamento familiar', 'quero um método pra não engravidar',
+    ],
+    isentoPiso24h: true,
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.climaterio',
+    titulo: 'Sintomas da menopausa',
+    descricao: 'Ondas de calor, fogachos, suor e irregularidade menstrual do climatério.',
+    nivel: 'verde',
+    tipoQueixa: 'geral',
+    comoAPessoaDescreve: [
+      'fogacho', 'fogacho e suor', 'calorão', 'menopausa', 'sintomas da menopausa',
+      'ondas de calor', 'calorão da menopausa', 'suando muito da menopausa',
+    ],
+    isentoPiso24h: true,
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.gestacao_queixa_comum',
+    titulo: 'Queixa comum da gravidez',
+    descricao: 'Desconfortos comuns da gestação — enjoo, azia, inchaço nas pernas, dor nas costas, contrações fracas — sem os sinais de emergência obstétrica (que são vermelho) nem sangramento/redução de movimento fetal (que já têm critério próprio). Roteia ao pré-natal / maternidade.',
+    nivel: 'amarelo',
+    tipoQueixa: 'obstetrica',
+    comoAPessoaDescreve: [
+      'grávida e enjoando', 'grávida enjoando muito', 'grávida e pernas incharam', 'grávida e inchada',
+      'grávida com azia', 'grávida com dor nas costas', 'grávida sentindo contrações fracas',
+      'grávida com contrações', 'grávida e passando mal',
+    ],
+    fonte: 'Curadoria B11 — a idade gestacional detectada roteia à maternidade (A11).',
     origem: 'B11',
     assinatura: PENDENTE,
   },

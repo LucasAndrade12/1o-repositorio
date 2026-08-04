@@ -146,6 +146,60 @@ describe('prisão de ventre não é confundida com diarreia', () => {
   });
 });
 
+describe('segunda auditoria (445 relatos) — emergências por paráfrase', () => {
+  // Em modo degradado, sem a IA, a camada 1 é a ÚNICA rede das bandeiras vermelhas. Cada uma
+  // destas caía em AMARELO por variação de conjugação antes de virar teste.
+  const vermelhas: [string, string][] = [
+    ['minha filha comeu amendoim e a boca tá inchando', 'vm.anafilaxia'],
+    ['meu esposo tá com metade do corpo dormente de repente', 'vm.avc'],
+    ['meu pai parou de responder e tá com a respiração estranha', 'vm.rebaixamento'],
+    ['tô sem conseguir respirar direito, o peito fecha', 'vm.falta_ar_grave'],
+    ['meu vizinho se cortou e o sangue não para de jorrar', 'vm.hemorragia_ativa'],
+    ['tomei um monte de comprimido, não aguento mais viver', 'vm.risco_autoprovocado_iminente'],
+    ['tô com vontade de me matar e já pensei como', 'vm.risco_autoprovocado_iminente'],
+    ['dor forte de cabeça que começou de repente', 'au.cefaleia_thunderclap'],
+  ];
+  for (const [relato, criterio] of vermelhas) {
+    it(`"${relato}" → ${criterio} (vermelho)`, () => {
+      const r = rec(relato);
+      expect(r.criteriosAcionados).toContain(criterio);
+      expect(r.bandeiraVermelha).toBe(true);
+    });
+  }
+});
+
+describe('segunda auditoria — trilha de violência não falha por paráfrase', () => {
+  const casos: [string, string][] = [
+    ['meu marido me bateu e tô com medo de voltar pra casa', 'vi.violencia_domestica'],
+    ['meu namorado me ameaça e não me deixa sair', 'vi.violencia_domestica'],
+    ['fui forçada por um homem ontem à noite', 'vi.violencia_sexual'],
+    ['minha vizinha vive batendo nos filhos pequenos', 'vi.maus_tratos_infantil'],
+    ['meu pai idoso tá sendo maltratado pela cuidadora', 'vi.violencia_idoso'],
+  ];
+  for (const [relato, criterio] of casos) {
+    it(`"${relato}" → ${criterio}`, () => {
+      expect(rec(relato).criteriosAcionados).toContain(criterio);
+    });
+  }
+});
+
+describe('segunda auditoria — urgências e janela de hipótese', () => {
+  it('açúcar em 500 com vômito é hiperglicemia (não fica em não reconhecido)', () => {
+    expect(rec('minha diabética tá com o açúcar em 500 e vomitando').criteriosAcionados).toContain('lj.hiperglicemia');
+  });
+  it('não conseguir fazer xixi desde ontem é retenção urinária', () => {
+    expect(rec('não consigo fazer xixi desde ontem e a barriga doeu').criteriosAcionados).toContain('a5.retencao_urinaria');
+  });
+  it('a janela de hipótese não engole o sintoma que vem depois do palpite', () => {
+    // "acho que é dengue" é palpite; "febre" logo depois é sintoma real e deve ser reconhecido.
+    const r = rec('acho que é dengue, tô com febre e dor no corpo');
+    expect(r.criteriosAcionados.length).toBeGreaterThan(0);
+  });
+  it('pele e olhos amarelos (icterícia) é reconhecido', () => {
+    expect(rec('meu tio tá amarelo dos olhos e da pele').criteriosAcionados).toContain('cur.ictericia');
+  });
+});
+
 describe('todos os critérios novos nascem pendentes de assinatura', () => {
   it('nenhum critério de origem auditoria/B11 vem assinado', () => {
     const novos = CRITERIOS.filter((c) => c.origem === 'auditoria' || (c.id.startsWith('cur.') || c.id.startsWith('au.')));

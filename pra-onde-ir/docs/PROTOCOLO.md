@@ -13,7 +13,7 @@
 
 > ⚠️ **Protocolo NÃO validado clinicamente. Critérios com assinatura pendente são propostas de partida extraídas da revisão técnica, para discussão com a enfermeira do acolhimento e a retaguarda médica da unidade.**
 >
-> **100 de 100 critérios aguardam assinatura** da enfermeira do
+> **106 de 106 critérios aguardam assinatura** da enfermeira do
 > acolhimento e da retaguarda médica.
 
 ## Aviso permanente exibido ao usuário
@@ -58,7 +58,7 @@ não resolve (achado A10).
 | **Vigilância epidemiológica** | Caso sinalizado para a vigilância epidemiológica do município. | sim | sim | A6 |
 | **CVV — 188** | Ligue 188 (CVV). É gratuito, sigiloso e funciona 24 horas por dia. Você pode falar com alguém agora mesmo. | não | sim | A8 |
 
-## Critérios (100)
+## Critérios (106)
 
 ### VERMELHO — 29 critério(s)
 
@@ -142,7 +142,7 @@ Dificuldade de respirar em repouso, incapacidade de completar uma frase, chiado 
 
 Inchaço de lábios, língua ou garganta, dificuldade de respirar ou engolir, placas pelo corpo com mal-estar, após alimento, medicamento ou picada.
 
-*Como a pessoa descreve:* "inchou a boca", "inchou a língua", "garganta fechando", "não consigo engolir", "alergia forte", "empolou o corpo todo", "tomei remédio e inchei"
+*Como a pessoa descreve:* "inchou a boca", "inchou a língua", "garganta fechando", "não consigo engolir", "alergia forte", "empolou o corpo todo", "tomei remédio e inchei", "boca tá inchando", "boca inchando", "a boca inchou"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 🔒 **Bandeira irreversível** — uma vez disparada, não desce.
@@ -160,7 +160,7 @@ Inchaço de lábios, língua ou garganta, dificuldade de respirar ou engolir, pl
 
 Sangramento externo abundante que não cessa com compressão, ou vômito com sangue vivo.
 
-*Como a pessoa descreve:* "sangrando muito", "não para de sangrar", "sangue jorrando", "vomitando sangue", "perdendo muito sangue"
+*Como a pessoa descreve:* "sangrando muito", "não para de sangrar", "sangue jorrando", "vomitando sangue", "perdendo muito sangue", "sangue não para de jorrar", "não para de jorrar sangue", "sangue esguichando", "sangue escorrendo sem parar", "corte que não para de sangrar"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 🔒 **Bandeira irreversível** — uma vez disparada, não desce.
@@ -178,7 +178,7 @@ Sangramento externo abundante que não cessa com compressão, ou vômito com san
 
 Pessoa não responde ao chamado, desmaiou e não acordou, ou está muito confusa e sonolenta.
 
-*Como a pessoa descreve:* "desmaiou e não acordou", "não responde", "não acorda", "apagou", "muito confuso", "não reconhece ninguém", "deu um treco e ficou esmorecido"
+*Como a pessoa descreve:* "desmaiou e não acordou", "não responde", "não acorda", "apagou", "muito confuso", "não reconhece ninguém", "deu um treco e ficou esmorecido", "não tá acordando", "não está acordando", "não acorda direito"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 🔒 **Bandeira irreversível** — uma vez disparada, não desce.
@@ -231,7 +231,7 @@ Febre com pescoço duro, dor de cabeça intensa, manchas roxas na pele, vômitos
 
 Tentativa em curso ou recém-ocorrida, plano definido com meio disponível e intenção imediata.
 
-*Como a pessoa descreve:* "vou me matar agora", "tomei os comprimidos", "me cortei fundo", "estou com a arma", "não aguento mais e vou fazer"
+*Como a pessoa descreve:* "vou me matar agora", "tomei os comprimidos", "me cortei fundo", "estou com a arma", "não aguento mais e vou fazer", "tomei um monte de comprimido", "tomei um monte de remédio", "tomei vários comprimidos", "tomei um vidro de remédio", "me envenenei"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 🔒 **Bandeira irreversível** — uma vez disparada, não desce.
@@ -541,7 +541,7 @@ Qualquer febre em lactente menor de 3 meses.
 
 Janela de profilaxia pós-exposição que se conta em HORAS. Encaminhamento a serviço de referência, com notificação compulsória.
 
-*Como a pessoa descreve:* "fui estuprada", "me forçaram", "abusaram de mim", "violência sexual", "fui abusada"
+*Como a pessoa descreve:* "fui estuprada", "me forçaram", "abusaram de mim", "violência sexual", "fui abusada", "fui forçada", "fui forçada por um homem", "me forçou a transar", "forçaram relação", "fui violentada"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 🔒 **Bandeira irreversível** — uma vez disparada, não desce.
@@ -561,7 +561,7 @@ Janela de profilaxia pós-exposição que se conta em HORAS. Encaminhamento a se
 
 Agressão física, ameaça ou cárcere em curso ou risco iminente.
 
-*Como a pessoa descreve:* "meu marido está me batendo", "estão me ameaçando em casa", "apanhei em casa", "ele me trancou", "estão me agredindo"
+*Como a pessoa descreve:* "meu marido está me batendo", "estão me ameaçando em casa", "apanhei em casa", "ele me trancou", "estão me agredindo", "meu marido me bateu", "meu marido me agrediu", "apanhei do meu marido", "apanho em casa", "medo de voltar pra casa"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 🔒 **Bandeira irreversível** — uma vez disparada, não desce.
@@ -581,7 +581,7 @@ Agressão física, ameaça ou cárcere em curso ou risco iminente.
 
 Dor de cabeça que atinge intensidade máxima em segundos a minutos, descrita como "a pior da vida". Suspeita de hemorragia subaracnóidea. Distinta da enxaqueca e da cefaleia tensional.
 
-*Como a pessoa descreve:* "pior dor de cabeça da minha vida", "pior dor de cabeça da vida", "dor de cabeça a pior da minha vida", "pior dor de cabeça que já senti", "dor de cabeça mais forte da vida", "dor de cabeça explodiu", "dor de cabeça de repente muito forte", "dor de cabeça que começou de repente e muito forte", "batida na cabeça de tão forte a dor"
+*Como a pessoa descreve:* "pior dor de cabeça da minha vida", "pior dor de cabeça da vida", "dor de cabeça a pior da minha vida", "pior dor de cabeça que já senti", "dor de cabeça mais forte da vida", "dor de cabeça explodiu", "dor de cabeça de repente muito forte", "dor de cabeça que começou de repente e muito forte", "batida na cabeça de tão forte a dor", "dor forte de cabeça que começou de repente"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 🔒 **Bandeira irreversível** — uma vez disparada, não desce.
@@ -600,7 +600,7 @@ Dor de cabeça que atinge intensidade máxima em segundos a minutos, descrita co
 
 Perda de visão de um olho ou dos dois, de instalação súbita, com ou sem dor. Suspeita de oclusão de artéria da retina, descolamento ou AVC occipital. Janela curta para preservar a visão.
 
-*Como a pessoa descreve:* "perdi a visão de um olho", "perdi a vista de repente", "fiquei cego de um olho", "parei de enxergar de um olho", "perda súbita de visão", "cegueira repentina", "não enxergo mais de um olho de repente", "apagou a vista de um olho"
+*Como a pessoa descreve:* "perdi a visão de um olho", "perdi a vista de repente", "fiquei cego de um olho", "parei de enxergar de um olho", "perda súbita de visão", "cegueira repentina", "não enxergo mais de um olho de repente", "apagou a vista de um olho", "vista embaçou de um lado e não volta", "perdi parte da visão de repente"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 🔒 **Bandeira irreversível** — uma vez disparada, não desce.
@@ -658,7 +658,7 @@ Vômitos ou diarreia repetidos sem conseguir manter líquido, boca muito seca, u
 
 Dor abdominal forte, contínua, com barriga dura, febre ou vômitos.
 
-*Como a pessoa descreve:* "dor forte na barriga", "barriga dura", "dor na barriga e vomitando", "cólica muito forte"
+*Como a pessoa descreve:* "dor forte na barriga", "barriga dura", "dor na barriga e vomitando", "cólica muito forte", "dor de barriga muito forte", "dor muito forte na barriga", "dor forte do lado direito da barriga", "dor forte na barriga de um lado", "dor nos rins que irradia", "cólica renal"
 
 
 #### Ferida infectada
@@ -696,7 +696,7 @@ Chiado e falta de ar que não melhoraram com a bombinha de resgate em casa.
 
 Glicemia muito alta OU equivalente clínico (A14): muita sede, urinando muito, emagrecimento rápido, hálito adocicado, náusea.
 
-*Como a pessoa descreve:* "açúcar muito alto", "muita sede e urinando muito", "glicose alta", "hálito doce", "diabético descompensado"
+*Como a pessoa descreve:* "açúcar muito alto", "muita sede e urinando muito", "glicose alta", "hálito doce", "diabético descompensado", "açúcar em 500", "açúcar altíssimo", "glicose muito alta", "açúcar muito alto e vomitando", "diabético vomitando"
 
 
 *Fonte:* A14 — equivalentes clínicos formalizados ao lado dos números.
@@ -707,7 +707,7 @@ Glicemia muito alta OU equivalente clínico (A14): muita sede, urinando muito, e
 
 Dor de dente com inchaço do rosto, febre ou dificuldade de abrir a boca. A10 — destino é a urgência odontológica/CEO, não a UPA.
 
-*Como a pessoa descreve:* "dor de dente e o rosto inchou", "inchaço no rosto por causa do dente", "dificuldade de abrir a boca", "abscesso no dente", "dente inflamado com febre"
+*Como a pessoa descreve:* "dor de dente e o rosto inchou", "inchaço no rosto por causa do dente", "dificuldade de abrir a boca", "abscesso no dente", "dente inflamado com febre", "rosto inchou por causa do dente", "inchou o rosto do dente", "cara inchada do dente", "inchaço na bochecha por causa do dente"
 
 
 *Fonte:* A10 — a rede tem mais portas do que cinco; esta é a porta correta.
@@ -760,7 +760,7 @@ A7 — estimativa por sinais que o cuidador consegue observar: olhos fundos, cho
 
 Pensamentos de morte ou de desaparecer, sem plano estruturado, sem meio disponível e sem intenção imediata. A faixa intermediária que não existia.
 
-*Como a pessoa descreve:* "pensando em sumir", "queria não acordar", "penso em morrer", "não quero mais viver", "tô muito ansiosa, pensando em sumir, mas não fiz nada", "cansei de tudo", "seria melhor se eu não existisse"
+*Como a pessoa descreve:* "pensando em sumir", "queria não acordar", "penso em morrer", "não quero mais viver", "tô muito ansiosa, pensando em sumir, mas não fiz nada", "cansei de tudo", "seria melhor se eu não existisse", "vontade de me matar", "vontade de morrer", "pensamento ruim mas nunca faria nada"
 
 
 *Fonte:* A8 — faixa intermediária entre SAMU e consulta agendada.
@@ -771,7 +771,7 @@ Pensamentos de morte ou de desaparecer, sem plano estruturado, sem meio disponí
 
 Cortes, queimaduras ou outras autolesões sem intenção de morte.
 
-*Como a pessoa descreve:* "me cortei", "me machuquei de propósito", "me queimei de propósito"
+*Como a pessoa descreve:* "me cortei", "me machuquei de propósito", "me queimei de propósito", "se cortou", "se cortou fundo", "se cortou no braço", "cortou os pulsos", "se machucou de propósito", "tá se cortando", "se corta escondido"
 
 
 *Fonte:* A8.
@@ -815,7 +815,7 @@ Suspeita de violência ou negligência contra criança ou adolescente. Notifica�
 
 Agressão, negligência, abandono ou apropriação de bens de pessoa idosa.
 
-*Como a pessoa descreve:* "estão maltratando minha mãe idosa", "idoso abandonado", "tomaram o dinheiro do meu pai"
+*Como a pessoa descreve:* "estão maltratando minha mãe idosa", "idoso abandonado", "tomaram o dinheiro do meu pai", "idoso maltratado", "maltratado pela cuidadora", "maltratam meu pai idoso", "maltratando meu pai", "meu pai idoso sendo maltratado", "a cuidadora maltrata", "idoso apanhando em casa"
 
 
 *Fonte:* A9.
@@ -826,7 +826,7 @@ Agressão, negligência, abandono ou apropriação de bens de pessoa idosa.
 
 Exposição sexual ou por material biológico. Janela de profilaxia em horas.
 
-*Como a pessoa descreve:* "me expus ao hiv", "preciso de pep", "relação sem camisinha com risco", "me furei com agulha usada"
+*Como a pessoa descreve:* "me expus ao hiv", "preciso de pep", "relação sem camisinha com risco", "me furei com agulha usada", "relação sem camisinha", "sexo sem camisinha", "transei sem camisinha", "camisinha estourou", "exposição ao hiv", "medo de ter pego hiv"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 
@@ -860,7 +860,7 @@ Qualquer sangramento vaginal na gestação. Mesmo pequeno, exige avaliação obs
 
 *Fonte:* Auditoria — sangramento na gravidez roteia à maternidade de referência (A11).
 
-### AMARELO — 31 critério(s)
+### AMARELO — 35 critério(s)
 
 #### Pressão alta sem lesão de órgão-alvo
 
@@ -868,7 +868,7 @@ Qualquer sangramento vaginal na gestação. Mesmo pequeno, exige avaliação obs
 
 A3 — no protocolo original, "pressão muito alta sem sintomas neurológicos" ia a LARANJA/UPA. Duas correções: o recorte "neurológicos" era estreito demais (o que separa emergência de pseudocrise é lesão de órgão-alvo em QUALQUER território), e elevação assintomática sem lesão de órgão-alvo é, na prática contemporânea, manejo ambulatorial — não porta de urgência. Como "pressão alta" é uma das queixas mais frequentes da Atenção Básica, este único critério podia responder sozinho por uma fatia expressiva dos encaminhamentos indevidos à UPA.
 
-*Como a pessoa descreve:* "pressão alta", "pressão subiu", "minha pressão deu 18 por 11", "pressão descontrolada", "medi a pressão e tava alta", "pressão alta mas não sinto nada"
+*Como a pessoa descreve:* "pressão alta", "pressão subiu", "minha pressão deu 18 por 11", "pressão descontrolada", "medi a pressão e tava alta", "pressão alta mas não sinto nada", "pressão deu 15 por 9", "pressão deu 17 por 10", "pressão deu alta na farmácia", "medi a pressão em casa e tava alta"
 
 
 **Sinais de alarme** → reclassifica para VERMELHO: Qualquer sinal de lesão de órgão-alvo — em qualquer território, não só neurológico: dor no peito, falta de ar, alteração visual, déficit neurológico, redução do volume de urina.
@@ -917,7 +917,7 @@ Diarreia mantendo boa aceitação de líquidos e urina normal.
 
 Corte com bordas afastadas, sangramento controlado com compressão.
 
-*Como a pessoa descreve:* "corte fundo", "cortei e abriu", "precisa levar ponto", "me cortei"
+*Como a pessoa descreve:* "corte fundo", "cortei e abriu", "precisa levar ponto", "me cortei", "cortei a mão", "cortei o dedo", "me cortei na faca", "cortei na faca", "cortei e tá sangrando", "cortei a mão na faca"
 
 
 #### Dor lombar sem sinais de alarme
@@ -1003,7 +1003,7 @@ Ferida que surge em pessoa acamada, tipicamente nas costas, quadril ou calcanhar
 
 Picada de inseto que inchou, assadura intensa — reação local recente, sem sinais de anafilaxia.
 
-*Como a pessoa descreve:* "picada de inseto que inchou", "picada que inchou", "fui picado e inchou o local", "assadura forte", "assadura do bebê", "brotoeja", "urticária localizada"
+*Como a pessoa descreve:* "picada de inseto que inchou", "picada que inchou", "fui picado e inchou o local", "assadura forte", "assadura do bebê", "brotoeja", "urticária localizada", "reação na pele depois do remédio", "reação na pele depois do antibiótico", "alergia ao antibiótico"
 
 
 *Fonte:* Curadoria B11.
@@ -1014,7 +1014,7 @@ Picada de inseto que inchou, assadura intensa — reação local recente, sem si
 
 Pinta ou sinal que mudou de cor, forma ou tamanho, ou caroço novo que cresce. Merece avaliação dirigida.
 
-*Como a pessoa descreve:* "sinal que mudou de cor", "pinta que mudou", "pinta que cresceu", "caroço que cresce", "caroço embaixo do braço", "caroço no pescoço que cresce", "nódulo que apareceu"
+*Como a pessoa descreve:* "sinal que mudou de cor", "pinta que mudou", "pinta que cresceu", "caroço que cresce", "caroço embaixo do braço", "caroço no pescoço que cresce", "nódulo que apareceu", "caroço na virilha", "caroço na virilha que dói", "íngua na virilha"
 
 
 *Fonte:* Curadoria B11 — lesão suspeita merece avaliação, não espera de fila genérica.
@@ -1025,7 +1025,7 @@ Pinta ou sinal que mudou de cor, forma ou tamanho, ou caroço novo que cresce. M
 
 Dor de ouvido, ouvido entupido ou com secreção — comum em crianças e no adulto após resfriado.
 
-*Como a pessoa descreve:* "ouvido doendo", "dor de ouvido", "ouvido entupido", "ouvido tampado", "ouvido com pus", "dor no ouvido", "meu ouvido tá doendo"
+*Como a pessoa descreve:* "ouvido doendo", "dor de ouvido", "ouvido entupido", "ouvido tampado", "ouvido com pus", "dor no ouvido", "meu ouvido tá doendo", "ouvido tampou", "ouvido latejando", "ouvido inflamado"
 
 
 *Fonte:* Curadoria B11.
@@ -1047,7 +1047,7 @@ Olho vermelho com secreção, coceira e sensação de areia — conjuntivite; ou
 
 Dor de dente, cárie, gengiva inflamada ou sangrando, dente quebrado — sem edema facial (que já é laranja).
 
-*Como a pessoa descreve:* "dor de dente", "dente cariado e doendo", "dente doendo", "dente inflamado", "gengiva sangra", "gengiva inflamada", "quebrei um dente", "dente quebrado"
+*Como a pessoa descreve:* "dor de dente", "dente cariado e doendo", "dente doendo", "dente inflamado", "gengiva sangra", "gengiva inflamada", "quebrei um dente", "dente quebrado", "siso nascendo", "dente do siso doendo"
 
 
 *Fonte:* Curadoria B11 — roteia à urgência odontológica/CEO (A10).
@@ -1069,7 +1069,7 @@ Corrimento, coceira genital, ferida na região íntima, no homem ou na mulher. A
 
 Entorse, contusão, dedo ou membro batido recentemente, sem deformidade nem osso exposto (que já é vermelho).
 
-*Como a pessoa descreve:* "torci o pé", "torci o tornozelo", "entorse", "dedo inchado depois que bati", "bati o dedo e inchou", "dor no cóccix depois de cair", "contusão", "me machuquei na queda"
+*Como a pessoa descreve:* "torci o pé", "torci o tornozelo", "entorse", "dedo inchado depois que bati", "bati o dedo e inchou", "dor no cóccix depois de cair", "contusão", "me machuquei na queda", "bati a canela", "prensei o dedo"
 
 
 *Fonte:* Curadoria B11.
@@ -1102,7 +1102,7 @@ Sangue vermelho vivo no papel ou no vaso ao evacuar, com ou sem dor anal. Distin
 
 Mama dolorida, inchada, vermelha ou empedrada durante a amamentação. Mastite ou ingurgitamento.
 
-*Como a pessoa descreve:* "peito inchado amamentando", "peito empedrado", "seio inflamado amamentando", "mastite", "peito doendo de amamentar", "meu peito tá inchado e doendo"
+*Como a pessoa descreve:* "peito inchado amamentando", "peito empedrado", "seio inflamado amamentando", "mastite", "peito doendo de amamentar", "meu peito tá inchado e doendo", "peito empedrou", "seio empedrou", "leite empedrou", "bico do peito rachou"
 
 
 *Fonte:* Curadoria B11.
@@ -1129,6 +1129,28 @@ Pessoa que bebe demais e quer parar, ou familiar de quem usa drogas buscando aju
 
 *Fonte:* Curadoria B11 — porta para CAPS-AD; distinto da abstinência aguda (A8).
 
+#### Tontura com sensação de rodar
+
+`cur.vertigem` · queixa: neurologica · origem: **B11** · assinatura: **pendente**
+
+Tontura rotatória (labirintite e afins), sem déficit neurológico, sem dor de cabeça súbita e sem desmaio (que sobem o nível).
+
+*Como a pessoa descreve:* "muita tontura e o mundo rodando", "mundo rodando", "tudo rodando", "vertigem", "tontura forte", "labirintite", "cabeça rodando", "tontura que não passa"
+
+
+*Fonte:* Curadoria B11.
+
+#### Queimadura pequena com bolha
+
+`cur.queimadura_leve` · queixa: dermatologica · origem: **B11** · assinatura: **pendente**
+
+Queimadura de pequena extensão que empolou, fora de face, mãos funcionais, genitália ou vias aéreas (que exigem avaliação urgente).
+
+*Como a pessoa descreve:* "queimadura que bolhou", "queimei e bolhou", "queimadura com bolha", "me queimei e empolou", "queimei a mão e bolhou", "queimadura de água quente que empolou"
+
+
+*Fonte:* Curadoria B11 — a queimadura de via aérea e a extensa já são bandeira própria (A5).
+
 #### Pressão baixa com tontura
 
 `cur.hipotensao_sintomatica` · queixa: cardiovascular · origem: **B11** · assinatura: **pendente**
@@ -1146,7 +1168,7 @@ Sensação de pressão baixa com tontura ao levantar, sem desmaio nem confusão.
 
 Açúcar alto na medida, sem os sinais de descompensação (muita sede, urinar muito, hálito adocicado), que já são laranja. Ajuste ambulatorial.
 
-*Como a pessoa descreve:* "açúcar deu 400", "glicose alta de manhã", "açúcar sempre alto", "glicemia alta", "açúcar não abaixa", "açúcar deu alto", "glicose sempre alta"
+*Como a pessoa descreve:* "açúcar deu 400", "glicose alta de manhã", "açúcar sempre alto", "glicemia alta", "açúcar não abaixa", "açúcar deu alto", "glicose sempre alta", "açúcar amanheceu alto", "açúcar amanheceu em 300", "açúcar em 300"
 
 
 *Fonte:* Curadoria B11 — distinto da hiperglicemia sintomática (LARANJA).
@@ -1184,6 +1206,28 @@ Dor abdominal leve, cólica ou que vai e vem, sem barriga dura, febre alta ou v�
 
 *Fonte:* Curadoria B11 — dor abdominal leve; a intensa e a com sinais de alarme sobem por outros critérios.
 
+#### Pele e olhos amarelados
+
+`cur.ictericia` · queixa: gastrointestinal · origem: **B11** · assinatura: **pendente**
+
+Amarelão nos olhos e na pele (icterícia). Pode indicar problema de fígado ou das vias biliares — investigação dirigida.
+
+*Como a pessoa descreve:* "amarelo dos olhos", "olhos amarelos", "pele amarelada", "amarelão", "icterícia", "amarelo dos olhos e da pele", "tá amarelo dos olhos", "ficou amarelo"
+
+
+*Fonte:* Curadoria B11.
+
+#### Queixa comum da gravidez
+
+`cur.gestacao_queixa_comum` · queixa: obstetrica · origem: **B11** · assinatura: **pendente**
+
+Desconfortos comuns da gestação — enjoo, azia, inchaço nas pernas, dor nas costas, contrações fracas — sem os sinais de emergência obstétrica (que são vermelho) nem sangramento/redução de movimento fetal (que já têm critério próprio). Roteia ao pré-natal / maternidade.
+
+*Como a pessoa descreve:* "grávida e enjoando", "grávida enjoando muito", "grávida e pernas incharam", "grávida e inchada", "grávida com azia", "grávida com dor nas costas", "grávida sentindo contrações fracas", "grávida com contrações", "grávida e passando mal"
+
+
+*Fonte:* Curadoria B11 — a idade gestacional detectada roteia à maternidade (A11).
+
 #### Vômitos recentes sem desidratação
 
 `cur.vomito_agudo` · queixa: gastrointestinal · origem: **B11** · assinatura: **pendente**
@@ -1195,7 +1239,7 @@ Poucos episódios de vômito recentes, mantendo líquido. O vômito incoercível
 
 *Fonte:* Curadoria B11.
 
-### VERDE — 14 critério(s)
+### VERDE — 16 critério(s)
 
 #### Acompanhamento de condição crônica
 
@@ -1212,7 +1256,7 @@ Revisão de hipertensão, diabetes, tireoide ou outra condição estável.
 
 A10 — o destino correto é a farmácia da unidade, não uma vaga de consulta. Este caso não pode escalar por agravante de HAS ou DM (A1).
 
-*Como a pessoa descreve:* "renovar receita", "renovar a receita", "preciso renovar a receita da pressão", "acabou meu remédio", "preciso da receita", "receita do remédio venceu"
+*Como a pessoa descreve:* "renovar receita", "renovar a receita", "preciso renovar a receita da pressão", "acabou meu remédio", "preciso da receita", "receita do remédio venceu", "remédio de pressão acabou", "meu remédio acabou", "acabou o remédio da pressão", "acabou o remédio de diabetes"
 
 
 *Fonte:* A10 — "farmácia da unidade (renovação de receita, que hoje ocupa uma vaga de consulta)".
@@ -1243,7 +1287,7 @@ Micose, frieira, verruga, caspa, mancha, ressecamento, acne, unha encravada — 
 
 Zumbido, cera, redução da audição, rouquidão persistente, perda de voz, sinusite recorrente.
 
-*Como a pessoa descreve:* "zumbido no ouvido", "cera no ouvido", "não escuto direito", "ouço mal", "rouco faz dias", "rouco há dias", "voz sumiu", "perdi a voz", "sinusite"
+*Como a pessoa descreve:* "zumbido no ouvido", "cera no ouvido", "não escuto direito", "ouço mal", "rouco faz dias", "rouco há dias", "voz sumiu", "perdi a voz", "sinusite", "ouvido zunindo"
 
 
 *Fonte:* Curadoria B11.
@@ -1254,7 +1298,7 @@ Zumbido, cera, redução da audição, rouquidão persistente, perda de voz, sin
 
 Terçol, necessidade de óculos, coceira ocular alérgica, visão embaçada de evolução lenta.
 
-*Como a pessoa descreve:* "terçol", "preciso de óculos", "não enxergo de longe", "coceira no olho", "olho coçando", "vista embaçada faz tempo", "vista cansada"
+*Como a pessoa descreve:* "terçol", "preciso de óculos", "não enxergo de longe", "coceira no olho", "olho coçando", "vista embaçada faz tempo", "vista cansada", "vista embaçando pra ler", "dificuldade pra ler", "olho coça muito"
 
 
 *Fonte:* Curadoria B11.
@@ -1265,7 +1309,7 @@ Terçol, necessidade de óculos, coceira ocular alérgica, visão embaçada de e
 
 Extração programada, limpeza, revisão — demanda odontológica sem urgência.
 
-*Como a pessoa descreve:* "preciso extrair um dente", "quero fazer limpeza", "revisão do dente", "consulta no dentista"
+*Como a pessoa descreve:* "preciso extrair um dente", "quero fazer limpeza", "revisão do dente", "consulta no dentista", "limpeza nos dentes", "tártaro", "boca cheia de tártaro", "aparelho machucou", "aparelho no dente machucando"
 
 
 *Fonte:* Curadoria B11.
@@ -1298,7 +1342,7 @@ Dor em ombro, joelho, cotovelo, punho, calcanhar, pescoço ou coluna, de evoluç
 
 Colesterol, triglicerídeos, tireoide ou hemograma alterados no exame, sem sintoma agudo. Consulta para conduta.
 
-*Como a pessoa descreve:* "colesterol alto", "triglicerídeos altos", "tireoide alterada", "anemia no exame", "exame alterado", "exame deu alterado", "resultado alterado"
+*Como a pessoa descreve:* "colesterol alto", "triglicerídeos altos", "tireoide alterada", "anemia no exame", "exame alterado", "exame deu alterado", "resultado alterado", "colesterol e triglicerídeo alto", "triglicerídeo alto", "acompanhar a tireoide"
 
 
 *Fonte:* Curadoria B11.
@@ -1309,7 +1353,7 @@ Colesterol, triglicerídeos, tireoide ou hemograma alterados no exame, sem sinto
 
 Azia, queimação no estômago, refluxo, gastrite — sintomas dispépticos crônicos. A dor torácica é discriminada pelo bloco fixo de segurança (B4).
 
-*Como a pessoa descreve:* "azia", "queimação no estômago", "gastrite", "refluxo", "estômago embrulhado", "má digestão", "empachado", "queimação depois que como"
+*Como a pessoa descreve:* "azia", "queimação no estômago", "gastrite", "refluxo", "estômago embrulhado", "má digestão", "empachado", "queimação depois que como", "muito gás", "barriga estufada de gás"
 
 
 *Fonte:* Curadoria B11 — dispepsia, o item que a expansão anterior deixou explicitamente em aberto para a retaguarda. Entra como VERDE, e o bloco fixo de segurança segue descartando dor torácica.
@@ -1320,7 +1364,7 @@ Azia, queimação no estômago, refluxo, gastrite — sintomas dispépticos crô
 
 Piolho, verme, baixo ganho de peso, puericultura — demanda pediátrica sem sinal de gravidade.
 
-*Como a pessoa descreve:* "piolho", "verme", "coça o bumbum", "oxiúro", "não ganha peso", "não tá ganhando peso", "puericultura", "consulta do bebê", "acompanhamento do bebê"
+*Como a pessoa descreve:* "piolho", "verme", "coça o bumbum", "oxiúro", "não ganha peso", "não tá ganhando peso", "puericultura", "consulta do bebê", "acompanhamento do bebê", "molha a cama"
 
 
 *Fonte:* Curadoria B11.
@@ -1343,6 +1387,28 @@ Queixa de memória — esquecimento progressivo — sem confusão aguda (que é 
 Preventivo, pré-natal, mamografia, exame de próstata, teste rápido — demanda de rastreamento, agendável.
 
 *Como a pessoa descreve:* "quero fazer o preventivo", "preventivo", "papanicolau", "fazer o pré-natal", "pré-natal", "marcar a mamografia", "mamografia", "teste de covid", "teste de gravidez", "exame de próstata"
+
+
+*Fonte:* Curadoria B11.
+
+#### Planejamento familiar e contracepção
+
+`cur.planejamento_familiar` · queixa: administrativa · origem: **B11** · assinatura: **pendente**
+
+Início ou dúvida de método contraceptivo, DIU, laqueadura ou vasectomia — demanda agendável.
+
+*Como a pessoa descreve:* "quero começar a tomar anticoncepcional", "começar anticoncepcional", "quero anticoncepcional", "quero saber sobre o diu", "diu", "laqueadura", "método contraceptivo", "vasectomia", "planejamento familiar", "quero um método pra não engravidar"
+
+
+*Fonte:* Curadoria B11.
+
+#### Sintomas da menopausa
+
+`cur.climaterio` · queixa: geral · origem: **B11** · assinatura: **pendente**
+
+Ondas de calor, fogachos, suor e irregularidade menstrual do climatério.
+
+*Como a pessoa descreve:* "fogacho", "fogacho e suor", "calorão", "menopausa", "sintomas da menopausa", "ondas de calor", "calorão da menopausa", "suando muito da menopausa"
 
 
 *Fonte:* Curadoria B11.
