@@ -102,7 +102,12 @@ export type OrigemAchado =
   | 'B1' | 'B2' | 'B3' | 'B4' | 'B5' | 'B6' | 'B7' | 'B8' | 'B9' | 'B10' | 'B11'
   | 'C1' | 'C2' | 'C3' | 'C4' | 'C5' | 'C6' | 'C7'
   | 'D1' | 'D2' | 'D3' | 'D4' | 'D5' | 'D6'
-  | 'E1' | 'E2' | 'E3' | 'E4' | 'E5' | 'E6';
+  | 'E1' | 'E2' | 'E3' | 'E4' | 'E5' | 'E6'
+  // Achado da AUDITORIA de 315 relatos sintéticos (npm run auditar) — a "recomendação de
+  // sequência" do sumário executivo levada a sério. Não estava na revisão; emergiu de rodar
+  // o piloto sobre a demanda real. É o mecanismo de B11 (curadoria de não reconhecidos)
+  // funcionando antes de ligar o sistema, exatamente como a revisão pede.
+  | 'auditoria';
 
 export interface Criterio {
   id: string;

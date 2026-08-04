@@ -13,7 +13,7 @@
 
 > ⚠️ **Protocolo NÃO validado clinicamente. Critérios com assinatura pendente são propostas de partida extraídas da revisão técnica, para discussão com a enfermeira do acolhimento e a retaguarda médica da unidade.**
 >
-> **64 de 64 critérios aguardam assinatura** da enfermeira do
+> **100 de 100 critérios aguardam assinatura** da enfermeira do
 > acolhimento e da retaguarda médica.
 
 ## Aviso permanente exibido ao usuário
@@ -58,9 +58,9 @@ não resolve (achado A10).
 | **Vigilância epidemiológica** | Caso sinalizado para a vigilância epidemiológica do município. | sim | sim | A6 |
 | **CVV — 188** | Ligue 188 (CVV). É gratuito, sigiloso e funciona 24 horas por dia. Você pode falar com alguém agora mesmo. | não | sim | A8 |
 
-## Critérios (64)
+## Critérios (100)
 
-### VERMELHO — 27 critério(s)
+### VERMELHO — 29 critério(s)
 
 #### Dor no peito com sinais de gravidade
 
@@ -105,7 +105,7 @@ Início súbito de: fraqueza ou dormência de um lado do corpo, boca ou rosto to
 
 Crise convulsiva acontecendo agora, crise com mais de 5 minutos, crises repetidas sem recuperação entre elas, ou primeira crise da vida.
 
-*Como a pessoa descreve:* "convulsão", "convulsionando", "tendo ataque", "ataque epilético", "tremendo todo e roxo", "virou os olhos e tremeu", "caiu duro tremendo"
+*Como a pessoa descreve:* "convulsão", "convulsionando", "convulsionou", "deu convulsão", "tendo ataque", "ataque epilético", "tremendo todo e roxo", "virou os olhos e tremeu", "caiu duro tremendo"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 🔒 **Bandeira irreversível** — uma vez disparada, não desce.
@@ -124,7 +124,7 @@ Crise convulsiva acontecendo agora, crise com mais de 5 minutos, crises repetida
 
 Dificuldade de respirar em repouso, incapacidade de completar uma frase, chiado intenso, lábios ou dedos arroxeados, respiração muito rápida.
 
-*Como a pessoa descreve:* "não consigo respirar", "falta de ar forte", "sem ar", "roxo", "lábio roxo", "respirando muito rápido", "cansaço pra respirar", "chiando muito", "não consegue falar de falta de ar"
+*Como a pessoa descreve:* "não consigo respirar", "falta de ar forte", "sem ar", "lábio roxo", "beiço roxo", "respirando muito rápido", "cansaço pra respirar", "chiando muito", "não consegue falar de falta de ar", "não consegue respirar"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 🔒 **Bandeira irreversível** — uma vez disparada, não desce.
@@ -364,10 +364,12 @@ Dor lombar com perda de força ou dormência nas pernas, dormência na região e
 
 Febre ou hipotermia com confusão mental, respiração rápida, pressão baixa, tremor intenso ou sonolência. No idoso pode se apresentar só como confusão e prostração. Foco urinário ou pulmonar não tinha porta no protocolo original.
 
-*Como a pessoa descreve:* "febre e muito confuso", "tremendo muito e pressão baixa", "respirando rápido e sonolento", "idoso confuso com febre", "muito confusa com febre e respirando rápido", "febre e prostrado"
+*Como a pessoa descreve:* "febre e muito confuso", "tremendo muito e pressão baixa", "respirando rápido e sonolento", "idoso confuso com febre", "muito confusa com febre e respirando rápido", "febre e prostrado", "muito confuso", "muito confusa", "confuso", "confusa"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 🔒 **Bandeira irreversível** — uma vez disparada, não desce.
+
+*Só dispara na conjunção:* (febre ou febril ou corpo quente ou quente ou 38 ou 39 ou 40 ou hipotermia) **E** (confus ou desorient ou sonolent ou prostrad ou respirando rapido ou respiracao rapida ou tremendo muito ou pressao baixa)
 
 **Enquanto a ajuda não chega:**
 
@@ -573,7 +575,45 @@ Agressão física, ameaça ou cárcere em curso ou risco iminente.
 
 *Fonte:* A9.
 
-### LARANJA — 19 critério(s)
+#### Cefaleia súbita e explosiva (thunderclap)
+
+`au.cefaleia_thunderclap` · queixa: neurologica · origem: **auditoria** · assinatura: **pendente**
+
+Dor de cabeça que atinge intensidade máxima em segundos a minutos, descrita como "a pior da vida". Suspeita de hemorragia subaracnóidea. Distinta da enxaqueca e da cefaleia tensional.
+
+*Como a pessoa descreve:* "pior dor de cabeça da minha vida", "pior dor de cabeça da vida", "dor de cabeça a pior da minha vida", "pior dor de cabeça que já senti", "dor de cabeça mais forte da vida", "dor de cabeça explodiu", "dor de cabeça de repente muito forte", "dor de cabeça que começou de repente e muito forte", "batida na cabeça de tão forte a dor"
+
+⏱ **Tempo-dependente** — a janela terapêutica é curta.
+🔒 **Bandeira irreversível** — uma vez disparada, não desce.
+
+**Enquanto a ajuda não chega:**
+
+1. Ligue 192 e diga que a dor começou de repente e é a pior da vida.
+2. Fique em ambiente calmo e com pouca luz.
+3. Não tome analgésico por conta própria antes de ser avaliada.
+
+*Fonte:* Auditoria — cefaleia thunderclap é bandeira tempo-dependente clássica, ausente do protocolo.
+
+#### Perda súbita de visão
+
+`au.amaurose_subita` · queixa: ocular · origem: **auditoria** · assinatura: **pendente**
+
+Perda de visão de um olho ou dos dois, de instalação súbita, com ou sem dor. Suspeita de oclusão de artéria da retina, descolamento ou AVC occipital. Janela curta para preservar a visão.
+
+*Como a pessoa descreve:* "perdi a visão de um olho", "perdi a vista de repente", "fiquei cego de um olho", "parei de enxergar de um olho", "perda súbita de visão", "cegueira repentina", "não enxergo mais de um olho de repente", "apagou a vista de um olho"
+
+⏱ **Tempo-dependente** — a janela terapêutica é curta.
+🔒 **Bandeira irreversível** — uma vez disparada, não desce.
+
+**Enquanto a ajuda não chega:**
+
+1. Vá agora ao serviço de referência ou ligue 192 — cada hora conta para salvar a visão.
+2. Não esfregue o olho.
+3. Anote a que horas a perda começou.
+
+*Fonte:* Auditoria — amaurose súbita é urgência oftalmológica/neurológica tempo-dependente.
+
+### LARANJA — 21 critério(s)
 
 #### Retenção urinária aguda
 
@@ -581,7 +621,7 @@ Agressão física, ameaça ou cárcere em curso ou risco iminente.
 
 Incapacidade de urinar por muitas horas, com bexiga distendida, dor e vontade intensa. Urgência de alívio; sem critério no protocolo original.
 
-*Como a pessoa descreve:* "não consigo urinar desde ontem", "barriga estufada e vontade de urinar", "não sai xixi", "tô com a bexiga cheia e não consigo fazer", "não urino há horas"
+*Como a pessoa descreve:* "não consigo urinar desde ontem", "barriga estufada e vontade de urinar", "não sai xixi", "tô com a bexiga cheia e não consigo fazer", "não urino há horas", "não tá urinando", "não urina desde ontem", "não faz xixi desde ontem", "não consegue urinar", "parou de urinar"
 
 ⏱ **Tempo-dependente** — a janela terapêutica é curta.
 
@@ -609,7 +649,7 @@ A4 — a escala numérica é o parâmetro mais fácil de manipular e é sistemat
 
 Vômitos ou diarreia repetidos sem conseguir manter líquido, boca muito seca, urina escassa.
 
-*Como a pessoa descreve:* "vomitando tudo", "não para de vomitar", "não consigo beber água", "quase não faço xixi", "diarreia sem parar", "boca seca e fraco"
+*Como a pessoa descreve:* "vomitando tudo", "não para de vomitar", "não consigo beber água", "quase não faço xixi", "diarreia sem parar", "boca seca e fraco", "não consigo segurar água", "não seguro nada no estômago", "vomito até água", "não paro de vomitar"
 
 
 #### Dor abdominal intensa
@@ -627,7 +667,7 @@ Dor abdominal forte, contínua, com barriga dura, febre ou vômitos.
 
 Ferida com pus, vermelhidão que se espalha, calor local, febre ou mau cheiro.
 
-*Como a pessoa descreve:* "ferida com pus", "ferida inflamada", "ferida cheirando mal", "machucado vermelho e quente", "ferida no pé que não sara"
+*Como a pessoa descreve:* "ferida com pus", "ferida inflamada", "ferida cheirando mal", "machucado vermelho e quente", "ferida no pé que não sara", "ferida que não sara", "ferida que não cicatriza", "ferida há meses", "ferida no pé", "ferida que não fecha"
 
 
 #### Falta de ar aos esforços
@@ -764,7 +804,7 @@ Tremor, sudorese, agitação, náusea ou confusão após parar o uso.
 
 Suspeita de violência ou negligência contra criança ou adolescente. Notificação compulsória.
 
-*Como a pessoa descreve:* "estão batendo na criança", "criança com marcas", "criança abandonada", "meu vizinho bate no filho"
+*Como a pessoa descreve:* "estão batendo na criança", "criança com marcas", "criança abandonada", "bate no filho", "bate na filha", "bate no menino", "bate na menina", "batendo no filho", "espancando a criança", "batem na criança"
 
 
 *Fonte:* A9 — encaminhamento inclui conselho tutelar quando aplicável.
@@ -796,7 +836,31 @@ Exposição sexual ou por material biológico. Janela de profilaxia em horas.
 
 *Fonte:* A9.
 
-### AMARELO — 10 critério(s)
+#### Redução dos movimentos fetais
+
+`au.mov_fetal_reduzido` · queixa: obstetrica · origem: **auditoria** · assinatura: **pendente**
+
+Gestante que percebe o bebê mexendo menos, ou parou de sentir os movimentos. Sinal de possível sofrimento fetal — avaliação obstétrica com cardiotocografia.
+
+*Como a pessoa descreve:* "bebe nao mexe", "nenem nao mexe", "o bebe parou de mexer", "nao sinto o bebe mexer", "nao sinto o nenem mexer", "bebe mexendo pouco", "diminuiu o movimento do bebe", "o bebe ta mexendo menos", "faz tempo que nao sinto o bebe"
+
+⏱ **Tempo-dependente** — a janela terapêutica é curta.
+
+*Fonte:* Auditoria — redução de movimento fetal exige avaliação obstétrica; roteia à maternidade (A11).
+
+#### Sangramento na gravidez
+
+`au.sangramento_gestacional` · queixa: obstetrica · origem: **auditoria** · assinatura: **pendente**
+
+Qualquer sangramento vaginal na gestação. Mesmo pequeno, exige avaliação obstétrica para descartar descolamento, placenta prévia e outras causas. O sangramento intenso já é vermelho.
+
+*Como a pessoa descreve:* "gravida e sangrando", "gravida sangrando", "sangramento na gravidez", "sangrando um pouco gravida", "perdendo sangue gravida", "sangrando na gestacao", "to gravida e sangrando um pouco", "gravida com sangramento"
+
+⏱ **Tempo-dependente** — a janela terapêutica é curta.
+
+*Fonte:* Auditoria — sangramento na gravidez roteia à maternidade de referência (A11).
+
+### AMARELO — 31 critério(s)
 
 #### Pressão alta sem lesão de órgão-alvo
 
@@ -835,7 +899,7 @@ Dor que incomoda mas não impede as atividades habituais.
 
 Ardência ao urinar, urgência, urina turva ou com cheiro forte, sem febre alta ou dor lombar.
 
-*Como a pessoa descreve:* "ardência pra urinar", "ardendo pra fazer xixi", "infecção urinária", "xixi turvo", "vontade de urinar toda hora"
+*Como a pessoa descreve:* "ardência pra urinar", "ardendo pra fazer xixi", "infecção urinária", "xixi turvo", "vontade de urinar toda hora", "mijo turvo", "urina turva", "mijo fedendo", "urina com cheiro forte", "arde quando faço xixi"
 
 
 #### Diarreia sem sinais de desidratação
@@ -900,7 +964,238 @@ Perda recente com sofrimento incapacitante.
 
 *Fonte:* A8.
 
-### VERDE — 3 critério(s)
+#### Tosse por mais de três semanas
+
+`au.tuberculose_suspeita` · queixa: respiratoria · origem: **auditoria** · assinatura: **pendente**
+
+Tosse persistente por mais de três semanas, especialmente com emagrecimento, sudorese noturna ou febre vespertina. Sintomático respiratório — investigar tuberculose. Notificação.
+
+*Como a pessoa descreve:* "tossindo há mais de três semanas", "tosse há mais de 3 semanas", "tosse de três semanas e emagrecendo", "tosse mais de tres semanas", "tossindo faz um mês", "tosse que não passa e emagrecendo", "tossindo há mais de três semanas e emagrecendo", "tosse com suor à noite"
+
+
+*Fonte:* Auditoria — sintomático respiratório (tosse >3 semanas) é busca ativa de tuberculose, com notificação à vigilância. Antes caía em síndrome gripal (AZUL/casa).
+
+#### Sangue na urina
+
+`au.hematuria` · queixa: urologica · origem: **auditoria** · assinatura: **pendente**
+
+Presença de sangue na urina sem ardência nem febre associadas. Exige investigação — pode indicar desde cálculo até causas que se beneficiam de diagnóstico precoce.
+
+*Como a pessoa descreve:* "sangue no mijo", "sangue na urina", "mijando sangue", "urina com sangue", "to mijando sangue", "sangue quando faço xixi"
+
+
+*Fonte:* Auditoria — hematúria isolada exige investigação ambulatorial dirigida.
+
+#### Ferida por pressão em pessoa acamada
+
+`au.ulcera_pressao` · queixa: dermatologica · origem: **auditoria** · assinatura: **pendente**
+
+Ferida que surge em pessoa acamada, tipicamente nas costas, quadril ou calcanhar. Úlcera por pressão — o cuidado é da equipe da microárea, que vai até a pessoa (A13).
+
+*Como a pessoa descreve:* "ferida nas costas de acamado", "escara", "ferida de cama", "ferida em quem fica deitado", "ferida no bumbum de acamado", "ferida de pressão", "apareceu uma ferida nas costas"
+
+
+*Fonte:* Auditoria — úlcera por pressão; acamado muda a modalidade para a equipe eSF (A13).
+
+#### Reação de pele recente
+
+`cur.reacao_cutanea_aguda` · queixa: dermatologica · origem: **B11** · assinatura: **pendente**
+
+Picada de inseto que inchou, assadura intensa — reação local recente, sem sinais de anafilaxia.
+
+*Como a pessoa descreve:* "picada de inseto que inchou", "picada que inchou", "fui picado e inchou o local", "assadura forte", "assadura do bebê", "brotoeja", "urticária localizada"
+
+
+*Fonte:* Curadoria B11.
+
+#### Sinal de pele ou caroço que mudou
+
+`cur.lesao_cutanea_suspeita` · queixa: dermatologica · origem: **B11** · assinatura: **pendente**
+
+Pinta ou sinal que mudou de cor, forma ou tamanho, ou caroço novo que cresce. Merece avaliação dirigida.
+
+*Como a pessoa descreve:* "sinal que mudou de cor", "pinta que mudou", "pinta que cresceu", "caroço que cresce", "caroço embaixo do braço", "caroço no pescoço que cresce", "nódulo que apareceu"
+
+
+*Fonte:* Curadoria B11 — lesão suspeita merece avaliação, não espera de fila genérica.
+
+#### Dor de ouvido
+
+`cur.otalgia` · queixa: infecciosa · origem: **B11** · assinatura: **pendente**
+
+Dor de ouvido, ouvido entupido ou com secreção — comum em crianças e no adulto após resfriado.
+
+*Como a pessoa descreve:* "ouvido doendo", "dor de ouvido", "ouvido entupido", "ouvido tampado", "ouvido com pus", "dor no ouvido", "meu ouvido tá doendo"
+
+
+*Fonte:* Curadoria B11.
+
+#### Olho vermelho e remelando
+
+`cur.conjuntivite` · queixa: ocular · origem: **B11** · assinatura: **pendente**
+
+Olho vermelho com secreção, coceira e sensação de areia — conjuntivite; ou cisco/corpo estranho superficial.
+
+*Como a pessoa descreve:* "olho vermelho e remelando", "olho remelando", "conjuntivite", "olho vermelho", "cisco no olho", "entrou cisco no olho", "areia no olho", "olho grudando"
+
+
+*Fonte:* Curadoria B11.
+
+#### Dor de dente sem inchaço do rosto
+
+`cur.odontalgia` · queixa: odontologica · origem: **B11** · assinatura: **pendente**
+
+Dor de dente, cárie, gengiva inflamada ou sangrando, dente quebrado — sem edema facial (que já é laranja).
+
+*Como a pessoa descreve:* "dor de dente", "dente cariado e doendo", "dente doendo", "dente inflamado", "gengiva sangra", "gengiva inflamada", "quebrei um dente", "dente quebrado"
+
+
+*Fonte:* Curadoria B11 — roteia à urgência odontológica/CEO (A10).
+
+#### Corrimento ou sintoma genital
+
+`cur.corrimento_ist` · queixa: urologica · origem: **B11** · assinatura: **pendente**
+
+Corrimento, coceira genital, ferida na região íntima, no homem ou na mulher. Avaliar infecção sexualmente transmissível.
+
+*Como a pessoa descreve:* "corrimento amarelado", "corrimento", "coceira na vagina", "ferida na região íntima", "corrimento no homem", "ferida na parte íntima", "coceira íntima"
+
+
+*Fonte:* Curadoria B11.
+
+#### Torção, contusão ou pancada recente
+
+`cur.trauma_leve_recente` · queixa: trauma · origem: **B11** · assinatura: **pendente**
+
+Entorse, contusão, dedo ou membro batido recentemente, sem deformidade nem osso exposto (que já é vermelho).
+
+*Como a pessoa descreve:* "torci o pé", "torci o tornozelo", "entorse", "dedo inchado depois que bati", "bati o dedo e inchou", "dor no cóccix depois de cair", "contusão", "me machuquei na queda"
+
+
+*Fonte:* Curadoria B11.
+
+#### Prisão de ventre
+
+`cur.constipacao` · queixa: gastrointestinal · origem: **B11** · assinatura: **pendente**
+
+Intestino preso por dias, sem distensão dolorosa nem vômito (que sugeririam obstrução, já coberta por dor abdominal intensa).
+
+*Como a pessoa descreve:* "prisão de ventre", "intestino preso", "intestino trancado", "não vou ao banheiro faz dias", "não evacuo faz dias", "ressecado do intestino"
+
+
+*Fonte:* Curadoria B11 — antes mapeada por engano para "diarreia" no dicionário regional.
+
+#### Hemorroida ou sangue vivo ao evacuar
+
+`cur.hemorroida` · queixa: gastrointestinal · origem: **B11** · assinatura: **pendente**
+
+Sangue vermelho vivo no papel ou no vaso ao evacuar, com ou sem dor anal. Distinto de fezes pretas (melena), que é vermelho.
+
+*Como a pessoa descreve:* "hemorroida", "sangue vivo no papel", "sangramento ao evacuar", "sangue no papel higiênico", "sangra quando vou ao banheiro", "bico de hemorroida"
+
+
+*Fonte:* Curadoria B11.
+
+#### Peito inflamado na amamentação
+
+`cur.mastite` · queixa: geral · origem: **B11** · assinatura: **pendente**
+
+Mama dolorida, inchada, vermelha ou empedrada durante a amamentação. Mastite ou ingurgitamento.
+
+*Como a pessoa descreve:* "peito inchado amamentando", "peito empedrado", "seio inflamado amamentando", "mastite", "peito doendo de amamentar", "meu peito tá inchado e doendo"
+
+
+*Fonte:* Curadoria B11.
+
+#### Sapinho na boca do bebê
+
+`cur.sapinho` · queixa: pediatrica · origem: **B11** · assinatura: **pendente**
+
+Placas brancas na boca do bebê (candidíase oral), que podem atrapalhar a mamada.
+
+*Como a pessoa descreve:* "sapinho na boca", "sapinho", "placas brancas na boca do bebê", "boca do bebê com placas brancas"
+
+
+*Fonte:* Curadoria B11.
+
+#### Uso de álcool ou outras drogas — busca de ajuda
+
+`cur.uso_substancias` · queixa: saude_mental · origem: **B11** · assinatura: **pendente**
+
+Pessoa que bebe demais e quer parar, ou familiar de quem usa drogas buscando ajuda, sem quadro agudo de abstinência (que é laranja).
+
+*Como a pessoa descreve:* "bebendo demais e quero parar", "quero parar de beber", "bebo demais", "usando droga", "meu filho tá usando droga", "preciso de ajuda com bebida", "dependente químico"
+
+
+*Fonte:* Curadoria B11 — porta para CAPS-AD; distinto da abstinência aguda (A8).
+
+#### Pressão baixa com tontura
+
+`cur.hipotensao_sintomatica` · queixa: cardiovascular · origem: **B11** · assinatura: **pendente**
+
+Sensação de pressão baixa com tontura ao levantar, sem desmaio nem confusão. Avaliar medicação e hidratação.
+
+*Como a pessoa descreve:* "pressão caiu", "pressão baixa", "pressão caiu e fiquei tonto", "pressão baixa e tontura", "fiquei tonto quando levantei", "minha pressão tá baixa"
+
+
+*Fonte:* Curadoria B11.
+
+#### Glicemia alta sem sintoma agudo
+
+`cur.glicemia_alta_assintomatica` · queixa: metabolica · origem: **B11** · assinatura: **pendente**
+
+Açúcar alto na medida, sem os sinais de descompensação (muita sede, urinar muito, hálito adocicado), que já são laranja. Ajuste ambulatorial.
+
+*Como a pessoa descreve:* "açúcar deu 400", "glicose alta de manhã", "açúcar sempre alto", "glicemia alta", "açúcar não abaixa", "açúcar deu alto", "glicose sempre alta"
+
+
+*Fonte:* Curadoria B11 — distinto da hiperglicemia sintomática (LARANJA).
+
+#### Emagrecimento sem causa
+
+`cur.perda_peso` · queixa: geral · origem: **B11** · assinatura: **pendente**
+
+Perda de peso não intencional, ou idoso que não quer comer e emagrece. Investigação dirigida.
+
+*Como a pessoa descreve:* "emagrecendo sem motivo", "perdi peso sem dieta", "perdi 8 quilos", "perdi peso sem querer", "emagrecendo", "não quer comer e tá emagrecendo", "perdendo peso sem motivo"
+
+
+*Fonte:* Curadoria B11.
+
+#### Perna inchada e vermelha de um lado
+
+`cur.membro_inchado` · queixa: cardiovascular · origem: **B11** · assinatura: **pendente**
+
+Inchaço e vermelhidão em uma perna. Avaliar trombose e erisipela — não deixar em fila genérica.
+
+*Como a pessoa descreve:* "perna inchada e vermelha", "panturrilha inchada", "perna inchada de um lado", "perna vermelha e inchada", "batata da perna inchada e dolorida"
+
+
+*Fonte:* Curadoria B11.
+
+#### Dor de barriga leve ou recorrente
+
+`cur.dor_abdominal_leve` · queixa: gastrointestinal · origem: **B11** · assinatura: **pendente**
+
+Dor abdominal leve, cólica ou que vai e vem, sem barriga dura, febre alta ou vômitos persistentes (que já elevam para laranja).
+
+*Como a pessoa descreve:* "dor de barriga", "dor de barriga faz dias", "dor de barriga leve", "cólica leve", "cólica forte", "dor de barriga que vai e vem", "dor na barriga fraca"
+
+
+*Fonte:* Curadoria B11 — dor abdominal leve; a intensa e a com sinais de alarme sobem por outros critérios.
+
+#### Vômitos recentes sem desidratação
+
+`cur.vomito_agudo` · queixa: gastrointestinal · origem: **B11** · assinatura: **pendente**
+
+Poucos episódios de vômito recentes, mantendo líquido. O vômito incoercível e a desidratação já sobem para laranja.
+
+*Como a pessoa descreve:* "vomitou três vezes", "vomitou várias vezes", "vomitando bastante", "vomitei de manhã", "enjoo o dia todo", "muito enjoo"
+
+
+*Fonte:* Curadoria B11.
+
+### VERDE — 14 critério(s)
 
 #### Acompanhamento de condição crônica
 
@@ -928,8 +1223,129 @@ A10 — o destino correto é a farmácia da unidade, não uma vaga de consulta. 
 
 Sofrimento psíquico sem ideação, sem autolesão e sem crise aguda. Ver trilha de saúde mental (A8) para tudo que estiver acima disto.
 
-*Como a pessoa descreve:* "ansiedade", "não consigo dormir", "preciso de psicólogo", "tô triste", "estresse", "insônia"
+*Como a pessoa descreve:* "ansiedade", "não consigo dormir", "preciso de psicólogo", "tô triste", "estresse", "insônia", "ansiosa", "ansioso", "muito ansiosa", "muito ansioso"
 
+
+#### Problema de pele de evolução lenta
+
+`cur.dermatose_cronica` · queixa: dermatologica · origem: **B11** · assinatura: **pendente**
+
+Micose, frieira, verruga, caspa, mancha, ressecamento, acne, unha encravada — quadros de pele sem sinais de infecção sistêmica.
+
+*Como a pessoa descreve:* "micose", "frieira", "verruga", "caspa", "mancha na pele", "mancha branca no braço", "pele ressecada", "pele descascando", "acne", "espinha no rosto"
+
+
+*Fonte:* Curadoria B11 — dermatologia ambulatorial, ausente do protocolo.
+
+#### Queixa de ouvido, nariz ou garganta de evolução lenta
+
+`cur.orl_cronico` · queixa: respiratoria · origem: **B11** · assinatura: **pendente**
+
+Zumbido, cera, redução da audição, rouquidão persistente, perda de voz, sinusite recorrente.
+
+*Como a pessoa descreve:* "zumbido no ouvido", "cera no ouvido", "não escuto direito", "ouço mal", "rouco faz dias", "rouco há dias", "voz sumiu", "perdi a voz", "sinusite"
+
+
+*Fonte:* Curadoria B11.
+
+#### Vista cansada ou coceira nos olhos
+
+`cur.oftalmo_ambulatorial` · queixa: ocular · origem: **B11** · assinatura: **pendente**
+
+Terçol, necessidade de óculos, coceira ocular alérgica, visão embaçada de evolução lenta.
+
+*Como a pessoa descreve:* "terçol", "preciso de óculos", "não enxergo de longe", "coceira no olho", "olho coçando", "vista embaçada faz tempo", "vista cansada"
+
+
+*Fonte:* Curadoria B11.
+
+#### Necessidade odontológica sem dor
+
+`cur.odonto_agendado` · queixa: odontologica · origem: **B11** · assinatura: **pendente**
+
+Extração programada, limpeza, revisão — demanda odontológica sem urgência.
+
+*Como a pessoa descreve:* "preciso extrair um dente", "quero fazer limpeza", "revisão do dente", "consulta no dentista"
+
+
+*Fonte:* Curadoria B11.
+
+#### Alteração menstrual sem dor aguda
+
+`cur.disturbio_menstrual` · queixa: geral · origem: **B11** · assinatura: **pendente**
+
+Menstruação muito intensa, ausência de menstruação sem gravidez, dor na relação — sem dor abdominal aguda de um lado (que já é vermelho, ectópica).
+
+*Como a pessoa descreve:* "menstruação muito forte", "menstruação muito intensa", "sem menstruar faz meses", "sem menstruar faz três meses", "dor durante a relação", "menstruação irregular"
+
+
+*Fonte:* Curadoria B11.
+
+#### Dor articular ou muscular de longa data
+
+`cur.dor_musculo_cronica` · queixa: geral · origem: **B11** · assinatura: **pendente**
+
+Dor em ombro, joelho, cotovelo, punho, calcanhar, pescoço ou coluna, de evolução lenta; cãibras, varizes, formigamento crônico. Sem sinal de alarme neurológico.
+
+*Como a pessoa descreve:* "dor no ombro", "dor no joelho", "joelho inchado", "tendinite", "dor no cotovelo", "dor no punho", "dor no calcanhar", "cãibra à noite", "varizes doendo", "varizes"
+
+
+*Fonte:* Curadoria B11 — dor musculoesquelética crônica, encaminhamento eletivo.
+
+#### Resultado de exame alterado
+
+`cur.exame_alterado` · queixa: geral · origem: **B11** · assinatura: **pendente**
+
+Colesterol, triglicerídeos, tireoide ou hemograma alterados no exame, sem sintoma agudo. Consulta para conduta.
+
+*Como a pessoa descreve:* "colesterol alto", "triglicerídeos altos", "tireoide alterada", "anemia no exame", "exame alterado", "exame deu alterado", "resultado alterado"
+
+
+*Fonte:* Curadoria B11.
+
+#### Azia e má digestão
+
+`cur.dispepsia` · queixa: gastrointestinal · origem: **B11** · assinatura: **pendente**
+
+Azia, queimação no estômago, refluxo, gastrite — sintomas dispépticos crônicos. A dor torácica é discriminada pelo bloco fixo de segurança (B4).
+
+*Como a pessoa descreve:* "azia", "queimação no estômago", "gastrite", "refluxo", "estômago embrulhado", "má digestão", "empachado", "queimação depois que como"
+
+
+*Fonte:* Curadoria B11 — dispepsia, o item que a expansão anterior deixou explicitamente em aberto para a retaguarda. Entra como VERDE, e o bloco fixo de segurança segue descartando dor torácica.
+
+#### Queixa infantil de rotina
+
+`cur.pediatria_comum` · queixa: pediatrica · origem: **B11** · assinatura: **pendente**
+
+Piolho, verme, baixo ganho de peso, puericultura — demanda pediátrica sem sinal de gravidade.
+
+*Como a pessoa descreve:* "piolho", "verme", "coça o bumbum", "oxiúro", "não ganha peso", "não tá ganhando peso", "puericultura", "consulta do bebê", "acompanhamento do bebê"
+
+
+*Fonte:* Curadoria B11.
+
+#### Esquecimento e perda de memória
+
+`cur.cognitivo` · queixa: geral · origem: **B11** · assinatura: **pendente**
+
+Queixa de memória — esquecimento progressivo — sem confusão aguda (que é vermelho). Avaliação cognitiva eletiva.
+
+*Como a pessoa descreve:* "esquecendo as coisas", "memória ruim", "ando esquecido", "ando esquecida", "esqueço tudo", "minha memória tá falhando"
+
+
+*Fonte:* Curadoria B11 — distinto da confusão aguda, que segue sendo bandeira vermelha.
+
+#### Exame preventivo ou rastreamento
+
+`cur.preventivo` · queixa: administrativa · origem: **B11** · assinatura: **pendente**
+
+Preventivo, pré-natal, mamografia, exame de próstata, teste rápido — demanda de rastreamento, agendável.
+
+*Como a pessoa descreve:* "quero fazer o preventivo", "preventivo", "papanicolau", "fazer o pré-natal", "pré-natal", "marcar a mamografia", "mamografia", "teste de covid", "teste de gravidez", "exame de próstata"
+
+
+*Fonte:* Curadoria B11.
 
 ### AZUL — 5 critério(s)
 
@@ -939,7 +1355,7 @@ Sofrimento psíquico sem ideação, sem autolesão e sem crise aguda. Ver trilha
 
 Agendamento, documentos, cartão SUS, resultado de exame.
 
-*Como a pessoa descreve:* "como agendo", "preciso do cartão sus", "resultado do exame", "marcar consulta"
+*Como a pessoa descreve:* "como agendo", "preciso do cartão sus", "fazer o cartão do sus", "resultado do exame", "marcar consulta", "remarcar consulta", "remarcar minha consulta", "atestado", "declaração de comparecimento", "encaminhamento"
 
 
 #### Dúvida sobre medicamento
@@ -948,7 +1364,7 @@ Agendamento, documentos, cartão SUS, resultado de exame.
 
 Como tomar, horário, se pode junto com outro.
 
-*Como a pessoa descreve:* "posso tomar junto", "que horas tomo o remédio", "esqueci de tomar"
+*Como a pessoa descreve:* "posso tomar junto", "que horas tomo o remédio", "esqueci de tomar", "tomar o remédio junto", "remédio junto com o outro", "de quantas em quantas horas", "remédio tá me dando enjoo", "remédio me dá enjoo", "trocar meu anticoncepcional", "trocar o remédio"
 
 
 #### Vacinação
@@ -957,7 +1373,7 @@ Como tomar, horário, se pode junto com outro.
 
 A10 — demanda espontânea de sala de vacina, não consulta.
 
-*Como a pessoa descreve:* "tomar vacina", "vacina em atraso", "carteira de vacinação"
+*Como a pessoa descreve:* "tomar vacina", "vacina em atraso", "carteira de vacinação", "segunda dose", "tomar a segunda dose", "vacina atrasada", "vacina da criança atrasada", "atualizar a vacina", "reforço da vacina"
 
 
 #### Síndrome gripal leve sem sinal de alarme
@@ -1130,7 +1546,7 @@ Não tome AAS (ácido acetilsalicílico), ibuprofeno, diclofenaco ou outros anti
 
 *Horários e feriados a confirmar com a Secretaria antes do piloto.*
 
-## Dicionário regional potiguar (B1) — 744 expressões
+## Dicionário regional potiguar (B1) — 721 expressões
 
 "Expressões locais que a busca por palavra-chave não cobre. Coleta com a equipe e com os
 agentes comunitários."
@@ -1296,14 +1712,8 @@ da assinatura da retaguarda.
 | escarro | catarro |
 | escarrando | catarro |
 | gosma no peito | catarro |
-| ta roxo | lábio roxo |
-| ta roxa | lábio roxo |
-| ficou roxo | lábio roxo |
 | boca roxa | lábio roxo |
 | beicos roxos | lábio roxo |
-| unha roxa | lábio roxo |
-| arroxeado | lábio roxo |
-| arroxeada | lábio roxo |
 | ficando azul | lábio roxo |
 | mal do coracao | dor no peito |
 | doenca do coracao | dor no peito |
@@ -1323,8 +1733,6 @@ da assinatura da retaguarda.
 | ferroada no peito | dor no peito |
 | dor no vao do peito | dor no peito |
 | dor na boca do estomago e suando | dor no peito e suando frio |
-| suando frio | dor no peito e suando frio |
-| suor frio | dor no peito e suando frio |
 | suadeira fria | dor no peito e suando frio |
 | braco esquerdo dormente | dor no braço esquerdo |
 | dor descendo pro braco | dor no braço esquerdo |
@@ -1344,9 +1752,6 @@ da assinatura da retaguarda.
 | medi a pressao e deu alta | pressão alta |
 | a pressao ta ruim | pressão alta |
 | pressao doida | pressão alta |
-| perna inchada | falta de ar |
-| pe inchado | falta de ar |
-| inchaco nas pernas | falta de ar |
 | derrame | derrame |
 | derramou | derrame |
 | deu derrame | derrame |
@@ -1400,7 +1805,6 @@ da assinatura da retaguarda.
 | abestado | muito confuso |
 | avoado | muito confuso |
 | avoada | muito confuso |
-| caducando | não reconhece ninguém |
 | nao conhece mais ninguem | não reconhece ninguém |
 | nao sabe quem eu sou | não reconhece ninguém |
 | trocando os nomes | muito confuso |
@@ -1508,7 +1912,6 @@ da assinatura da retaguarda.
 | barriga doendo muito | dor forte na barriga |
 | barriga dura | barriga dura |
 | barriga inchada | barriga dura |
-| barriga estufada | barriga estufada e vontade de urinar |
 | empachado | barriga dura |
 | empanzinado | barriga dura |
 | colica braba | cólica muito forte |
@@ -1541,9 +1944,6 @@ da assinatura da retaguarda.
 | so agua | diarreia |
 | diarreia braba | diarreia sem parar |
 | nao para de ir ao banheiro | diarreia sem parar |
-| prisao de ventre | desarranjo |
-| trancado do intestino | desarranjo |
-| nao vou ao banheiro faz dias | desarranjo |
 | coco preto | cocô preto |
 | fezes escuras | fezes pretas |
 | evacuando escuro | evacuando preto |
@@ -1595,9 +1995,7 @@ da assinatura da retaguarda.
 | embuchada | grávida |
 | esperando neném | grávida |
 | esperando bebe | grávida |
-| de barriga | grávida |
 | barriguda | grávida |
-| pesada | grávida |
 | de resguardo | grávida |
 | no resguardo | grávida |
 | resguardo quebrado | grávida sangrando muito |
@@ -1640,8 +2038,6 @@ da assinatura da retaguarda.
 | ferida no pe do diabetico | ferida no pé que não sara |
 | chaga | ferida inflamada |
 | chaga no pe | ferida no pé que não sara |
-| pereba | ferida inflamada |
-| perebento | ferida inflamada |
 | empipocado | manchas vermelhas |
 | empipocada | manchas vermelhas |
 | brotoeja | manchas vermelhas |
@@ -1676,7 +2072,6 @@ da assinatura da retaguarda.
 | esfolei | me arranhei |
 | ralei | ralei o joelho |
 | raspao | raspão |
-| queimei | me cortei |
 | espinhela caida | dor no corpo |
 | arca caida | dor no corpo |
 | peito aberto | dor no corpo |
@@ -1817,7 +2212,6 @@ da assinatura da retaguarda.
 | chorando sem parar | gemendo |
 | choro diferente | gemendo |
 | nao quer o peito | não quer mamar |
-| nao pega o peito | não quer mamar |
 | nao mama | não quer mamar |
 | recusa a mamadeira | não aceita líquido |
 | nao quer nada de comer | não aceita líquido |
@@ -1849,7 +2243,6 @@ da assinatura da retaguarda.
 | boquinha seca | boca sequinha |
 | pele murcha | pele murcha |
 | pele mole | pele murcha |
-| sapinho | não quer mamar |
 | nenem quente | neném com febre |
 | crianca quente | neném com febre |
 | bebe com quentura | neném com febre |

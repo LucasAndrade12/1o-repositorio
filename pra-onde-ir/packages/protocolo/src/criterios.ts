@@ -106,6 +106,11 @@ const VERMELHOS_V1: Criterio[] = [
       'não consigo respirar', 'falta de ar forte', 'sem ar', 'lábio roxo', 'beiço roxo',
       'respirando muito rápido', 'cansaço pra respirar', 'chiando muito',
       'não consegue falar de falta de ar',
+      // Terceira pessoa: um cuidador descreve "meu filho não CONSEGUE respirar", não "não
+      // CONSIGO". A auditoria pegou "meu filho tá roxo e não consegue respirar" caindo em não
+      // reconhecido — cianose com esforço respiratório é emergência.
+      'não consegue respirar', 'não consegue respira', 'não está respirando', 'não tá respirando',
+      'roxo e não respira', 'roxo de falta de ar', 'criança roxa', 'bebê roxo', 'ficou roxo e mole',
     ],
     tempoDependente: true,
     irreversivel: true,
@@ -418,6 +423,19 @@ const LACUNAS_A5: Criterio[] = [
     comoAPessoaDescreve: [
       'febre e muito confuso', 'tremendo muito e pressão baixa', 'respirando rápido e sonolento',
       'idoso confuso com febre', 'muito confusa com febre e respirando rápido', 'febre e prostrado',
+      // Âncoras curtas nos DOIS gêneros. A auditoria mostrou que "febre e muito confusa,
+      // respirando rápido" não batia: a frase longa exige ordem, e "confusa" (feminino) não
+      // casava "confuso". Estas âncoras deixam o quadro virar candidato em qualquer ordem;
+      // o exigeTodos abaixo garante que só dispara com febre E sinal de gravidade juntos.
+      'muito confuso', 'muito confusa', 'confuso', 'confusa', 'prostrado', 'prostrada',
+      'sonolento', 'sonolenta', 'respirando rápido', 'respiração rápida',
+    ],
+    // Só é sepse na conjunção febre + (confusão OU respiração rápida OU pressão baixa OU
+    // sonolência OU tremor intenso). "Muito confusa" sozinha, sem febre, não é sepse.
+    exigeTodos: [
+      ['febre', 'febril', 'corpo quente', 'quente', '38', '39', '40', 'hipotermia'],
+      ['confus', 'desorient', 'sonolent', 'prostrad', 'respirando rapido', 'respiracao rapida',
+        'tremendo muito', 'pressao baixa'],
     ],
     tempoDependente: true,
     irreversivel: true,
@@ -571,6 +589,8 @@ const LACUNAS_A5: Criterio[] = [
     comoAPessoaDescreve: [
       'não consigo urinar desde ontem', 'barriga estufada e vontade de urinar',
       'não sai xixi', 'tô com a bexiga cheia e não consigo fazer', 'não urino há horas',
+      'não tá urinando', 'não urina desde ontem', 'não faz xixi desde ontem',
+      'não consegue urinar', 'parou de urinar',
     ],
     tempoDependente: true,
     primeirosMinutos: [
@@ -637,7 +657,8 @@ const LARANJAS: Criterio[] = [
     tipoQueixa: 'gastrointestinal',
     comoAPessoaDescreve: [
       'vomitando tudo', 'não para de vomitar', 'não consigo beber água', 'quase não faço xixi',
-      'diarreia sem parar', 'boca seca e fraco',
+      'diarreia sem parar', 'boca seca e fraco', 'não consigo segurar água',
+      'não seguro nada no estômago', 'vomito até água', 'não paro de vomitar',
     ],
     origem: 'v1',
     assinatura: PENDENTE,
@@ -662,7 +683,8 @@ const LARANJAS: Criterio[] = [
     tipoQueixa: 'dermatologica',
     comoAPessoaDescreve: [
       'ferida com pus', 'ferida inflamada', 'ferida cheirando mal', 'machucado vermelho e quente',
-      'ferida no pé que não sara',
+      'ferida no pé que não sara', 'ferida que não sara', 'ferida que não cicatriza',
+      'ferida há meses', 'ferida no pé', 'ferida que não fecha',
     ],
     origem: 'v1',
     assinatura: PENDENTE,
@@ -799,7 +821,9 @@ const AMARELOS: Criterio[] = [
     tipoQueixa: 'urologica',
     comoAPessoaDescreve: [
       'ardência pra urinar', 'ardendo pra fazer xixi', 'infecção urinária', 'xixi turvo',
-      'vontade de urinar toda hora',
+      'vontade de urinar toda hora', 'mijo turvo', 'urina turva', 'mijo fedendo',
+      'urina com cheiro forte', 'arde quando faço xixi', 'arde pra fazer xixi', 'arde pra mijar',
+      'urinando toda hora', 'indo muito no banheiro fazer xixi',
     ],
     origem: 'v1',
     assinatura: PENDENTE,
@@ -884,7 +908,13 @@ const VERDES: Criterio[] = [
     descricao: 'Agendamento, documentos, cartão SUS, resultado de exame.',
     nivel: 'azul',
     tipoQueixa: 'administrativa',
-    comoAPessoaDescreve: ['como agendo', 'preciso do cartão sus', 'resultado do exame', 'marcar consulta'],
+    comoAPessoaDescreve: [
+      'como agendo', 'preciso do cartão sus', 'fazer o cartão do sus', 'resultado do exame',
+      'marcar consulta', 'remarcar consulta', 'remarcar minha consulta', 'atestado',
+      'declaração de comparecimento', 'encaminhamento', 'encaminhamento pro especialista',
+      'exame já chegou', 'saber se meu exame chegou', 'pegar a insulina', 'insulina do mês',
+      'tira de glicemia', 'pegar tira de glicemia', 'segunda via', 'declaração',
+    ],
     isentoPiso24h: true,
     origem: 'v1',
     assinatura: PENDENTE,
@@ -895,7 +925,11 @@ const VERDES: Criterio[] = [
     descricao: 'Como tomar, horário, se pode junto com outro.',
     nivel: 'azul',
     tipoQueixa: 'medicamento',
-    comoAPessoaDescreve: ['posso tomar junto', 'que horas tomo o remédio', 'esqueci de tomar'],
+    comoAPessoaDescreve: [
+      'posso tomar junto', 'que horas tomo o remédio', 'esqueci de tomar', 'tomar o remédio junto',
+      'remédio junto com o outro', 'de quantas em quantas horas', 'remédio tá me dando enjoo',
+      'remédio me dá enjoo', 'trocar meu anticoncepcional', 'trocar o remédio',
+    ],
     isentoPiso24h: true,
     origem: 'v1',
     assinatura: PENDENTE,
@@ -906,7 +940,10 @@ const VERDES: Criterio[] = [
     descricao: 'A10 — demanda espontânea de sala de vacina, não consulta.',
     nivel: 'azul',
     tipoQueixa: 'vacina',
-    comoAPessoaDescreve: ['tomar vacina', 'vacina em atraso', 'carteira de vacinação'],
+    comoAPessoaDescreve: [
+      'tomar vacina', 'vacina em atraso', 'carteira de vacinação', 'segunda dose', 'tomar a segunda dose',
+      'vacina atrasada', 'vacina da criança atrasada', 'atualizar a vacina', 'reforço da vacina',
+    ],
     isentoPiso24h: true,
     origem: 'A10',
     assinatura: PENDENTE,
@@ -921,7 +958,8 @@ const VERDES: Criterio[] = [
     tipoQueixa: 'saude_mental',
     comoAPessoaDescreve: [
       'ansiedade', 'não consigo dormir', 'preciso de psicólogo', 'tô triste',
-      'estresse', 'insônia',
+      'estresse', 'insônia', 'ansiosa', 'ansioso', 'muito ansiosa', 'muito ansioso',
+      'depressão', 'tô com depressão', 'acho que tô com depressão', 'tristeza',
     ],
     isentoPiso24h: true,
     origem: 'v1',
@@ -955,7 +993,7 @@ const AZUIS: Criterio[] = [
       // Lacuna encontrada pela própria fila de curadoria (B11) ao rodar o piloto:
       // "dor de garganta" é das queixas mais frequentes e não batia critério nenhum.
       'dor de garganta', 'garganta doendo', 'garganta inflamada', 'dor pra engolir',
-      'tosse', 'tossindo', 'catarro',
+      'tosse', 'tossindo', 'catarro', 'rinite', 'rinite atacada', 'alergia no nariz',
     ],
     isentoPiso24h: true,
     fonte: 'A2 — exceção nomeada ao piso de 24 horas, para que o nível AZUL volte a existir.',
@@ -1358,7 +1396,9 @@ const VIOLENCIA: Criterio[] = [
     tipoQueixa: 'violencia',
     comoAPessoaDescreve: [
       'estão batendo na criança', 'criança com marcas', 'criança abandonada',
-      'meu vizinho bate no filho',
+      'bate no filho', 'bate na filha', 'bate no menino', 'bate na menina',
+      'batendo no filho', 'espancando a criança', 'batem na criança',
+      'maltratando a criança', 'criança apanhando', 'deixam a criança sozinha',
     ],
     fonte: 'A9 — encaminhamento inclui conselho tutelar quando aplicável.',
     origem: 'A9',
@@ -1399,6 +1439,605 @@ const VIOLENCIA: Criterio[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
+// AUDITORIA — bandeiras tempo-dependentes que a auditoria de 315 relatos revelou.
+//
+// Não estavam na revisão. Emergiram de rodar o piloto sobre a demanda real, que é
+// exatamente a "recomendação de sequência" do sumário executivo: simular a distribuição
+// ANTES de ligar o sistema. São da mesma classe de A5 — janela terapêutica curta que caía
+// na cláusula de escape "não reconhecido → UBS". Todas assinatura pendente.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const LACUNAS_AUDITORIA: Criterio[] = [
+  {
+    id: 'au.cefaleia_thunderclap',
+    titulo: 'Cefaleia súbita e explosiva (thunderclap)',
+    descricao:
+      'Dor de cabeça que atinge intensidade máxima em segundos a minutos, descrita como "a pior ' +
+      'da vida". Suspeita de hemorragia subaracnóidea. Distinta da enxaqueca e da cefaleia tensional.',
+    nivel: 'vermelho',
+    tipoQueixa: 'neurologica',
+    comoAPessoaDescreve: [
+      'pior dor de cabeça da minha vida', 'pior dor de cabeça da vida', 'dor de cabeça a pior da minha vida',
+      'pior dor de cabeça que já senti', 'dor de cabeça mais forte da vida', 'dor de cabeça explodiu',
+      'dor de cabeça de repente muito forte', 'dor de cabeça que começou de repente e muito forte',
+      'batida na cabeça de tão forte a dor',
+    ],
+    tempoDependente: true,
+    irreversivel: true,
+    primeirosMinutos: [
+      'Ligue 192 e diga que a dor começou de repente e é a pior da vida.',
+      'Fique em ambiente calmo e com pouca luz.',
+      'Não tome analgésico por conta própria antes de ser avaliada.',
+    ],
+    fonte: 'Auditoria — cefaleia thunderclap é bandeira tempo-dependente clássica, ausente do protocolo.',
+    origem: 'auditoria',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'au.amaurose_subita',
+    titulo: 'Perda súbita de visão',
+    descricao:
+      'Perda de visão de um olho ou dos dois, de instalação súbita, com ou sem dor. Suspeita de ' +
+      'oclusão de artéria da retina, descolamento ou AVC occipital. Janela curta para preservar a visão.',
+    nivel: 'vermelho',
+    tipoQueixa: 'ocular',
+    comoAPessoaDescreve: [
+      'perdi a visão de um olho', 'perdi a vista de repente', 'fiquei cego de um olho',
+      'parei de enxergar de um olho', 'perda súbita de visão', 'cegueira repentina',
+      'não enxergo mais de um olho de repente', 'apagou a vista de um olho',
+    ],
+    tempoDependente: true,
+    irreversivel: true,
+    primeirosMinutos: [
+      'Vá agora ao serviço de referência ou ligue 192 — cada hora conta para salvar a visão.',
+      'Não esfregue o olho.',
+      'Anote a que horas a perda começou.',
+    ],
+    fonte: 'Auditoria — amaurose súbita é urgência oftalmológica/neurológica tempo-dependente.',
+    origem: 'auditoria',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'au.mov_fetal_reduzido',
+    titulo: 'Redução dos movimentos fetais',
+    descricao:
+      'Gestante que percebe o bebê mexendo menos, ou parou de sentir os movimentos. Sinal de ' +
+      'possível sofrimento fetal — avaliação obstétrica com cardiotocografia.',
+    nivel: 'laranja',
+    tipoQueixa: 'obstetrica',
+    // A negação faz parte do quadro ("não mexe" É o achado), então vai DENTRO do termo, onde a
+    // guarda de negação (que olha as palavras ANTERIORES) não a alcança.
+    comoAPessoaDescreve: [
+      'bebe nao mexe', 'nenem nao mexe', 'o bebe parou de mexer', 'nao sinto o bebe mexer',
+      'nao sinto o nenem mexer', 'bebe mexendo pouco', 'diminuiu o movimento do bebe',
+      'o bebe ta mexendo menos', 'faz tempo que nao sinto o bebe',
+    ],
+    tempoDependente: true,
+    fonte: 'Auditoria — redução de movimento fetal exige avaliação obstétrica; roteia à maternidade (A11).',
+    origem: 'auditoria',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'au.sangramento_gestacional',
+    titulo: 'Sangramento na gravidez',
+    descricao:
+      'Qualquer sangramento vaginal na gestação. Mesmo pequeno, exige avaliação obstétrica para ' +
+      'descartar descolamento, placenta prévia e outras causas. O sangramento intenso já é vermelho.',
+    nivel: 'laranja',
+    tipoQueixa: 'obstetrica',
+    comoAPessoaDescreve: [
+      'gravida e sangrando', 'gravida sangrando', 'sangramento na gravidez', 'sangrando um pouco gravida',
+      'perdendo sangue gravida', 'sangrando na gestacao', 'to gravida e sangrando um pouco',
+      'gravida com sangramento',
+    ],
+    tempoDependente: true,
+    fonte: 'Auditoria — sangramento na gravidez roteia à maternidade de referência (A11).',
+    origem: 'auditoria',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'au.tuberculose_suspeita',
+    titulo: 'Tosse por mais de três semanas',
+    descricao:
+      'Tosse persistente por mais de três semanas, especialmente com emagrecimento, sudorese ' +
+      'noturna ou febre vespertina. Sintomático respiratório — investigar tuberculose. Notificação.',
+    nivel: 'amarelo',
+    tipoQueixa: 'respiratoria',
+    comoAPessoaDescreve: [
+      'tossindo há mais de três semanas', 'tosse há mais de 3 semanas', 'tosse de três semanas e emagrecendo',
+      'tosse mais de tres semanas', 'tossindo faz um mês', 'tosse que não passa e emagrecendo',
+      'tossindo há mais de três semanas e emagrecendo', 'tosse com suor à noite',
+    ],
+    fonte:
+      'Auditoria — sintomático respiratório (tosse >3 semanas) é busca ativa de tuberculose, ' +
+      'com notificação à vigilância. Antes caía em síndrome gripal (AZUL/casa).',
+    origem: 'auditoria',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'au.hematuria',
+    titulo: 'Sangue na urina',
+    descricao:
+      'Presença de sangue na urina sem ardência nem febre associadas. Exige investigação — pode ' +
+      'indicar desde cálculo até causas que se beneficiam de diagnóstico precoce.',
+    nivel: 'amarelo',
+    tipoQueixa: 'urologica',
+    comoAPessoaDescreve: [
+      'sangue no mijo', 'sangue na urina', 'mijando sangue', 'urina com sangue', 'to mijando sangue',
+      'sangue quando faço xixi',
+    ],
+    fonte: 'Auditoria — hematúria isolada exige investigação ambulatorial dirigida.',
+    origem: 'auditoria',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'au.ulcera_pressao',
+    titulo: 'Ferida por pressão em pessoa acamada',
+    descricao:
+      'Ferida que surge em pessoa acamada, tipicamente nas costas, quadril ou calcanhar. Úlcera ' +
+      'por pressão — o cuidado é da equipe da microárea, que vai até a pessoa (A13).',
+    nivel: 'amarelo',
+    tipoQueixa: 'dermatologica',
+    comoAPessoaDescreve: [
+      'ferida nas costas de acamado', 'escara', 'ferida de cama', 'ferida em quem fica deitado',
+      'ferida no bumbum de acamado', 'ferida de pressão', 'apareceu uma ferida nas costas',
+    ],
+    fonte: 'Auditoria — úlcera por pressão; acamado muda a modalidade para a equipe eSF (A13).',
+    origem: 'auditoria',
+    assinatura: PENDENTE,
+  },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CURADORIA (B11) — domínios comuns que caíam em "não reconhecido → UBS".
+//
+// A auditoria de 315 relatos mostrou não-reconhecimento de 56%: dermatologia, ORL,
+// oftalmologia, odontologia, ginecologia e ortopedia ambulatorial não tinham NENHUM critério.
+// São a fila de curadoria de B11 produzindo linha nova — de baixa gravidade, propositalmente
+// conservadora (VERDE/AMARELO/AZUL, nunca urgência), para o sistema RECONHECER e rotear em
+// vez de mandar tudo para "acolhimento". Todas assinatura pendente.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const CURADORIA_B11: Criterio[] = [
+  // ── Dermatologia ──
+  {
+    id: 'cur.dermatose_cronica',
+    titulo: 'Problema de pele de evolução lenta',
+    descricao: 'Micose, frieira, verruga, caspa, mancha, ressecamento, acne, unha encravada — quadros de pele sem sinais de infecção sistêmica.',
+    nivel: 'verde',
+    tipoQueixa: 'dermatologica',
+    comoAPessoaDescreve: [
+      'micose', 'frieira', 'verruga', 'caspa', 'mancha na pele', 'mancha branca no braço',
+      'pele ressecada', 'pele descascando', 'acne', 'espinha no rosto', 'unha encravada',
+      'coceira no corpo', 'coceira na pele', 'coceira à noite', 'muita coceira',
+      'manchas vermelhas', 'manchas no corpo', 'cobreiro', 'cobrelo', 'pereba', 'perebento',
+      'curativo', 'trocar o curativo',
+    ],
+    isentoPiso24h: true,
+    fonte: 'Curadoria B11 — dermatologia ambulatorial, ausente do protocolo.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.reacao_cutanea_aguda',
+    titulo: 'Reação de pele recente',
+    descricao: 'Picada de inseto que inchou, assadura intensa — reação local recente, sem sinais de anafilaxia.',
+    nivel: 'amarelo',
+    tipoQueixa: 'dermatologica',
+    comoAPessoaDescreve: [
+      'picada de inseto que inchou', 'picada que inchou', 'fui picado e inchou o local',
+      'assadura forte', 'assadura do bebê', 'brotoeja', 'urticária localizada',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.lesao_cutanea_suspeita',
+    titulo: 'Sinal de pele ou caroço que mudou',
+    descricao: 'Pinta ou sinal que mudou de cor, forma ou tamanho, ou caroço novo que cresce. Merece avaliação dirigida.',
+    nivel: 'amarelo',
+    tipoQueixa: 'dermatologica',
+    comoAPessoaDescreve: [
+      'sinal que mudou de cor', 'pinta que mudou', 'pinta que cresceu', 'caroço que cresce',
+      'caroço embaixo do braço', 'caroço no pescoço que cresce', 'nódulo que apareceu',
+    ],
+    fonte: 'Curadoria B11 — lesão suspeita merece avaliação, não espera de fila genérica.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  // ── ORL ──
+  {
+    id: 'cur.otalgia',
+    titulo: 'Dor de ouvido',
+    descricao: 'Dor de ouvido, ouvido entupido ou com secreção — comum em crianças e no adulto após resfriado.',
+    nivel: 'amarelo',
+    tipoQueixa: 'infecciosa',
+    comoAPessoaDescreve: [
+      'ouvido doendo', 'dor de ouvido', 'ouvido entupido', 'ouvido tampado',
+      'ouvido com pus', 'dor no ouvido', 'meu ouvido tá doendo',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.orl_cronico',
+    titulo: 'Queixa de ouvido, nariz ou garganta de evolução lenta',
+    descricao: 'Zumbido, cera, redução da audição, rouquidão persistente, perda de voz, sinusite recorrente.',
+    nivel: 'verde',
+    tipoQueixa: 'respiratoria',
+    comoAPessoaDescreve: [
+      'zumbido no ouvido', 'cera no ouvido', 'não escuto direito', 'ouço mal',
+      'rouco faz dias', 'rouco há dias', 'voz sumiu', 'perdi a voz', 'sinusite',
+    ],
+    isentoPiso24h: true,
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  // ── Oftalmologia ──
+  {
+    id: 'cur.conjuntivite',
+    titulo: 'Olho vermelho e remelando',
+    descricao: 'Olho vermelho com secreção, coceira e sensação de areia — conjuntivite; ou cisco/corpo estranho superficial.',
+    nivel: 'amarelo',
+    tipoQueixa: 'ocular',
+    comoAPessoaDescreve: [
+      'olho vermelho e remelando', 'olho remelando', 'conjuntivite', 'olho vermelho',
+      'cisco no olho', 'entrou cisco no olho', 'areia no olho', 'olho grudando',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.oftalmo_ambulatorial',
+    titulo: 'Vista cansada ou coceira nos olhos',
+    descricao: 'Terçol, necessidade de óculos, coceira ocular alérgica, visão embaçada de evolução lenta.',
+    nivel: 'verde',
+    tipoQueixa: 'ocular',
+    comoAPessoaDescreve: [
+      'terçol', 'preciso de óculos', 'não enxergo de longe', 'coceira no olho', 'olho coçando',
+      'vista embaçada faz tempo', 'vista cansada',
+    ],
+    isentoPiso24h: true,
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  // ── Odontologia ──
+  {
+    id: 'cur.odontalgia',
+    titulo: 'Dor de dente sem inchaço do rosto',
+    descricao: 'Dor de dente, cárie, gengiva inflamada ou sangrando, dente quebrado — sem edema facial (que já é laranja).',
+    nivel: 'amarelo',
+    tipoQueixa: 'odontologica',
+    comoAPessoaDescreve: [
+      'dor de dente', 'dente cariado e doendo', 'dente doendo', 'dente inflamado',
+      'gengiva sangra', 'gengiva inflamada', 'quebrei um dente', 'dente quebrado',
+    ],
+    fonte: 'Curadoria B11 — roteia à urgência odontológica/CEO (A10).',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.odonto_agendado',
+    titulo: 'Necessidade odontológica sem dor',
+    descricao: 'Extração programada, limpeza, revisão — demanda odontológica sem urgência.',
+    nivel: 'verde',
+    tipoQueixa: 'odontologica',
+    comoAPessoaDescreve: [
+      'preciso extrair um dente', 'quero fazer limpeza', 'revisão do dente', 'consulta no dentista',
+    ],
+    isentoPiso24h: true,
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  // ── Ginecologia ──
+  {
+    id: 'cur.corrimento_ist',
+    titulo: 'Corrimento ou sintoma genital',
+    descricao: 'Corrimento, coceira genital, ferida na região íntima, no homem ou na mulher. Avaliar infecção sexualmente transmissível.',
+    nivel: 'amarelo',
+    tipoQueixa: 'urologica',
+    comoAPessoaDescreve: [
+      'corrimento amarelado', 'corrimento', 'coceira na vagina', 'ferida na região íntima',
+      'corrimento no homem', 'ferida na parte íntima', 'coceira íntima',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.disturbio_menstrual',
+    titulo: 'Alteração menstrual sem dor aguda',
+    descricao: 'Menstruação muito intensa, ausência de menstruação sem gravidez, dor na relação — sem dor abdominal aguda de um lado (que já é vermelho, ectópica).',
+    nivel: 'verde',
+    tipoQueixa: 'geral',
+    comoAPessoaDescreve: [
+      'menstruação muito forte', 'menstruação muito intensa', 'sem menstruar faz meses',
+      'sem menstruar faz três meses', 'dor durante a relação', 'menstruação irregular',
+    ],
+    isentoPiso24h: true,
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  // ── Ortopedia / dor crônica ──
+  {
+    id: 'cur.trauma_leve_recente',
+    titulo: 'Torção, contusão ou pancada recente',
+    descricao: 'Entorse, contusão, dedo ou membro batido recentemente, sem deformidade nem osso exposto (que já é vermelho).',
+    nivel: 'amarelo',
+    tipoQueixa: 'trauma',
+    comoAPessoaDescreve: [
+      'torci o pé', 'torci o tornozelo', 'entorse', 'dedo inchado depois que bati',
+      'bati o dedo e inchou', 'dor no cóccix depois de cair', 'contusão', 'me machuquei na queda',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.dor_musculo_cronica',
+    titulo: 'Dor articular ou muscular de longa data',
+    descricao: 'Dor em ombro, joelho, cotovelo, punho, calcanhar, pescoço ou coluna, de evolução lenta; cãibras, varizes, formigamento crônico. Sem sinal de alarme neurológico.',
+    nivel: 'verde',
+    tipoQueixa: 'geral',
+    comoAPessoaDescreve: [
+      'dor no ombro', 'dor no joelho', 'joelho inchado', 'tendinite', 'dor no cotovelo',
+      'dor no punho', 'dor no calcanhar', 'cãibra à noite', 'varizes doendo', 'varizes',
+      'dor nas juntas de manhã', 'mãos formigam', 'pé dormente', 'dor no pescoço acordei torto',
+      'dor lombar há meses',
+    ],
+    isentoPiso24h: true,
+    fonte: 'Curadoria B11 — dor musculoesquelética crônica, encaminhamento eletivo.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  // ── Exames alterados ──
+  {
+    id: 'cur.exame_alterado',
+    titulo: 'Resultado de exame alterado',
+    descricao: 'Colesterol, triglicerídeos, tireoide ou hemograma alterados no exame, sem sintoma agudo. Consulta para conduta.',
+    nivel: 'verde',
+    tipoQueixa: 'geral',
+    comoAPessoaDescreve: [
+      'colesterol alto', 'triglicerídeos altos', 'tireoide alterada', 'anemia no exame',
+      'exame alterado', 'exame deu alterado', 'resultado alterado',
+    ],
+    isentoPiso24h: true,
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  // ── Gastrointestinal ──
+  {
+    id: 'cur.dispepsia',
+    titulo: 'Azia e má digestão',
+    descricao: 'Azia, queimação no estômago, refluxo, gastrite — sintomas dispépticos crônicos. A dor torácica é discriminada pelo bloco fixo de segurança (B4).',
+    nivel: 'verde',
+    tipoQueixa: 'gastrointestinal',
+    comoAPessoaDescreve: [
+      'azia', 'queimação no estômago', 'gastrite', 'refluxo', 'estômago embrulhado',
+      'má digestão', 'empachado', 'queimação depois que como',
+    ],
+    isentoPiso24h: true,
+    fonte:
+      'Curadoria B11 — dispepsia, o item que a expansão anterior deixou explicitamente em aberto ' +
+      'para a retaguarda. Entra como VERDE, e o bloco fixo de segurança segue descartando dor torácica.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.constipacao',
+    titulo: 'Prisão de ventre',
+    descricao: 'Intestino preso por dias, sem distensão dolorosa nem vômito (que sugeririam obstrução, já coberta por dor abdominal intensa).',
+    nivel: 'amarelo',
+    tipoQueixa: 'gastrointestinal',
+    comoAPessoaDescreve: [
+      'prisão de ventre', 'intestino preso', 'intestino trancado', 'não vou ao banheiro faz dias',
+      'não evacuo faz dias', 'ressecado do intestino',
+    ],
+    fonte: 'Curadoria B11 — antes mapeada por engano para "diarreia" no dicionário regional.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.hemorroida',
+    titulo: 'Hemorroida ou sangue vivo ao evacuar',
+    descricao: 'Sangue vermelho vivo no papel ou no vaso ao evacuar, com ou sem dor anal. Distinto de fezes pretas (melena), que é vermelho.',
+    nivel: 'amarelo',
+    tipoQueixa: 'gastrointestinal',
+    comoAPessoaDescreve: [
+      'hemorroida', 'sangue vivo no papel', 'sangramento ao evacuar', 'sangue no papel higiênico',
+      'sangra quando vou ao banheiro', 'bico de hemorroida',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  // ── Puerpério ──
+  {
+    id: 'cur.mastite',
+    titulo: 'Peito inflamado na amamentação',
+    descricao: 'Mama dolorida, inchada, vermelha ou empedrada durante a amamentação. Mastite ou ingurgitamento.',
+    nivel: 'amarelo',
+    tipoQueixa: 'geral',
+    comoAPessoaDescreve: [
+      'peito inchado amamentando', 'peito empedrado', 'seio inflamado amamentando',
+      'mastite', 'peito doendo de amamentar', 'meu peito tá inchado e doendo',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  // ── Pediatria comum ──
+  {
+    id: 'cur.pediatria_comum',
+    titulo: 'Queixa infantil de rotina',
+    descricao: 'Piolho, verme, baixo ganho de peso, puericultura — demanda pediátrica sem sinal de gravidade.',
+    nivel: 'verde',
+    tipoQueixa: 'pediatrica',
+    comoAPessoaDescreve: [
+      'piolho', 'verme', 'coça o bumbum', 'oxiúro', 'não ganha peso', 'não tá ganhando peso',
+      'puericultura', 'consulta do bebê', 'acompanhamento do bebê',
+    ],
+    isentoPiso24h: true,
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.sapinho',
+    titulo: 'Sapinho na boca do bebê',
+    descricao: 'Placas brancas na boca do bebê (candidíase oral), que podem atrapalhar a mamada.',
+    nivel: 'amarelo',
+    tipoQueixa: 'pediatrica',
+    comoAPessoaDescreve: [
+      'sapinho na boca', 'sapinho', 'placas brancas na boca do bebê', 'boca do bebê com placas brancas',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  // ── Saúde mental (faixa leve, complementa vd.saude_mental_leve) ──
+  {
+    id: 'cur.cognitivo',
+    titulo: 'Esquecimento e perda de memória',
+    descricao: 'Queixa de memória — esquecimento progressivo — sem confusão aguda (que é vermelho). Avaliação cognitiva eletiva.',
+    nivel: 'verde',
+    tipoQueixa: 'geral',
+    comoAPessoaDescreve: [
+      'esquecendo as coisas', 'memória ruim', 'ando esquecido', 'ando esquecida',
+      'esqueço tudo', 'minha memória tá falhando',
+    ],
+    isentoPiso24h: true,
+    fonte: 'Curadoria B11 — distinto da confusão aguda, que segue sendo bandeira vermelha.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.uso_substancias',
+    titulo: 'Uso de álcool ou outras drogas — busca de ajuda',
+    descricao: 'Pessoa que bebe demais e quer parar, ou familiar de quem usa drogas buscando ajuda, sem quadro agudo de abstinência (que é laranja).',
+    nivel: 'amarelo',
+    tipoQueixa: 'saude_mental',
+    comoAPessoaDescreve: [
+      'bebendo demais e quero parar', 'quero parar de beber', 'bebo demais', 'usando droga',
+      'meu filho tá usando droga', 'preciso de ajuda com bebida', 'dependente químico',
+    ],
+    fonte: 'Curadoria B11 — porta para CAPS-AD; distinto da abstinência aguda (A8).',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  // ── Prevenção e rastreamento ──
+  {
+    id: 'cur.preventivo',
+    titulo: 'Exame preventivo ou rastreamento',
+    descricao: 'Preventivo, pré-natal, mamografia, exame de próstata, teste rápido — demanda de rastreamento, agendável.',
+    nivel: 'verde',
+    tipoQueixa: 'administrativa',
+    comoAPessoaDescreve: [
+      'quero fazer o preventivo', 'preventivo', 'papanicolau', 'fazer o pré-natal', 'pré-natal',
+      'marcar a mamografia', 'mamografia', 'teste de covid', 'teste de gravidez', 'exame de próstata',
+      'quero saber meu peso e minha pressão', 'aferir a pressão', 'planejamento familiar',
+    ],
+    isentoPiso24h: true,
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  // ── Cauda clínica de baixa gravidade ──
+  {
+    id: 'cur.hipotensao_sintomatica',
+    titulo: 'Pressão baixa com tontura',
+    descricao: 'Sensação de pressão baixa com tontura ao levantar, sem desmaio nem confusão. Avaliar medicação e hidratação.',
+    nivel: 'amarelo',
+    tipoQueixa: 'cardiovascular',
+    comoAPessoaDescreve: [
+      'pressão caiu', 'pressão baixa', 'pressão caiu e fiquei tonto', 'pressão baixa e tontura',
+      'fiquei tonto quando levantei', 'minha pressão tá baixa',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.glicemia_alta_assintomatica',
+    titulo: 'Glicemia alta sem sintoma agudo',
+    descricao: 'Açúcar alto na medida, sem os sinais de descompensação (muita sede, urinar muito, hálito adocicado), que já são laranja. Ajuste ambulatorial.',
+    nivel: 'amarelo',
+    tipoQueixa: 'metabolica',
+    comoAPessoaDescreve: [
+      'açúcar deu 400', 'glicose alta de manhã', 'açúcar sempre alto', 'glicemia alta',
+      'açúcar não abaixa', 'açúcar deu alto', 'glicose sempre alta',
+    ],
+    fonte: 'Curadoria B11 — distinto da hiperglicemia sintomática (LARANJA).',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.perda_peso',
+    titulo: 'Emagrecimento sem causa',
+    descricao: 'Perda de peso não intencional, ou idoso que não quer comer e emagrece. Investigação dirigida.',
+    nivel: 'amarelo',
+    tipoQueixa: 'geral',
+    comoAPessoaDescreve: [
+      'emagrecendo sem motivo', 'perdi peso sem dieta', 'perdi 8 quilos', 'perdi peso sem querer',
+      'emagrecendo', 'não quer comer e tá emagrecendo', 'perdendo peso sem motivo',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.membro_inchado',
+    titulo: 'Perna inchada e vermelha de um lado',
+    descricao: 'Inchaço e vermelhidão em uma perna. Avaliar trombose e erisipela — não deixar em fila genérica.',
+    nivel: 'amarelo',
+    tipoQueixa: 'cardiovascular',
+    comoAPessoaDescreve: [
+      'perna inchada e vermelha', 'panturrilha inchada', 'perna inchada de um lado',
+      'perna vermelha e inchada', 'batata da perna inchada e dolorida',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.dor_abdominal_leve',
+    titulo: 'Dor de barriga leve ou recorrente',
+    descricao: 'Dor abdominal leve, cólica ou que vai e vem, sem barriga dura, febre alta ou vômitos persistentes (que já elevam para laranja).',
+    nivel: 'amarelo',
+    tipoQueixa: 'gastrointestinal',
+    comoAPessoaDescreve: [
+      'dor de barriga', 'dor de barriga faz dias', 'dor de barriga leve', 'cólica leve',
+      'cólica forte', 'dor de barriga que vai e vem', 'dor na barriga fraca',
+    ],
+    fonte: 'Curadoria B11 — dor abdominal leve; a intensa e a com sinais de alarme sobem por outros critérios.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+  {
+    id: 'cur.vomito_agudo',
+    titulo: 'Vômitos recentes sem desidratação',
+    descricao: 'Poucos episódios de vômito recentes, mantendo líquido. O vômito incoercível e a desidratação já sobem para laranja.',
+    nivel: 'amarelo',
+    tipoQueixa: 'gastrointestinal',
+    comoAPessoaDescreve: [
+      'vomitou três vezes', 'vomitou várias vezes', 'vomitando bastante', 'vomitei de manhã',
+      'enjoo o dia todo', 'muito enjoo',
+    ],
+    fonte: 'Curadoria B11.',
+    origem: 'B11',
+    assinatura: PENDENTE,
+  },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Catálogo consolidado
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -1413,6 +2052,8 @@ export const CRITERIOS: readonly Criterio[] = Object.freeze([
   ...PEDIATRICOS,
   ...SAUDE_MENTAL,
   ...VIOLENCIA,
+  ...LACUNAS_AUDITORIA,
+  ...CURADORIA_B11,
 ]);
 
 const POR_ID = new Map(CRITERIOS.map((c) => [c.id, c]));

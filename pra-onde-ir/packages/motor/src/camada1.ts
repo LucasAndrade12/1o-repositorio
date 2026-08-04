@@ -367,6 +367,44 @@ export function varrer(relatoBruto: string): ResultadoCamada1 {
     criteriosAcionados.push('arb.sinal_alarme');
   }
 
+  // ── A7 — febre infantil decidida pela IDADE, não pela frase ───────────────
+  // Corrige a inversão que a auditoria encontrou: <3 meses é VERMELHO, 3–6 é LARANJA.
+  const idadeInfantil = detectarIdadeInfantil(texto);
+  const temFebreNoTexto =
+    temFebre || criteriosAcionados.includes('am.febre_adulto') || /\bfebre\b|\bfebril\b/.test(texto);
+  if (idadeInfantil && temFebreNoTexto) {
+    const alvo =
+      idadeInfantil.meses < 3
+        ? 'ped.febre_menor_3_meses'
+        : idadeInfantil.meses <= 6
+          ? 'ped.febre_3_a_6_meses'
+          : 'am.febre_adulto';
+    for (const id of ['ped.febre_menor_3_meses', 'ped.febre_3_a_6_meses']) {
+      const i = criteriosAcionados.indexOf(id);
+      if (i !== -1 && id !== alvo) criteriosAcionados.splice(i, 1);
+    }
+    if (!criteriosAcionados.includes(alvo)) criteriosAcionados.push(alvo);
+  }
+
+  // ── A9 / B2 — emergência ou violência TESTEMUNHADA sobre terceiro é ação ───
+  // "minha vizinha bate no filho pequeno" é notificação compulsória; "meu vizinho bateu de
+  // moto e o osso tá pra fora" é motivo para chamar o SAMU. O filtro de terceiro-não-paciente
+  // existe para impedir que "meu vizinho desmaiou SEMANA PASSADA, quero saber se me preocupo"
+  // acione o SAMU — e isso já é resolvido pela guarda de PASSADO, que roda ANTES da de
+  // terceiro. Logo, um acerto que chegou a ser descartado SÓ por "terceiro_nao_paciente" é,
+  // por construção, presente, não negado e não hipotético: um relato de algo acontecendo
+  // agora com alguém por perto. Para VIOLÊNCIA e para BANDEIRA VERMELHA irreversível, a ação
+  // certa é agir. Os demais quadros seguem descartados — não se aciona a UBS pela virose do
+  // vizinho.
+  for (const a of acertos) {
+    if (a.descartadoPor !== 'terceiro_nao_paciente') continue;
+    if (criteriosAcionados.includes(a.criterioId)) continue;
+    const c = CRITERIOS_POR_ID.get(a.criterioId);
+    const ehViolencia = c?.tipoQueixa === 'violencia';
+    const ehEmergencia = c?.nivel === 'vermelho' && c?.irreversivel === true;
+    if (ehViolencia || ehEmergencia) criteriosAcionados.push(a.criterioId);
+  }
+
   const bandeiraVermelha = criteriosAcionados.some((id) => {
     const c = CRITERIOS_POR_ID.get(id);
     return c?.nivel === 'vermelho' && c.irreversivel === true;
@@ -413,19 +451,22 @@ function avaliarDescarte(
 
   // 2. Tempo passado — "JÁ TIVE um AVC em 2019, agora estou com dor de garganta"
   //    Marcador de presente na mesma janela vence o de passado.
+  //
+  //    Fronteira de palavra é OBRIGATÓRIA: a auditoria pegou "APARECEU uma ferida" sendo
+  //    descartada como HIPÓTESE, porque "parece" é substring de "apareceu". Marcador curto
+  //    ("tive", "para", "parece") casado por includes cru descarta relatos legítimos —
+  //    exatamente o tipo de erro silencioso que B1 existe para não cometer.
   const janelaLonga = palavrasAntes(texto, pos, 8).join(' ');
-  const temPresente = MARCADORES_PRESENTE.some((m) => janelaLonga.includes(normalizar(m)));
+  const temPresente = MARCADORES_PRESENTE.some((m) => contemPalavra(janelaLonga, m));
   if (!temPresente) {
     for (const passado of MARCADORES_PASSADO) {
-      const p = normalizar(passado);
-      if (janelaLonga.includes(p)) return { motivo: 'passado', marcador: passado };
+      if (contemPalavra(janelaLonga, passado)) return { motivo: 'passado', marcador: passado };
     }
   }
 
   // 3. Hipótese — "tenho MEDO DE estar tendo um infarto, mas é só azia"
   for (const hip of MARCADORES_HIPOTESE) {
-    const h = normalizar(hip);
-    if (janelaLonga.includes(h)) return { motivo: 'hipotese', marcador: hip };
+    if (contemPalavra(janelaLonga, hip)) return { motivo: 'hipotese', marcador: hip };
   }
 
   // 4. Terceiro que não é o paciente — "meu vizinho desmaiou semana passada"
@@ -468,6 +509,47 @@ function detectarGestacao(texto: string): ResultadoCamada1['gestacao'] {
   // Gestação sem idade informada: `null` faz o roteamento tratar como acima do limiar,
   // que é a decisão segura — a maternidade avalia, a UPA redirecionaria.
   return { detectada: true, semanas: null };
+}
+
+const NUM_EXTENSO: Readonly<Record<string, number>> = Object.freeze({
+  um: 1, uma: 1, dois: 2, duas: 2, tres: 3, quatro: 4, cinco: 5, seis: 6,
+  sete: 7, oito: 8, nove: 9, dez: 10, onze: 11, doze: 12,
+});
+
+/**
+ * A7 — idade de LACTENTE extraída do texto, em meses.
+ *
+ * A auditoria de 315 relatos expôs uma inversão perigosa: "bebê de dois meses com febre"
+ * caía em LARANJA e "neném de quatro meses" ia a VERMELHO — o oposto do certo. A causa era
+ * casar a faixa etária por FRASE ("bebê de 2 meses com febre") em vez de pela idade. Um bebê
+ * de 2 meses com febre é bandeira vermelha (febre em menor de 3 meses); um de 4 meses é
+ * laranja. A idade tem que decidir, não a sorte de a pessoa ter escrito "2" e não "dois".
+ *
+ * Só reconhece idade em MESES e só em contexto de bebê — adulto não se descreve em meses, e
+ * "faz dois meses" (duração) ou "grávida de 3 meses" (idade gestacional) não são idade de
+ * criança.
+ */
+function detectarIdadeInfantil(texto: string): { meses: number } | null {
+  if (/gravid|gestant|gestacao|de barriga|de bucho/.test(texto)) return null;
+  if (/recem\s*nascid|recemnascid/.test(texto)) return { meses: 0 };
+
+  const temBebe =
+    /\b(bebe|nenem|lactente|criancinha|crianca|meu filho|minha filha|o menino|a menina|meu fi|minha fia|meu filhinho|minha filhinha)\b/.test(
+      texto,
+    );
+  if (!temBebe) return null;
+
+  const numMatch = texto.match(/(\d{1,2})\s*(?:mes|meses)\b/);
+  if (numMatch) return { meses: Number(numMatch[1]) };
+
+  const palavras = texto.split(' ');
+  for (let i = 0; i < palavras.length - 1; i++) {
+    const prox = palavras[i + 1];
+    if ((prox === 'mes' || prox === 'meses') && NUM_EXTENSO[palavras[i]!] != null) {
+      return { meses: NUM_EXTENSO[palavras[i]!]! };
+    }
+  }
+  return null;
 }
 
 function detectarSujeito(texto: string): ResultadoCamada1['sujeito'] {
