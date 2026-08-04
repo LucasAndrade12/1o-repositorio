@@ -1,0 +1,20 @@
+{
+  "name": "Pra Onde Ir — orientação de atendimento",
+  "short_name": "Pra Onde Ir",
+  "description": "Orientação sobre onde procurar atendimento no SUS. Piloto da UBS João Dias, Parnamirim/RN.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f7f9",
+  "theme_color": "#0e4f5e",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%230e4f5e'/><text y='340' x='256' text-anchor='middle' font-size='250' fill='white' font-family='sans-serif' font-weight='bold'>PO</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

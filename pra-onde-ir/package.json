@@ -1,0 +1,36 @@
+{
+  "name": "pra-onde-ir",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Piloto de pré-triagem e orientação de destino no SUS — implementação de referência dos 44 achados da revisão crítica de 03/08/2026",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "tsx scripts/build-web.ts && tsx apps/api/src/servidor.ts",
+    "build:web": "tsx scripts/build-web.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "vinhetas": "vitest run testes/vinhetas.test.ts --reporter=verbose",
+    "distribuicao": "tsx testes/simulador-distribuicao.ts",
+    "checklist": "tsx scripts/verificar-checklist.ts",
+    "protocolo": "tsx scripts/gerar-protocolo.ts",
+    "typecheck": "tsc --noEmit",
+    "servidor": "tsx apps/api/src/servidor.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "esbuild": "^0.28.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^3.2.6"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.115.0"
+  }
+}

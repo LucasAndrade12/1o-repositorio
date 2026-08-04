@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": false,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@pra-onde-ir/protocolo": ["packages/protocolo/src/index.ts"],
+      "@pra-onde-ir/motor": ["packages/motor/src/index.ts"],
+      "@pra-onde-ir/ia": ["packages/ia/src/index.ts"],
+      "@pra-onde-ir/registro": ["packages/registro/src/index.ts"],
+      "@pra-onde-ir/passe": ["packages/passe/src/index.ts"]
+    }
+  },
+  "include": ["packages/**/*.ts", "apps/**/*.ts", "testes/**/*.ts", "scripts/**/*.ts"],
+  "exclude": ["node_modules", "apps/web/publico/bundle.js"]
+}
