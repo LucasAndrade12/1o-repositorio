@@ -200,6 +200,46 @@ describe('segunda auditoria — urgências e janela de hipótese', () => {
   });
 });
 
+describe('terceira auditoria (490 relatos potiguares) — «num» é «não»', () => {
+  // O defeito de maior alcance encontrado: o catálogo está escrito com "não" e o Nordeste
+  // fala "num". Duas emergências ficavam MUDAS por uma palavra de três letras.
+  const casos: [string, string][] = [
+    ['painho desmaiou e num ta acordando', 'vm.rebaixamento'],
+    ['meu vizinho se cortou e o sangue num para de jorrar', 'vm.hemorragia_ativa'],
+    ['meu filho ta roxo e mole, num responde', 'vm.rebaixamento'],
+    ['a criança se tremeu todo e num voltou direito', 'vm.convulsao'],
+  ];
+  for (const [relato, criterio] of casos) {
+    it(`"${relato}" → ${criterio}`, () => {
+      const r = rec(relato);
+      expect(r.criteriosAcionados).toContain(criterio);
+      expect(r.bandeiraVermelha).toBe(true);
+    });
+  }
+
+  it('"num" continua negando quando é negação de verdade', () => {
+    // A equivalência vale só para casar token; a guarda de negação segue lendo o texto original.
+    expect(rec('ela num ta com a boca torta, só tonta').bandeiraVermelha).toBe(false);
+  });
+
+  it('"num" como contração de "em um" não vira negação de terceiro', () => {
+    // "vi num vídeo" / "li num grupo" são marcadores de terceiro-não-paciente. Se `normalizar`
+    // tivesse trocado num→nao globalmente, esses marcadores quebrariam.
+    const r = rec('vi num video que dor no peito pode ser infarto');
+    expect(r.bandeiraVermelha).toBe(false);
+  });
+
+  it('maus-tratos descritos como "batendo nos meninos" são reconhecidos', () => {
+    expect(rec('minha vizinha vive batendo nos meninos dela').criteriosAcionados)
+      .toContain('vi.maus_tratos_infantil');
+  });
+
+  it('criança agredida pelo padrasto é reconhecida', () => {
+    expect(rec('meu filho apanhou do padrasto e ta com marca no braço').criteriosAcionados)
+      .toContain('vi.maus_tratos_infantil');
+  });
+});
+
 describe('todos os critérios novos nascem pendentes de assinatura', () => {
   it('nenhum critério de origem auditoria/B11 vem assinado', () => {
     const novos = CRITERIOS.filter((c) => c.origem === 'auditoria' || (c.id.startsWith('cur.') || c.id.startsWith('au.')));

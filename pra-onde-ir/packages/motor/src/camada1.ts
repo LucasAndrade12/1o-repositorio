@@ -140,6 +140,27 @@ interface TermoIndexado {
   criterios: string[];
 }
 
+/**
+ * Equivalência de token aplicada SÓ no casamento (nunca em `normalizar`).
+ *
+ * A auditoria de 490 relatos com sotaque potiguar expôs o defeito de maior alcance encontrado
+ * até aqui: **"num" é como o Nordeste diz "não"**, e o catálogo inteiro está escrito com "não".
+ * "Painho desmaiou e NUM tá acordando" e "o sangue NUM para de jorrar" não acionavam nada — duas
+ * emergências mudas por uma palavra de três letras.
+ *
+ * A troca NÃO pode ser feita em `normalizar`, porque "num" também é contração de "em um"
+ * ("vi num vídeo", "li num grupo") e esses marcadores existem no léxico. Aqui a equivalência
+ * vale apenas para comparar tokens do índice com tokens do texto: a guarda de negação continua
+ * lendo o texto original, onde "num" já consta em MARCADORES_NEGACAO.
+ */
+const CANON_TOKEN: Readonly<Record<string, string>> = Object.freeze({
+  num: 'nao',
+  nun: 'nao',
+  nao: 'nao',
+});
+
+const canon = (t: string): string => CANON_TOKEN[t] ?? t;
+
 const INDICE: TermoIndexado[] = (() => {
   const porTermo = new Map<string, TermoIndexado>();
   for (const c of CRITERIOS) {
@@ -151,7 +172,7 @@ const INDICE: TermoIndexado[] = (() => {
         if (!existente.criterios.includes(c.id)) existente.criterios.push(c.id);
         continue;
       }
-      const tokens = termo.split(' ').filter(Boolean);
+      const tokens = termo.split(' ').filter(Boolean).map(canon);
       porTermo.set(termo, {
         termo,
         tokens,
@@ -173,7 +194,7 @@ const CRITERIOS_POR_ID = new Map(CRITERIOS.map((c) => [c.id, c]));
 function montarTermo(bruto: string, refs: string[]): (TermoIndexado & { bruto: string }) | null {
   const termo = normalizar(bruto);
   if (!termo) return null;
-  const tokens = termo.split(' ').filter(Boolean);
+  const tokens = termo.split(' ').filter(Boolean).map(canon);
   return {
     bruto,
     termo,
@@ -277,7 +298,9 @@ export function varrer(relatoBruto: string): ResultadoCamada1 {
     const re = /\S+/g;
     let m: RegExpExecArray | null;
     while ((m = re.exec(texto)) !== null) {
-      tokensTexto.push(m[0]);
+      // Canonizado só para comparação; `offsets` continua apontando para o texto original,
+      // que é o que as guardas de B1 e a auditoria leem.
+      tokensTexto.push(canon(m[0]));
       offsets.push(m.index);
     }
   }

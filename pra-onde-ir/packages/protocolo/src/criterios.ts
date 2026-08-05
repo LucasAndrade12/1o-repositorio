@@ -83,6 +83,7 @@ const VERMELHOS_V1: Criterio[] = [
     tipoQueixa: 'neurologica',
     comoAPessoaDescreve: [
       'convulsão', 'convulsionando', 'convulsionou', 'deu convulsão', 'tendo ataque',
+      'se tremeu todo', 'se tremeu toda', 'tremeu todo e não voltou', 'se tremendo todo',
       'ataque epilético', 'tremendo todo e roxo',
       'virou os olhos e tremeu', 'caiu duro tremendo',
     ],
@@ -1474,6 +1475,8 @@ const VIOLENCIA: Criterio[] = [
       'batendo no filho', 'espancando a criança', 'batem na criança',
       'maltratando a criança', 'criança apanhando', 'deixam a criança sozinha',
       'bate nos filhos', 'batendo nos filhos', 'vive batendo nos filhos', 'criança com hematomas',
+      'batendo nos meninos', 'bate nos meninos', 'vive batendo nos meninos', 'apanhou do padrasto',
+      'apanhou do pai', 'criança com marca no braço', 'menino com marca de agressão',
       'criança maltratada', 'espanca os filhos',
     ],
     fonte: 'A9 — encaminhamento inclui conselho tutelar quando aplicável.',
