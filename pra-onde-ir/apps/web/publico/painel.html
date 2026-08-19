@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0e4f5e">
+<meta name="robots" content="noindex, nofollow">
+<title>Painel da unidade — Pra Onde Ir</title>
+<link rel="stylesheet" href="/estilo.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230e4f5e'/><text y='68' x='50' text-anchor='middle' font-size='52' fill='white' font-family='sans-serif' font-weight='bold'>PO</text></svg>">
+</head>
+<body>
+
+<!-- C3 — autenticação POR USUÁRIO. Não senha única compartilhada. -->
+<div id="tela-login" class="pagina entrar">
+  <div class="cartao">
+    <div class="marca" style="margin-bottom:1.2rem">
+      <span class="marca-sigla" aria-hidden="true">PO</span>
+      <span>Painel da unidade</span>
+    </div>
+    <p class="mini" style="margin-bottom:1.2rem">
+      O conteúdo deste painel é dado de saúde. O acesso é individual, a sessão expira em
+      30 minutos e cada entrada fica registrada na trilha de auditoria.
+    </p>
+    <form id="form-login">
+      <label class="rotulo" for="login">Usuário</label>
+      <input type="text" id="login" autocomplete="username" value="enfermeira" required>
+      <label class="rotulo" for="senha" style="margin-top:.9rem">Senha</label>
+      <input type="password" id="senha" autocomplete="current-password" value="piloto2026" required>
+      <button class="botao" type="submit" style="margin-top:1.2rem">Entrar</button>
+      <p class="mini" id="erro-login" style="color:var(--vermelho);margin-top:.7rem"></p>
+    </form>
+    <p class="mini" style="margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--borda)">
+      Demonstração: <code>enfermeira</code>, <code>retaguarda</code> ou <code>gestao</code> —
+      senha <code>piloto2026</code>.
+    </p>
+  </div>
+</div>
+
+<div id="app-painel" class="oculto">
+  <header class="topo">
+    <div class="topo-conteudo painel" style="max-width:78rem">
+      <div class="marca">
+        <span class="marca-sigla" aria-hidden="true">PO</span>
+        <span>Painel — UBS João Dias</span>
+      </div>
+      <span class="topo-espaco"></span>
+      <span class="selo" id="selo-fase"></span>
+      <span class="selo" id="selo-usuario"></span>
+      <button class="botao-fantasma" id="btn-sair">Sair</button>
+    </div>
+  </header>
+
+  <main class="pagina painel">
+    <div class="abas" role="tablist">
+      <button class="aba ativa" data-aba="indicadores" role="tab">Indicadores</button>
+      <button class="aba" data-aba="fila" role="tab">Fila de triagens</button>
+      <button class="aba" data-aba="curadoria" role="tab">Curadoria <span id="badge-curadoria" class="selo selo-alerta" style="margin-left:.3rem"></span></button>
+      <button class="aba" data-aba="passes" role="tab">Passes</button>
+      <button class="aba" data-aba="auditoria" role="tab">Auditoria</button>
+      <button class="aba" data-aba="governanca" role="tab">Governança</button>
+    </div>
+
+    <section id="painel-indicadores" class="painel-secao"></section>
+    <section id="painel-fila" class="painel-secao oculto"></section>
+    <section id="painel-curadoria" class="painel-secao oculto"></section>
+    <section id="painel-passes" class="painel-secao oculto"></section>
+    <section id="painel-auditoria" class="painel-secao oculto"></section>
+    <section id="painel-governanca" class="painel-secao oculto"></section>
+  </main>
+</div>
+
+<script src="/painel.js"></script>
+</body>
+</html>

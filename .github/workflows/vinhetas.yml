@@ -1,0 +1,49 @@
+# B5 (CRÍTICO) — banco de vinhetas em integração contínua.
+#
+# "Manter um banco de vinhetas clínicas com nível esperado por caso, executado automaticamente
+#  a cada alteração de prompt, modelo ou critério."
+#
+# Critério de aprovação ASSIMÉTRICO: zero sub-triagem em vinhetas vermelhas e laranjas é
+# condição de liberação. Sobre-triagem é tolerada dentro do teto acordado.
+#
+# A suíte roda SEM chave de API — o motor determinístico não depende de rede.
+
+name: Vinhetas clínicas
+
+on:
+  push:
+    paths: ['pra-onde-ir/**']
+  pull_request:
+    paths: ['pra-onde-ir/**']
+
+defaults:
+  run:
+    working-directory: pra-onde-ir
+
+jobs:
+  regressao:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: pra-onde-ir/package-lock.json
+
+      - run: npm ci
+
+      - name: Tipos
+        run: npm run typecheck
+
+      - name: Banco de vinhetas — zero sub-triagem em vermelho e laranja
+        run: npm test
+
+      - name: Motor embarcado compila para o navegador (B9)
+        run: npm run build:web
+
+      - name: Checklist de liberação (go / no-go)
+        run: npm run checklist
+
+      - name: Distribuição de níveis
+        run: npm run distribuicao

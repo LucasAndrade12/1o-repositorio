@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e4f5e">
+<meta name="description" content="Orientação sobre onde procurar atendimento no SUS — UBS João Dias, Parnamirim/RN. Piloto não validado clinicamente.">
+<title>Pra Onde Ir — orientação de atendimento</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/estilo.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230e4f5e'/><text y='68' x='50' text-anchor='middle' font-size='52' fill='white' font-family='sans-serif' font-weight='bold'>PO</text></svg>">
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-conteudo">
+    <div class="marca">
+      <span class="marca-sigla" aria-hidden="true">PO</span>
+      <span>Pra Onde Ir</span>
+    </div>
+    <span class="topo-espaco"></span>
+    <span class="selo" id="selo-conexao" title="Estado da conexão">···</span>
+    <button class="botao-fantasma" id="btn-ler" title="Ler em voz alta" aria-label="Ler a página em voz alta">🔊</button>
+  </div>
+</header>
+
+<main class="pagina" id="principal">
+
+  <!-- ETAPA 0 — abertura + D2: para quem é o atendimento -->
+  <section id="etapa-inicio" class="etapa">
+    <div class="progresso" aria-hidden="true"><span class="feito"></span><span></span><span></span><span></span></div>
+
+    <h1>Vamos descobrir onde você deve ser atendido</h1>
+    <p class="ajuda" style="font-size:1.05rem;margin-top:.6rem">
+      Leva cerca de dois minutos. Você não precisa dizer seu nome.
+    </p>
+
+    <div class="cartao" style="margin-top:1.4rem">
+      <h2 style="font-size:1.15rem;margin-bottom:.9rem" id="rot-para-quem">Este atendimento é para você ou para outra pessoa?</h2>
+      <div class="opcoes opcoes-2" role="group" aria-labelledby="rot-para-quem">
+        <button class="opcao" data-para-quem="proprio" aria-pressed="false">
+          <span class="opcao-icone" aria-hidden="true">🙋</span><span>Para mim</span>
+        </button>
+        <button class="opcao" data-para-quem="terceiro" aria-pressed="false">
+          <span class="opcao-icone" aria-hidden="true">🧑‍🤝‍🧑</span><span>Para outra pessoa</span>
+        </button>
+      </div>
+    </div>
+
+    <button class="botao-emergencia" id="btn-emergencia-direta">
+      <span aria-hidden="true">🚑</span> É uma emergência agora — ligar 192
+    </button>
+    <p class="mini centro" style="margin-top:.6rem">
+      Use este botão se a pessoa está desacordada, sem respirar, com sangramento intenso ou
+      convulsionando.
+    </p>
+  </section>
+
+  <!-- ETAPA 1 — relato: voz, texto ou grade de ícones (D4) -->
+  <section id="etapa-relato" class="etapa oculto">
+    <div class="progresso" aria-hidden="true"><span class="feito"></span><span class="feito"></span><span></span><span></span></div>
+
+    <h1 id="titulo-relato">O que você está sentindo?</h1>
+
+    <div class="cartao" style="margin-top:1.2rem">
+      <label class="rotulo" for="relato">Conte com suas palavras</label>
+      <textarea id="relato" placeholder="Ex.: acordei com dor no peito e falta de ar" maxlength="1200"
+                aria-describedby="ajuda-relato"></textarea>
+      <p class="ajuda" id="ajuda-relato">Pode escrever do seu jeito. Não precisa usar nome de doença.</p>
+      <div class="botao-linha" style="margin-top:.9rem">
+        <button class="botao botao-secundario" id="btn-voz">
+          <span aria-hidden="true">🎙️</span> <span id="txt-voz">Falar em vez de escrever</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <div class="cartao-titulo">Ou escolha pelo desenho</div>
+      <div class="grade" id="grade-queixas" role="group" aria-label="Queixas comuns"></div>
+    </div>
+
+    <button class="botao" id="btn-continuar-relato">Continuar</button>
+  </section>
+
+  <!-- ETAPA 2 — B4: bloco fixo de perguntas de segurança -->
+  <section id="etapa-seguranca" class="etapa oculto">
+    <div class="progresso" aria-hidden="true"><span class="feito"></span><span class="feito"></span><span class="feito"></span><span></span></div>
+
+    <h1>Sete perguntas rápidas de segurança</h1>
+    <p class="ajuda" style="margin-top:.5rem">
+      São dez segundos. Elas existem porque nem todo mundo sabe descrever o que sente — e
+      alguns sinais mudam completamente para onde você deve ir.
+    </p>
+
+    <div class="cartao" style="margin-top:1.2rem">
+      <div id="bloco-seguranca"></div>
+    </div>
+
+    <div class="cartao" id="cartao-agravantes">
+      <div class="cartao-titulo">Alguma dessas condições? <span style="text-transform:none;font-weight:500">(de quem vai ser atendido)</span></div>
+      <div class="opcoes" id="blocos-agravantes"></div>
+    </div>
+
+    <button class="botao" id="btn-ver-resultado">Ver onde devo ir</button>
+  </section>
+
+  <!-- ETAPA 3 — B1: confirmação da bandeira vermelha -->
+  <section id="etapa-confirmacao" class="etapa oculto">
+    <div class="cartao" style="border-color:var(--vermelho);border-width:2px">
+      <div class="cartao-titulo" style="color:var(--vermelho)">Antes de continuar</div>
+      <h2 id="pergunta-confirmacao">Isso está acontecendo AGORA, com a pessoa que precisa de atendimento?</h2>
+      <p class="ajuda" id="ajuda-confirmacao" style="margin:.7rem 0 1.2rem"></p>
+      <div class="opcoes">
+        <button class="opcao" id="conf-sim">
+          <span class="opcao-icone" aria-hidden="true">✅</span><span>Sim, está acontecendo agora</span>
+        </button>
+        <button class="opcao" id="conf-nao">
+          <span class="opcao-icone" aria-hidden="true">↩️</span><span>Não — foi antes, ou é sobre outra pessoa</span>
+        </button>
+      </div>
+      <p class="mini" style="margin-top:1rem" id="contexto-bandeira"></p>
+    </div>
+  </section>
+
+  <!-- ETAPA 4 — resultado -->
+  <section id="etapa-resultado" class="etapa oculto"></section>
+
+</main>
+
+<!-- Tela de emergência — B2: ocupa o viewport inteiro, sem esperar a rede -->
+<div class="emergencia oculto" id="tela-emergencia" role="alertdialog" aria-labelledby="emerg-titulo" aria-modal="true">
+  <div class="emergencia-caixa">
+    <p style="font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.85rem;opacity:.9;margin-bottom:.3rem">
+      <span aria-hidden="true">🚨</span> Emergência
+    </p>
+    <h1 id="emerg-titulo">Ligue 192 agora</h1>
+    <p style="font-size:1.15rem" id="emerg-motivo"></p>
+
+    <a class="botao botao-ligar" href="tel:192"><span aria-hidden="true">📞</span> Ligar 192 — SAMU</a>
+
+    <div class="emergencia-passos">
+      <h2 style="font-size:1.05rem;margin-bottom:.7rem">Enquanto a ajuda não chega</h2>
+      <ol id="emerg-passos"></ol>
+    </div>
+
+    <p style="margin-top:1.2rem;font-size:.92rem;opacity:.92" id="emerg-aviso"></p>
+    <button class="botao botao-secundario" id="btn-fechar-emergencia" style="margin-top:1rem;background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">
+      Não é isso — voltar
+    </button>
+  </div>
+</div>
+
+<button class="saida-rapida oculto" id="saida-rapida" title="Sair rapidamente desta página">
+  <span aria-hidden="true">✕</span> Sair rápido
+</button>
+
+<script src="/motor.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
